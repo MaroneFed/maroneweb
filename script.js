@@ -1,158 +1,279 @@
-// Initialisation lorsque le DOM est chargé
+// Marone Web - Premium Script
 document.addEventListener('DOMContentLoaded', function() {
-    // Gestion du curseur personnalisé
-    initCustomCursor();
+    // Initialize everything
+    initMaroneWeb();
     
-    // Gestion du menu responsive
-    initMobileMenu();
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+        preloader.classList.add('loaded');
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    }, 2000);
     
-    // Gestion du scroll et animations
-    initScrollAnimations();
+    // Mobile Menu
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const overlayLinks = document.querySelectorAll('.overlay-link');
     
-    // Gestion du formulaire de contact
-    initContactForm();
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
     
-    // Gestion du bouton "back to top"
-    initBackToTop();
+    closeMenu.addEventListener('click', closeMobileMenu);
+    overlayLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
     
-    // Animation des éléments au chargement
-    animateOnLoad();
-});
-
-// Curseur personnalisé
-function initCustomCursor() {
-    const cursor = document.querySelector('.cursor');
-    const cursorFollower = document.querySelector('.cursor-follower');
-    
-    // Vérifier si l'appareil a un curseur (pas un écran tactile)
-    if (window.matchMedia("(pointer: fine)").matches) {
-        document.addEventListener('mousemove', function(e) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-        
-        // Effet sur les liens et boutons
-        const interactiveElements = document.querySelectorAll('a, button, .service-card, .portfolio-item, .pricing-card');
-        
-        interactiveElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(2)';
-                cursorFollower.style.transform = 'scale(1.5)';
-                cursorFollower.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursorFollower.style.transform = 'scale(1)';
-                cursorFollower.style.backgroundColor = 'transparent';
-            });
-        });
-        
-        // Effet sur les éléments flottants
-        const floatingElements = document.querySelectorAll('.floating-element');
-        
-        floatingElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(3)';
-                cursorFollower.style.transform = 'scale(2.5)';
-                cursorFollower.style.borderColor = getComputedStyle(element).backgroundColor;
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursorFollower.style.transform = 'scale(1)';
-                cursorFollower.style.borderColor = 'rgba(37, 99, 235, 0.3)';
-            });
-        });
-    } else {
-        // Cacher le curseur personnalisé sur les appareils tactiles
-        cursor.style.display = 'none';
-        cursorFollower.style.display = 'none';
+    function closeMobileMenu() {
+        navToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
     }
-}
-
-// Menu mobile
-function initMobileMenu() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
     
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-    });
-    
-    // Fermer le menu en cliquant sur un lien
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-    
-    // Fermer le menu en cliquant à l'extérieur
-    document.addEventListener('click', function(event) {
-        if (!navMenu.contains(event.target) && !menuToggle.contains(event.target) && navMenu.classList.contains('active')) {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-}
-
-// Animations au défilement
-function initScrollAnimations() {
-    // Animation de la navbar au scroll
-    const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        // Ajouter une ombre à la navbar quand on scroll
-        if (currentScroll > 50) {
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            navbar.style.padding = '15px 0';
+    // Navigation scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
         } else {
-            navbar.style.boxShadow = 'none';
-            navbar.style.padding = '20px 0';
+            nav.classList.remove('scrolled');
         }
         
-        // Cacher/montrer la navbar au scroll
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScroll = currentScroll;
-        
-        // Mettre à jour l'état des liens de navigation
+        // Update active nav link
         updateActiveNavLink();
         
-        // Gérer le bouton "back to top"
+        // Back to top button
         const backToTop = document.getElementById('backToTop');
-        if (currentScroll > 500) {
+        if (window.scrollY > 500) {
             backToTop.classList.add('visible');
         } else {
             backToTop.classList.remove('visible');
         }
     });
     
-    // Animation des éléments au scroll
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Pricing toggle
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+    const monthlyPrices = document.querySelectorAll('.plan-price.monthly');
+    const yearlyPrices = document.querySelectorAll('.plan-price.yearly');
+    
+    toggleOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const plan = this.dataset.plan;
+            
+            toggleOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            if (plan === 'monthly') {
+                monthlyPrices.forEach(p => p.classList.add('active'));
+                yearlyPrices.forEach(p => p.classList.remove('active'));
+            } else {
+                monthlyPrices.forEach(p => p.classList.remove('active'));
+                yearlyPrices.forEach(p => p.classList.add('active'));
+            }
+        });
+    });
+    
+    // Plan selection
+    const planButtons = document.querySelectorAll('.card-cta');
+    planButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const plan = this.dataset.plan;
+            const planSelect = document.getElementById('plan');
+            
+            // Map plan to option value
+            const planMap = {
+                'starter': '35€/mois - Starter',
+                'pro': '399€ - Pro',
+                'ecommerce': '1249€ - E-commerce'
+            };
+            
+            if (planMap[plan]) {
+                planSelect.value = planMap[plan];
+                // Scroll to contact form
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                // Focus on name field
+                document.getElementById('name').focus();
+            }
+        });
+    });
+    
+    // Contact form submission
+    const contactForm = document.getElementById('quoteForm');
+    const successToast = document.getElementById('successToast');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-button');
+            const originalText = submitBtn.querySelector('.submit-text').textContent;
+            submitBtn.querySelector('.submit-text').textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Send email via FormSubmit
+            fetch(this.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success toast
+                    showToast();
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Show success message
+                    showNotification('Devis envoyé ! Nous vous contactons dans les 2 heures.', 'success');
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Une erreur est survenue. Veuillez réessayer.', 'error');
+            })
+            .finally(() => {
+                // Reset button
+                submitBtn.querySelector('.submit-text').textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+    
+    // Initialize particles
+    initParticles();
+    
+    // Initialize animations
+    initAnimations();
+});
+
+// Initialize Marone Web
+function initMaroneWeb() {
+    // Premium cursor
+    initPremiumCursor();
+    
+    // Text animations
+    initTextAnimations();
+    
+    // Card hover effects
+    initCardEffects();
+    
+    // Scroll animations
+    initScrollAnimations();
+}
+
+// Premium Cursor
+function initPremiumCursor() {
+    const cursor = document.createElement('div');
+    cursor.className = 'marone-cursor';
+    document.body.appendChild(cursor);
+    
+    const trail = document.createElement('div');
+    trail.className = 'cursor-trail';
+    document.body.appendChild(trail);
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+        
+        // Trail with delay
+        setTimeout(() => {
+            trail.style.left = `${e.clientX}px`;
+            trail.style.top = `${e.clientY}px`;
+        }, 100);
+    });
+    
+    // Hover effects
+    const hoverElements = document.querySelectorAll('a, button, .benefit-card, .pricing-card, .portfolio-item');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+    
+    // Click effect
+    document.addEventListener('click', (e) => {
+        cursor.classList.add('click');
+        setTimeout(() => cursor.classList.remove('click'), 300);
+    });
+}
+
+// Text Animations
+function initTextAnimations() {
+    const words = document.querySelectorAll('.title-word');
+    words.forEach((word, index) => {
+        word.style.animationDelay = `${index * 0.1}s`;
+    });
+}
+
+// Card Effects
+function initCardEffects() {
+    const cards = document.querySelectorAll('.benefit-card, .pricing-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateY = ((x - centerX) / centerX) * 3;
+            const rotateX = ((centerY - y) / centerY) * 3;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
+}
+
+// Scroll Animations
+function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
@@ -160,18 +281,19 @@ function initScrollAnimations() {
         });
     }, observerOptions);
     
-    // Observer les éléments à animer
-    const animateElements = document.querySelectorAll('.service-card, .portfolio-item, .pricing-card, .contact-item');
-    animateElements.forEach(element => {
-        element.classList.add('animate-on-scroll');
-        observer.observe(element);
+    // Observe elements
+    const animateElements = document.querySelectorAll('.benefit-card, .pricing-card, .portfolio-item, .timeline-step, .info-card');
+    animateElements.forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
     });
 }
 
-// Mettre à jour le lien actif dans la navigation
+// Update Active Nav Link
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
+    const overlayLinks = document.querySelectorAll('.overlay-link');
     
     let currentSection = '';
     
@@ -179,12 +301,22 @@ function updateActiveNavLink() {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         
-        if (window.scrollY >= (sectionTop - 200)) {
+        if (window.scrollY >= (sectionTop - 100) && 
+            window.scrollY < (sectionTop + sectionHeight - 100)) {
             currentSection = section.getAttribute('id');
         }
     });
     
+    // Update nav links
     navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === currentSection) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Update overlay links
+    overlayLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').substring(1) === currentSection) {
             link.classList.add('active');
@@ -192,163 +324,240 @@ function updateActiveNavLink() {
     });
 }
 
-// Formulaire de contact
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
+// Particles Background
+function initParticles() {
+    const particlesContainer = document.getElementById('heroParticles');
+    if (!particlesContainer) return;
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Récupérer les valeurs du formulaire
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // Ici, normalement, on enverrait les données à un serveur
-            // Pour l'exemple, on simule un envoi réussi
-            
-            // Animation de succès
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message envoyé !';
-            submitBtn.style.backgroundColor = '#10b981';
-            
-            // Réinitialiser le formulaire après 3 secondes
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.style.backgroundColor = '';
-                submitBtn.innerHTML = 'Envoyer le message';
-            }, 3000);
-            
-            // Animation de confirmation
-            const confirmation = document.createElement('div');
-            confirmation.className = 'confirmation-message';
-            confirmation.innerHTML = `
-                <div style="position: fixed; top: 20px; right: 20px; background: #10b981; color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 10000; animation: slideIn 0.5s ease;">
-                    <i class="fas fa-check-circle"></i> Votre message a été envoyé avec succès !
-                </div>
-            `;
-            
-            document.body.appendChild(confirmation);
-            
-            setTimeout(() => {
-                confirmation.remove();
-            }, 4000);
-        });
-    }
-}
-
-// Bouton "back to top"
-function initBackToTop() {
-    const backToTop = document.getElementById('backToTop');
-    
-    backToTop.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+    particlesJS('heroParticles', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#FF3B30"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.3,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 2,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#FF3B30",
+                opacity: 0.2,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 200,
+                    line_linked: {
+                        opacity: 0.5
+                    }
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
+        },
+        retina_detect: true
     });
 }
 
-// Animations au chargement
-function animateOnLoad() {
-    // Animation du titre
-    const titleLines = document.querySelectorAll('.title-line');
-    titleLines.forEach((line, index) => {
-        line.style.opacity = '0';
-        line.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            line.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            line.style.opacity = '1';
-            line.style.transform = 'translateY(0)';
-        }, 300 * index);
-    });
-    
-    // Animation des éléments flottants
-    const floatingElements = document.querySelectorAll('.floating-element');
-    floatingElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'scale(0)';
-        
-        setTimeout(() => {
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            element.style.opacity = '1';
-            element.style.transform = 'scale(1)';
-        }, 1000 + (300 * index));
-    });
-    
-    // Animation de l'écran
-    const screen = document.querySelector('.screen');
-    setTimeout(() => {
-        screen.style.transition = 'transform 1s ease';
-        screen.style.transform = 'rotateY(-10deg) rotateX(5deg)';
-    }, 1500);
-}
-
-// Ajout de styles CSS pour les animations
-const style = document.createElement('style');
-style.textContent = `
-    .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    
-    .animate-on-scroll.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
+// Animations
+function initAnimations() {
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-on-scroll {
             opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
         }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    /* Animation pour les cartes de services */
-    .service-card {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    
-    .service-card.animate-in {
-        animation: fadeUp 0.6s ease forwards;
-    }
-    
-    @keyframes fadeUp {
-        to {
+        
+        .animate-on-scroll.animate-in {
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Staggered animations */
+        .benefit-card:nth-child(1) { transition-delay: 0.1s; }
+        .benefit-card:nth-child(2) { transition-delay: 0.2s; }
+        .benefit-card:nth-child(3) { transition-delay: 0.3s; }
+        
+        .pricing-card:nth-child(1) { transition-delay: 0.1s; }
+        .pricing-card:nth-child(2) { transition-delay: 0.2s; }
+        .pricing-card:nth-child(3) { transition-delay: 0.3s; }
+        
+        .portfolio-item:nth-child(1) { transition-delay: 0.1s; }
+        .portfolio-item:nth-child(2) { transition-delay: 0.2s; }
+        .portfolio-item:nth-child(3) { transition-delay: 0.3s; }
+        
+        .timeline-step:nth-child(1) { transition-delay: 0.1s; }
+        .timeline-step:nth-child(2) { transition-delay: 0.2s; }
+        .timeline-step:nth-child(3) { transition-delay: 0.3s; }
+        .timeline-step:nth-child(4) { transition-delay: 0.4s; }
+    `;
+    document.head.appendChild(style);
+}
+
+// Show Toast
+function showToast() {
+    const toast = document.getElementById('successToast');
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// Show Notification
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    
+    const icon = type === 'success' ? '✓' : '✕';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${icon}</span>
+            <span class="notification-text">${message}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Add styles if not present
+    if (!document.querySelector('.notification-styles')) {
+        const styles = document.createElement('style');
+        styles.className = 'notification-styles';
+        styles.textContent = `
+            .notification {
+                position: fixed;
+                top: 2rem;
+                left: 50%;
+                transform: translateX(-50%) translateY(-100%);
+                background: rgba(0, 0, 0, 0.9);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 12px;
+                padding: 1rem 1.5rem;
+                color: white;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                z-index: 10000;
+                transition: transform 0.3s var(--transition);
+            }
+            
+            .notification.success {
+                border-left: 4px solid var(--success);
+            }
+            
+            .notification.error {
+                border-left: 4px solid var(--danger);
+            }
+            
+            .notification.show {
+                transform: translateX(-50%) translateY(0);
+            }
+            
+            .notification-icon {
+                font-size: 1.25rem;
+                font-weight: bold;
+            }
+            
+            .notification.success .notification-icon {
+                color: var(--success);
+            }
+            
+            .notification.error .notification-icon {
+                color: var(--danger);
+            }
+        `;
+        document.head.appendChild(styles);
     }
     
-    /* Animation pour les éléments du portfolio */
-    .portfolio-item {
-        opacity: 0;
-        transform: scale(0.9);
-    }
+    // Show
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
     
-    .portfolio-item.animate-in {
-        animation: scaleIn 0.6s ease forwards;
-    }
-    
-    @keyframes scaleIn {
-        to {
-            opacity: 1;
-            transform: scale(1);
+    // Hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Performance monitoring
+window.addEventListener('load', () => {
+    // Track performance
+    if ('performance' in window) {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        if (perfData) {
+            console.log(`🚀 Marone Web loaded in ${perfData.domContentLoadedEventEnd - perfData.fetchStart}ms`);
         }
     }
-`;
+});
 
-document.head.appendChild(style);
+// Easter egg - Console message
+console.log(`
+🚀 MARONE WEB - Premium Web Development
+🔗 Site: https://maroneweb.com
+📧 Contact: martin.federer08@gmail.com
+💎 Création de sites web Apple-Level
+🎯 Conversions maximales garanties
+`);

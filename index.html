@@ -4,596 +4,746 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
-    <title>WebCraft Pro | Excellence Digitale</title>
+    <title>Marone Web | Création de Sites Web Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23000000%22>◈</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23FF3B30%22>◈</text></svg>">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Marone Web crée des sites web exceptionnels qui convertissent vos visiteurs en clients. Design Apple-Level, performances maximales.">
 </head>
 <body class="dark-mode">
-    <!-- Preloader Apple Style -->
-    <div class="apple-preloader" id="preloader">
-        <div class="apple-loader">
-            <div class="apple-loader-spinner"></div>
-            <div class="apple-logo">
-                <svg viewBox="0 0 24 24" width="48" height="48">
-                    <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" fill="currentColor"/>
-                </svg>
+    <!-- Preloader Luxe -->
+    <div class="marone-preloader" id="preloader">
+        <div class="marone-loader">
+            <div class="marone-logo-anim">
+                <div class="logo-shape shape-1"></div>
+                <div class="logo-shape shape-2"></div>
+                <div class="logo-shape shape-3"></div>
+            </div>
+            <div class="loader-text">Préparation de l'expérience</div>
+            <div class="loader-progress">
+                <div class="progress-bar"></div>
             </div>
         </div>
     </div>
 
-    <!-- Curseur premium -->
-    <div class="apple-cursor" id="cursor"></div>
-    <div class="apple-cursor-trail"></div>
-    <div class="cursor-ripple"></div>
+    <!-- Cursor Premium -->
+    <div class="marone-cursor" id="cursor"></div>
+    <div class="cursor-trail"></div>
 
-    <!-- Navigation Apple Pro -->
-    <nav class="apple-nav" id="mainNav">
-        <div class="apple-nav-container">
-            <!-- Logo minimaliste -->
-            <a href="#hero" class="apple-logo-link">
-                <div class="apple-logo-mark">
-                    <span class="logo-dot"></span>
-                    <span class="logo-ring"></span>
+    <!-- Notification Toast -->
+    <div class="marone-toast" id="successToast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span>Devis envoyé avec succès !</span>
+        </div>
+    </div>
+
+    <!-- Navigation Premium -->
+    <nav class="marone-nav" id="mainNav">
+        <div class="nav-container">
+            <!-- Logo Marone -->
+            <a href="#hero" class="marone-logo">
+                <div class="logo-symbol">
+                    <div class="symbol-m">M</div>
+                    <div class="symbol-ring"></div>
+                    <div class="symbol-glow"></div>
                 </div>
-                <span class="apple-logo-text">WebCraft<span class="logo-pro">Pro</span></span>
+                <div class="logo-text">
+                    <span class="logo-primary">MARONE</span>
+                    <span class="logo-secondary">WEB</span>
+                </div>
             </a>
 
-            <!-- Menu principal -->
-            <div class="apple-menu">
-                <a href="#hero" class="apple-menu-link active" data-text="Accueil">
-                    <span class="menu-link-text">Accueil</span>
-                    <span class="menu-link-dot"></span>
+            <!-- Menu Principal -->
+            <div class="nav-menu">
+                <a href="#hero" class="nav-link active" data-text="Accueil">
+                    <span class="link-text">Accueil</span>
+                    <span class="link-indicator"></span>
                 </a>
-                <a href="#experience" class="apple-menu-link" data-text="Expérience">
-                    <span class="menu-link-text">Expérience</span>
-                    <span class="menu-link-dot"></span>
+                <a href="#why" class="nav-link" data-text="Pourquoi nous">
+                    <span class="link-text">Pourquoi nous</span>
+                    <span class="link-indicator"></span>
                 </a>
-                <a href="#showcase" class="apple-menu-link" data-text="Réalisations">
-                    <span class="menu-link-text">Réalisations</span>
-                    <span class="menu-link-dot"></span>
+                <a href="#pricing" class="nav-link" data-text="Tarifs">
+                    <span class="link-text">Tarifs</span>
+                    <span class="link-indicator"></span>
                 </a>
-                <a href="#process" class="apple-menu-link" data-text="Process">
-                    <span class="menu-link-text">Process</span>
-                    <span class="menu-link-dot"></span>
+                <a href="#portfolio" class="nav-link" data-text="Réalisations">
+                    <span class="link-text">Réalisations</span>
+                    <span class="link-indicator"></span>
                 </a>
-                <a href="#contact" class="apple-menu-link" data-text="Contact">
-                    <span class="menu-link-text">Contact</span>
-                    <span class="menu-link-dot"></span>
-                </a>
-            </div>
-
-            <!-- Actions -->
-            <div class="apple-nav-actions">
-                <button class="apple-theme-toggle" id="themeToggle" aria-label="Changer le thème">
-                    <div class="theme-toggle-inner">
-                        <i class="fas fa-moon"></i>
-                        <i class="fas fa-sun"></i>
-                    </div>
-                </button>
-                <a href="#contact" class="apple-cta-button">
-                    <span>Demander un devis</span>
-                    <i class="fas fa-arrow-right"></i>
+                <a href="#process" class="nav-link" data-text="Process">
+                    <span class="link-text">Process</span>
+                    <span class="link-indicator"></span>
                 </a>
             </div>
 
-            <!-- Menu mobile -->
-            <button class="apple-menu-toggle" id="menuToggle" aria-label="Menu">
-                <span class="menu-toggle-line top"></span>
-                <span class="menu-toggle-line middle"></span>
-                <span class="menu-toggle-line bottom"></span>
+            <!-- CTA Nav -->
+            <div class="nav-cta">
+                <a href="#contact" class="cta-button pulse">
+                    <span class="cta-text">Devis Gratuit</span>
+                    <i class="fas fa-bolt"></i>
+                </a>
+            </div>
+
+            <!-- Menu Mobile -->
+            <button class="nav-toggle" id="navToggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
             </button>
         </div>
     </nav>
 
-    <!-- Menu mobile overlay -->
-    <div class="apple-mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-            <div class="mobile-menu-header">
-                <div class="apple-logo-mark">
-                    <span class="logo-dot"></span>
-                    <span class="logo-ring"></span>
+    <!-- Menu Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileMenu">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <div class="marone-logo">
+                    <div class="logo-symbol">
+                        <div class="symbol-m">M</div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-primary">MARONE</span>
+                        <span class="logo-secondary">WEB</span>
+                    </div>
                 </div>
-                <button class="mobile-menu-close" id="menuClose">
+                <button class="overlay-close" id="closeMenu">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="mobile-menu-links">
-                <a href="#hero" class="mobile-menu-link active">
+            <div class="overlay-links">
+                <a href="#hero" class="overlay-link active">
                     <span>Accueil</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#experience" class="mobile-menu-link">
-                    <span>Expérience</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#showcase" class="mobile-menu-link">
-                    <span>Réalisations</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#process" class="mobile-menu-link">
-                    <span>Process</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#contact" class="mobile-menu-link">
-                    <span>Contact</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </div>
-            <div class="mobile-menu-footer">
-                <a href="#contact" class="apple-cta-button full">
-                    <span>Demander un devis</span>
                     <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#why" class="overlay-link">
+                    <span>Pourquoi nous</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#pricing" class="overlay-link">
+                    <span>Tarifs</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#portfolio" class="overlay-link">
+                    <span>Réalisations</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#process" class="overlay-link">
+                    <span>Process</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="overlay-link highlight">
+                    <span>Devis Gratuit</span>
+                    <i class="fas fa-bolt"></i>
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Hero Section - Apple Level -->
-    <section class="apple-hero" id="hero">
-        <!-- Particles background -->
-        <div class="hero-particles" id="particles"></div>
-        
-        <!-- Floating elements -->
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
+    <!-- Hero Section - Psychological Impact -->
+    <section class="marone-hero" id="hero">
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <div class="bg-grid"></div>
+            <div class="bg-particles" id="heroParticles"></div>
+            <div class="bg-gradient"></div>
         </div>
 
-        <div class="apple-hero-container">
-            <!-- Badge d'excellence -->
-            <div class="excellence-badge">
-                <span class="badge-text">Design Award 2024</span>
-                <div class="badge-sparkle"></div>
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="float-element el-1">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <div class="float-element el-2">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="float-element el-3">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+        </div>
+
+        <div class="hero-container">
+            <!-- Badge Social Proof -->
+            <div class="social-proof">
+                <div class="proof-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>#1 Agence Web Française</span>
+                </div>
+                <div class="proof-stats">
+                    <span class="stat"><i class="fas fa-check"></i> 500+ Clients Satisfaits</span>
+                    <span class="stat"><i class="fas fa-star"></i> 4.9/5 Avis</span>
+                </div>
             </div>
 
-            <!-- Contenu principal -->
+            <!-- Main Hero Content -->
             <div class="hero-content">
-                <div class="hero-pre-title">
-                    <span class="pre-title-line"></span>
-                    <span>Excellence Digitale</span>
-                </div>
-                
                 <h1 class="hero-title">
-                    <span class="title-line line-1">
-                        <span class="word">Websites</span>
+                    <span class="title-line">
+                        <span class="title-word">Votre Site Web</span>
                         <span class="title-highlight">
-                            <span class="highlight-text">so</span>
-                            <span class="highlight-underline"></span>
-                        </span>
-                    </span>
-                    <span class="title-line line-2">
-                        <span class="title-highlight">
-                            <span class="highlight-text">perfect</span>
-                            <span class="highlight-underline"></span>
-                        </span>
-                        <span class="word">they feel</span>
-                    </span>
-                    <span class="title-line line-3">
-                        <span class="word">like</span>
-                        <span class="magic-word">
-                            <span class="magic-text">magic</span>
-                            <span class="magic-sparkle">
-                                <i class="fas fa-sparkle"></i>
+                            <span class="highlight-text">Convertit</span>
+                            <span class="highlight-sparkle">
+                                <i class="fas fa-sparkles"></i>
                             </span>
                         </span>
+                    </span>
+                    <span class="title-line">
+                        <span class="title-word">ou</span>
+                        <span class="title-highlight">
+                            <span class="highlight-text">Il Ne Vaut</span>
+                        </span>
+                    </span>
+                    <span class="title-line">
+                        <span class="title-word">Rien.</span>
+                        <span class="title-cta">On Change Ça.</span>
                     </span>
                 </h1>
 
                 <p class="hero-subtitle">
-                    Nous créons des expériences digitales tellement fluides et intuitives que vos utilisateurs oublient qu'ils utilisent un site web.
-                    <span class="subtitle-highlight">Chaque pixel a un purpose.</span>
+                    Nous créons des sites web qui <strong>génèrent du chiffre d'affaires</strong>, pas juste des visiteurs. 
+                    Chaque pixel est pensé pour convertir. Chaque ligne de code pour performer.
                 </p>
 
-                <!-- Actions hero -->
-                <div class="hero-actions">
-                    <a href="#showcase" class="apple-primary-button">
-                        <span class="button-content">
-                            <span class="button-text">Explorer les réalisations</span>
-                            <span class="button-icon">
-                                <i class="fas fa-arrow-down"></i>
-                            </span>
-                        </span>
-                        <span class="button-glow"></span>
-                    </a>
-                    
-                    <a href="#process" class="apple-secondary-button">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
+                <!-- Psychological CTA -->
+                <div class="hero-cta">
+                    <div class="cta-container">
+                        <div class="urgency-badge">
+                            <i class="fas fa-clock"></i>
+                            <span>Offre limitée : 3 créations ce mois</span>
                         </div>
-                        <span>Voir notre process</span>
-                    </a>
+                        <a href="#pricing" class="primary-cta">
+                            <span class="cta-main">Voir les Offres</span>
+                            <span class="cta-sub">Dès 35€/mois</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="cta-glow"></div>
+                        </a>
+                        <a href="#contact" class="secondary-cta">
+                            <i class="fas fa-video"></i>
+                            <span>Consultation Gratuite</span>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Stats premium -->
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-value" data-count="99">0</div>
-                        <div class="stat-label">Satisfaction clients</div>
+                <!-- Trust Indicators -->
+                <div class="trust-indicators">
+                    <div class="indicator">
+                        <div class="indicator-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="indicator-text">
+                            <div class="indicator-value">24h</div>
+                            <div class="indicator-label">Délai de livraison</div>
+                        </div>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-value" data-count="247">0</div>
-                        <div class="stat-label">Projets livrés</div>
+                    <div class="indicator">
+                        <div class="indicator-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="indicator-text">
+                            <div class="indicator-value">100%</div>
+                            <div class="indicator-label">Satisfaction</div>
+                        </div>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-value" data-count="42">0</div>
-                        <div class="stat-label">Awards design</div>
+                    <div class="indicator">
+                        <div class="indicator-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="indicator-text">
+                            <div class="indicator-value">#1</div>
+                            <div class="indicator-label">Performance</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Visual hero - MacBook Pro mockup -->
+            <!-- Hero Visual - MacBook Pro -->
             <div class="hero-visual">
-                <div class="macbook-pro">
-                    <div class="macbook-screen">
-                        <div class="screen-content">
-                            <!-- Animation de code -->
-                            <div class="code-animation">
-                                <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">website</span> = <span class="code-string">"perfection"</span>;</div>
-                                <div class="code-line"><span class="code-keyword">function</span> <span class="code-func">createExperience</span>() {</div>
-                                <div class="code-line">&nbsp;&nbsp;<span class="code-return">return</span> {</div>
-                                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;design: <span class="code-string">"apple-level"</span>,</div>
-                                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;performance: <span class="code-number">100</span>,</div>
-                                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;innovation: <span class="code-boolean">true</span></div>
-                                <div class="code-line">&nbsp;&nbsp;}</div>
-                                <div class="code-line">}</div>
+                <div class="device-showcase">
+                    <div class="macbook-pro">
+                        <div class="macbook-screen">
+                            <div class="screen-demo">
+                                <div class="demo-header">
+                                    <div class="demo-nav">
+                                        <span>Accueil</span>
+                                        <span>Services</span>
+                                        <span>Portfolio</span>
+                                        <span>Contact</span>
+                                    </div>
+                                </div>
+                                <div class="demo-hero">
+                                    <h3>+325% de Conversions</h3>
+                                    <p>Avec un site Marone Web</p>
+                                </div>
+                                <div class="demo-metrics">
+                                    <div class="metric">
+                                        <div class="metric-value">+225%</div>
+                                        <div class="metric-label">Trafic</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value">+325%</div>
+                                        <div class="metric-label">Conversions</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value">-40%</div>
+                                        <div class="metric-label">Coût Acquisition</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="macbook-base"></div>
-                    <div class="macbook-notch">
-                        <div class="notch-camera"></div>
+                        <div class="macbook-base"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator">
+        <!-- Scroll Indicator -->
+        <div class="scroll-hint">
             <div class="scroll-line">
                 <div class="scroll-dot"></div>
             </div>
-            <span class="scroll-text">Scroll to explore</span>
+            <span>Découvrir les offres</span>
         </div>
     </section>
 
-    <!-- Marquee brands -->
+    <!-- Marquee Brands -->
     <div class="brands-marquee">
-        <div class="marquee-track">
-            <div class="marquee-content">
-                <span class="brand-item">APPLE DESIGN INSPIRED</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">PREMIUM EXPERIENCES</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">INNOVATION DIGITALE</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">PERFORMANCE MAXIMALE</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">UI/UX EXCEPTIONNEL</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">APPLE DESIGN INSPIRED</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">PREMIUM EXPERIENCES</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">INNOVATION DIGITALE</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">PERFORMANCE MAXIMALE</span>
-                <span class="brand-divider">•</span>
-                <span class="brand-item">UI/UX EXCEPTIONNEL</span>
+        <div class="marquee-inner">
+            <div class="marquee-track">
+                <div class="marquee-item">APPLE-LEVEL DESIGN</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">CONVERSIONS MAXIMALES</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">PERFORMANCE EXTREME</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">SEO OPTIMISÉ</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">SUPPORT PREMIUM</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">APPLE-LEVEL DESIGN</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">CONVERSIONS MAXIMALES</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">PERFORMANCE EXTREME</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">SEO OPTIMISÉ</div>
+                <div class="marquee-divider">•</div>
+                <div class="marquee-item">SUPPORT PREMIUM</div>
             </div>
         </div>
     </div>
 
-    <!-- Experience Section -->
-    <section class="apple-experience" id="experience">
-        <div class="experience-container">
+    <!-- Why Choose Us - Psychological Section -->
+    <section class="marone-why" id="why">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <span class="title-number">01</span>
-                    <span class="title-text">L'Expérience <span class="title-highlight">Apple-Level</span></span>
+                    <span>Pourquoi <span class="highlight">98%</span> de nos clients renouvellent ?</span>
                 </h2>
                 <p class="section-subtitle">
-                    Nous ne créons pas des sites web, nous créons des expériences digitales qui 
-                    <span class="text-gradient">définissent les standards de l'industrie.</span>
+                    Parce qu'un site Marone Web n'est pas un coût, c'est un investissement qui rapporte.
                 </p>
             </div>
 
-            <div class="experience-grid">
-                <!-- Carte 1 -->
-                <div class="experience-card" data-card="1">
-                    <div class="card-icon">
-                        <div class="icon-shape">
-                            <i class="fas fa-gem"></i>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-money-bill-wave"></i>
                         </div>
                         <div class="icon-glow"></div>
                     </div>
-                    <h3 class="card-title">Design Premium</h3>
-                    <p class="card-description">
-                        Chaque interface est conçue avec le même niveau de détail qu'un produit Apple. 
-                        Animation à 120fps, typographie parfaite, espacement millimétré.
+                    <h3 class="benefit-title">ROI Garanti</h3>
+                    <p class="benefit-desc">
+                        Nos sites génèrent en moyenne 3x leur coût en 6 mois. 
+                        Pas satisfait ? On rembourse.
                     </p>
-                    <div class="card-features">
-                        <span class="feature-tag">Design System</span>
-                        <span class="feature-tag">Micro-interactions</span>
-                        <span class="feature-tag">Dark/Light Mode</span>
+                    <div class="benefit-stats">
+                        <span class="stat">+325% Conversions</span>
+                        <span class="stat">-40% Coût Acquisition</span>
                     </div>
-                    <div class="card-hover-effect"></div>
                 </div>
 
-                <!-- Carte 2 -->
-                <div class="experience-card" data-card="2">
-                    <div class="card-icon">
-                        <div class="icon-shape">
+                <div class="benefit-card highlight">
+                    <div class="popular-badge">LE PLUS CHOISI</div>
+                    <div class="benefit-icon">
+                        <div class="icon-wrapper">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <div class="icon-glow"></div>
                     </div>
-                    <h3 class="card-title">Performance Extrême</h3>
-                    <p class="card-description">
-                        Sites optimisés pour charger en moins de 0.8s. Score Lighthouse 100/100. 
-                        Expérience utilisateur parfaitement fluide sur tous les devices.
+                    <h3 class="benefit-title">24h Livraison</h3>
+                    <p class="benefit-desc">
+                        Votre site professionnel en 24h chrono. 
+                        On ne parle pas de délais, on livre.
                     </p>
-                    <div class="card-features">
-                        <span class="feature-tag">Core Web Vitals</span>
-                        <span class="feature-tag">PWA Ready</span>
-                        <span class="feature-tag">Edge Computing</span>
+                    <div class="benefit-stats">
+                        <span class="stat">Record : 18h</span>
+                        <span class="stat">100% Respecté</span>
                     </div>
-                    <div class="card-hover-effect"></div>
                 </div>
 
-                <!-- Carte 3 -->
-                <div class="experience-card" data-card="3">
-                    <div class="card-icon">
-                        <div class="icon-shape">
-                            <i class="fas fa-shield-alt"></i>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-headset"></i>
                         </div>
                         <div class="icon-glow"></div>
                     </div>
-                    <h3 class="card-title">Sécurité Maximale</h3>
-                    <p class="card-description">
-                        Protection de niveau enterprise. SSL, protection DDoS, audit de sécurité complet. 
-                        Vos données et celles de vos clients sont en sécurité maximum.
+                    <h3 class="benefit-title">Support 7j/7</h3>
+                    <p class="benefit-desc">
+                        Notre équipe vous répond en moins de 30 minutes, 
+                        même le dimanche à minuit.
                     </p>
-                    <div class="card-features">
-                        <span class="feature-tag">GDPR Compliant</span>
-                        <span class="feature-tag">Zero Trust</span>
-                        <span class="feature-tag">Encryption</span>
+                    <div class="benefit-stats">
+                        <span class="stat">Réponse < 30min</span>
+                        <span class="stat">24h/7j</span>
                     </div>
-                    <div class="card-hover-effect"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase Section -->
-    <section class="apple-showcase" id="showcase">
-        <div class="showcase-container">
+    <!-- Pricing Section - Psychological Pricing -->
+    <section class="marone-pricing" id="pricing">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <span class="title-number">02</span>
-                    <span class="title-text">Réalisations <span class="title-highlight">Exclusives</span></span>
+                    <span>Choisissez Votre <span class="highlight">Arme</span> de Conversion</span>
                 </h2>
                 <p class="section-subtitle">
-                    Des projets qui redéfinissent l'excellence digitale. 
-                    <span class="text-gradient">Chaque détail compte.</span>
+                    Investissez dans un site qui travaille pour vous 24h/24. 
+                    <strong>Pas de frais cachés, juste des résultats.</strong>
                 </p>
             </div>
 
-            <div class="showcase-slider">
-                <!-- Project 1 -->
-                <div class="showcase-project active" data-project="1">
-                    <div class="project-content">
-                        <div class="project-badge">
-                            <span class="badge-year">2024</span>
-                            <span class="badge-category">E-commerce Luxe</span>
-                        </div>
-                        <h3 class="project-title">NovaLuxe</h3>
-                        <p class="project-description">
-                            Plateforme e-commerce de luxe avec réalité augmentée, 
-                            paiement sécurisé et expérience immersive.
-                        </p>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <div class="stat-value">+320%</div>
-                                <div class="stat-label">Conversion</div>
-                            </div>
-                            <div class="project-stat">
-                                <div class="stat-value">0.6s</div>
-                                <div class="stat-label">Load Time</div>
-                            </div>
-                            <div class="project-stat">
-                                <div class="stat-value">99.9%</div>
-                                <div class="stat-label">Uptime</div>
-                            </div>
-                        </div>
-                        <a href="#" class="project-link">
-                            <span>Voir l'étude de cas</span>
-                            <i class="fas fa-arrow-up-right"></i>
-                        </a>
-                    </div>
-                    <div class="project-visual">
-                        <div class="iphone-mockup">
-                            <div class="iphone-screen">
-                                <div class="screen-app"></div>
-                            </div>
-                            <div class="iphone-frame"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="showcase-project" data-project="2">
-                    <div class="project-content">
-                        <div class="project-badge">
-                            <span class="badge-year">2024</span>
-                            <span class="badge-category">SaaS Enterprise</span>
-                        </div>
-                        <h3 class="project-title">QuantumFlow</h3>
-                        <p class="project-description">
-                            Dashboard SaaS avec analytics temps réel, AI intégrée et 
-                            interface adaptative pour les grandes entreprises.
-                        </p>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <div class="stat-value">-65%</div>
-                                <div class="stat-label">Temps de task</div>
-                            </div>
-                            <div class="project-stat">
-                                <div class="stat-value">10k+</div>
-                                <div class="stat-label">Utilisateurs</div>
-                            </div>
-                            <div class="project-stat">
-                                <div class="stat-value">100%</div>
-                                <div class="stat-label">Satisfaction</div>
-                            </div>
-                        </div>
-                        <a href="#" class="project-link">
-                            <span>Voir l'étude de cas</span>
-                            <i class="fas fa-arrow-up-right"></i>
-                        </a>
-                    </div>
-                    <div class="project-visual">
-                        <div class="ipad-mockup">
-                            <div class="ipad-screen">
-                                <div class="screen-dashboard"></div>
-                            </div>
-                            <div class="ipad-frame"></div>
-                        </div>
-                    </div>
+            <!-- Pricing Toggle -->
+            <div class="pricing-toggle">
+                <div class="toggle-container">
+                    <button class="toggle-option active" data-plan="monthly">
+                        <span>Abonnement Mensuel</span>
+                        <div class="toggle-badge">Le plus flexible</div>
+                    </button>
+                    <button class="toggle-option" data-plan="yearly">
+                        <span>Paiement Annuel</span>
+                        <div class="toggle-badge">-30% économisés</div>
+                    </button>
                 </div>
             </div>
 
-            <!-- Slider controls -->
-            <div class="showcase-controls">
-                <button class="slider-prev" id="prevProject">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="slider-dots">
-                    <button class="slider-dot active" data-slide="0"></button>
-                    <button class="slider-dot" data-slide="1"></button>
-                    <button class="slider-dot" data-slide="2"></button>
+            <!-- Pricing Cards -->
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3 class="plan-name">Starter</h3>
+                        <div class="plan-desc">Pour lancer votre présence</div>
+                        <div class="plan-price monthly active">
+                            <span class="price">35€</span>
+                            <span class="period">/mois</span>
+                        </div>
+                        <div class="plan-price yearly">
+                            <span class="price">294€</span>
+                            <span class="period">/an</span>
+                            <div class="saved">Économisez 126€</div>
+                        </div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Site 5 pages</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Design Responsive</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Formulaire contact</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Hébergement inclus</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-times"></i>
+                            <span class="disabled">E-commerce</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-times"></i>
+                            <span class="disabled">SEO Avancé</span>
+                        </div>
+                    </div>
+                    <button class="card-cta" data-plan="starter">
+                        <span>Choisir cette offre</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div class="card-note">Livraison en 48h</div>
                 </div>
-                <button class="slider-next" id="nextProject">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">95% CHOISISSENT ÇA</div>
+                    <div class="card-header">
+                        <h3 class="plan-name">Pro</h3>
+                        <div class="plan-desc">Pour dominer votre marché</div>
+                        <div class="plan-price monthly active">
+                            <span class="price">399€</span>
+                            <span class="period">une fois</span>
+                        </div>
+                        <div class="plan-price yearly">
+                            <span class="price">399€</span>
+                            <span class="period">une fois</span>
+                            <div class="saved">+ 35€/mois maintien</div>
+                        </div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Site 10 pages</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Design Sur Mesure</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>SEO Optimisé</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Analytics Intégré</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Formation offerte</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-times"></i>
+                            <span class="disabled">E-commerce</span>
+                        </div>
+                    </div>
+                    <button class="card-cta highlight" data-plan="pro">
+                        <span>Choisir cette offre</span>
+                        <i class="fas fa-bolt"></i>
+                    </button>
+                    <div class="card-note">Livraison en 24h</div>
+                </div>
+
+                <!-- E-commerce Plan -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3 class="plan-name">E-commerce</h3>
+                        <div class="plan-desc">Pour vendre en ligne</div>
+                        <div class="plan-price monthly active">
+                            <span class="price">1 249€</span>
+                            <span class="period">+ 35€/mois</span>
+                        </div>
+                        <div class="plan-price yearly">
+                            <span class="price">1 249€</span>
+                            <span class="period">+ 420€/an</span>
+                            <div class="saved">Maintenance incluse</div>
+                        </div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Boutique complète</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Paiements sécurisés</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Gestion stocks</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Marketing tools</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Support prioritaire</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Formation avancée</span>
+                        </div>
+                    </div>
+                    <button class="card-cta" data-plan="ecommerce">
+                        <span>Choisir cette offre</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div class="card-note">Livraison en 72h</div>
+                </div>
+            </div>
+
+            <!-- Price Comparison -->
+            <div class="price-comparison">
+                <div class="comparison-header">
+                    <h3>Pourquoi nous sommes imbattables :</h3>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="item-title">Agence moyenne</div>
+                        <div class="item-price">3 000€+</div>
+                        <div class="item-desc">Pour un site basique</div>
+                    </div>
+                    <div class="comparison-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="comparison-item highlight">
+                        <div class="item-title">Marone Web</div>
+                        <div class="item-price">399€</div>
+                        <div class="item-desc">Site premium livré en 24h</div>
+                    </div>
+                    <div class="comparison-savings">
+                        <div class="savings-value">Économisez 2 600€</div>
+                        <div class="savings-label">+ meilleurs résultats</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="marone-portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-number">03</span>
+                    <span>Réalisations <span class="highlight">Concrètes</span></span>
+                </h2>
+                <p class="section-subtitle">
+                    Des résultats mesurables pour nos clients. Vos résultats seront encore meilleurs.
+                </p>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="item-visual">
+                        <div class="visual-overlay">
+                            <div class="overlay-stats">
+                                <div class="stat">
+                                    <div class="stat-value">+450%</div>
+                                    <div class="stat-label">Ventes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-badge">E-commerce</div>
+                        <h3 class="item-title">Boutique Bio</h3>
+                        <p class="item-desc">Site e-commerce livré en 48h. +450% de ventes en 3 mois.</p>
+                        <div class="item-price">1 249€</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="item-visual">
+                        <div class="visual-overlay">
+                            <div class="overlay-stats">
+                                <div class="stat">
+                                    <div class="stat-value">+280%</div>
+                                    <div class="stat-label">Leads</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-badge">Service Pro</div>
+                        <h3 class="item-title">Cabinet Avocats</h3>
+                        <p class="item-desc">Site vitrine premium. +280% de nouveaux clients.</p>
+                        <div class="item-price">499€</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="item-visual">
+                        <div class="visual-overlay">
+                            <div class="overlay-stats">
+                                <div class="stat">
+                                    <div class="stat-value">24h</div>
+                                    <div class="stat-label">Livraison</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-badge">Vitrine</div>
+                        <h3 class="item-title">Restaurant Gastronomique</h3>
+                        <p class="item-desc">Site livré en 24h. Réservations x3.</p>
+                        <div class="item-price">399€</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="apple-process" id="process">
-        <div class="process-container">
+    <section class="marone-process" id="process">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
-                    <span class="title-number">03</span>
-                    <span class="title-text">Process <span class="title-highlight">Créatif</span></span>
+                    <span class="title-number">04</span>
+                    <span>Comment on <span class="highlight">Domine</span> Votre Marché</span>
                 </h2>
                 <p class="section-subtitle">
-                    Une méthodologie rigoureuse qui garantit l'excellence à chaque étape.
-                    <span class="text-gradient">De l'idée au produit final.</span>
+                    Un process militaire pour des résultats explosifs. Pas de bla-bla, que du concret.
                 </p>
             </div>
 
             <div class="process-timeline">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <div class="step-number">
-                        <span>01</span>
-                        <div class="step-connector"></div>
-                    </div>
+                <div class="timeline-step">
+                    <div class="step-number">01</div>
                     <div class="step-content">
-                        <h3 class="step-title">Discovery & Strategy</h3>
-                        <p class="step-description">
-                            Analyse approfondie de votre marché, compétition et objectifs. 
-                            Définition d'une stratégie digitale sur mesure.
-                        </p>
-                        <div class="step-duration">
+                        <h3 class="step-title">Analyse Stratégique</h3>
+                        <p class="step-desc">On dissecte votre marché, vos concurrents, vos clients. On identifie les failles à exploiter.</p>
+                        <div class="step-time">
                             <i class="fas fa-clock"></i>
-                            <span>1-2 semaines</span>
-                        </div>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-icon">
-                            <i class="fas fa-search"></i>
+                            <span>2 heures</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <div class="step-number">
-                        <span>02</span>
-                        <div class="step-connector"></div>
-                    </div>
+                <div class="timeline-step">
+                    <div class="step-number">02</div>
                     <div class="step-content">
-                        <h3 class="step-title">Design & Prototype</h3>
-                        <p class="step-description">
-                            Création de wireframes, design system et prototypes interactifs. 
-                            Chaque pixel est placé avec intention.
-                        </p>
-                        <div class="step-duration">
+                        <h3 class="step-title">Design de Guerre</h3>
+                        <p class="step-desc">Chaque pixel est une arme de conversion. UX/UI pensé pour maximiser vos ventes.</p>
+                        <div class="step-time">
                             <i class="fas fa-clock"></i>
-                            <span>2-3 semaines</span>
-                        </div>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-icon">
-                            <i class="fas fa-pen-nib"></i>
+                            <span>6-12 heures</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <div class="step-number">
-                        <span>03</span>
-                        <div class="step-connector"></div>
-                    </div>
+                <div class="timeline-step">
+                    <div class="step-number">03</div>
                     <div class="step-content">
-                        <h3 class="step-title">Development</h3>
-                        <p class="step-description">
-                            Développement avec les dernières technologies. Code optimisé, 
-                            architecture scalable et tests approfondis.
-                        </p>
-                        <div class="step-duration">
+                        <h3 class="step-title">Développement Blitzkrieg</h3>
+                        <p class="step-desc">Code optimisé, performances maximales. Votre site charge en 0.8s max.</p>
+                        <div class="step-time">
                             <i class="fas fa-clock"></i>
-                            <span>3-5 semaines</span>
-                        </div>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-icon">
-                            <i class="fas fa-code"></i>
+                            <span>12-24 heures</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 4 -->
-                <div class="process-step">
-                    <div class="step-number">
-                        <span>04</span>
-                    </div>
+                <div class="timeline-step">
+                    <div class="step-number">04</div>
                     <div class="step-content">
-                        <h3 class="step-title">Launch & Optimize</h3>
-                        <p class="step-description">
-                            Déploiement, monitoring et optimisation continue. 
-                            Support premium et maintenance proactive.
-                        </p>
-                        <div class="step-duration">
+                        <h3 class="step-title">Lancement Nucléaire</h3>
+                        <p class="step-desc">Votre site est live. On vous forme. On surveille les performances 24h/24.</p>
+                        <div class="step-time">
                             <i class="fas fa-clock"></i>
-                            <span>Ongoing</span>
-                        </div>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-icon">
-                            <i class="fas fa-rocket"></i>
+                            <span>Support continu</span>
                         </div>
                     </div>
                 </div>
@@ -601,65 +751,109 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="apple-cta" id="contact">
-        <div class="cta-container">
-            <div class="cta-content">
-                <h2 class="cta-title">
-                    Prêt à créer 
-                    <span class="text-gradient">l'expérience digitale</span> 
-                    de vos rêves ?
-                </h2>
-                <p class="cta-subtitle">
-                    Contactez-nous pour une consultation gratuite. Discutons de votre projet 
-                    et de comment nous pouvons créer quelque chose d'extraordinaire ensemble.
-                </p>
-                
-                <form class="apple-contact-form" id="contactForm">
-                    <div class="form-grid">
+    <!-- Contact Form Section -->
+    <section class="marone-contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Left Side - Form -->
+                <div class="contact-form">
+                    <div class="form-header">
+                        <h2 class="form-title">Demandez Votre <span class="highlight">Devis Gratuit</span></h2>
+                        <p class="form-subtitle">
+                            Parlez-nous de votre projet. En 24h, vous avez un site qui convertit.
+                        </p>
+                    </div>
+
+                    <form id="quoteForm" action="https://formsubmit.co/martin.federer08@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Nouveau Devis Marone Web - PRIORITAIRE">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="#success">
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" required>
+                                <label for="name">Votre nom complet</label>
+                                <div class="form-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" required>
+                                <label for="email">Votre email professionnel</label>
+                                <div class="form-line"></div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            <input type="text" id="ctaName" required>
-                            <label for="ctaName">Votre nom</label>
+                            <input type="tel" name="phone" id="phone" required>
+                            <label for="phone">Votre téléphone</label>
                             <div class="form-line"></div>
                         </div>
+
                         <div class="form-group">
-                            <input type="email" id="ctaEmail" required>
-                            <label for="ctaEmail">Votre email</label>
+                            <select name="plan" id="plan" required>
+                                <option value="" disabled selected>Choisissez votre formule</option>
+                                <option value="35€/mois - Starter">Starter - 35€/mois</option>
+                                <option value="399€ - Pro">Pro - 399€</option>
+                                <option value="499€ - Pro Plus">Pro Plus - 499€</option>
+                                <option value="1249€ - E-commerce">E-commerce - 1 249€ + 35€/mois</option>
+                                <option value="Sur mesure">Sur mesure - Devis personnalisé</option>
+                            </select>
                             <div class="form-line"></div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="ctaMessage" rows="4" required></textarea>
-                        <label for="ctaMessage">Votre message</label>
-                        <div class="form-line"></div>
-                    </div>
-                    
-                    <div class="form-footer">
-                        <button type="submit" class="apple-submit-button">
-                            <span class="submit-text">Envoyer la demande</span>
-                            <span class="submit-icon">
+
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="4" placeholder="Décrivez votre projet, vos objectifs, votre budget..."></textarea>
+                            <div class="form-line"></div>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="submit-button">
+                                <span class="submit-text">Envoyer ma demande</span>
                                 <i class="fas fa-paper-plane"></i>
-                            </span>
-                            <span class="submit-glow"></span>
-                        </button>
-                        <div classform-agreement">
-                            <i class="fas fa-lock"></i>
-                            <span>Vos données sont sécurisées. Pas de spam.</span>
+                                <div class="submit-glow"></div>
+                            </button>
+                            <div class="form-guarantee">
+                                <i class="fas fa-lock"></i>
+                                <span>100% confidentiel · Réponse sous 2h · Pas de spam</span>
+                            </div>
                         </div>
+                    </form>
+                </div>
+
+                <!-- Right Side - Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="card-title">Réponse Express</h3>
+                        <p class="card-desc">Notre équipe vous contacte en moins de 2 heures pour discuter de votre projet.</p>
                     </div>
-                </form>
-            </div>
-            
-            <div class="cta-visual">
-                <div class="visual-container">
-                    <div class="floating-orb orb-1"></div>
-                    <div class="floating-orb orb-2"></div>
-                    <div class="floating-orb orb-3"></div>
-                    
-                    <div class="visual-message">
-                        <div class="message-bubble">
-                            <div class="bubble-text">Let's create something amazing</div>
-                            <div class="bubble-tail"></div>
+
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="card-title">Bonus Gratuit</h3>
+                        <p class="card-desc">Toute demande reçue aujourd'hui reçoit un audit SEO gratuit de 500€.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="card-title">Garantie Satisfaction</h3>
+                        <p class="card-desc">Pas satisfait du résultat ? On rembourse 100%. Aucun risque.</p>
+                    </div>
+
+                    <div class="contact-cta">
+                        <div class="cta-content">
+                            <h3>Prêt à dominer votre marché ?</h3>
+                            <p>Appelez-nous directement :</p>
+                            <a href="tel:+33123456789" class="phone-link">
+                                <i class="fas fa-phone"></i>
+                                <span>01 23 45 67 89</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -667,76 +861,84 @@
         </div>
     </section>
 
-    <!-- Footer Apple Style -->
-    <footer class="apple-footer">
-        <div class="footer-container">
-            <div class="footer-main">
+    <!-- Footer -->
+    <footer class="marone-footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Brand -->
                 <div class="footer-brand">
-                    <a href="#hero" class="apple-logo-link">
-                        <div class="apple-logo-mark">
-                            <span class="logo-dot"></span>
-                            <span class="logo-ring"></span>
+                    <div class="marone-logo">
+                        <div class="logo-symbol">
+                            <div class="symbol-m">M</div>
                         </div>
-                        <span class="apple-logo-text">WebCraft<span class="logo-pro">Pro</span></span>
-                    </a>
+                        <div class="logo-text">
+                            <span class="logo-primary">MARONE</span>
+                            <span class="logo-secondary">WEB</span>
+                        </div>
+                    </div>
                     <p class="footer-tagline">
-                        Créateurs d'expériences digitales exceptionnelles. 
-                        <span class="tagline-highlight">Apple-level quality.</span>
+                        Créateurs de sites web qui convertissent. 
+                        <span class="highlight">Apple-level quality, prix disruptifs.</span>
                     </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
                 </div>
-                
+
+                <!-- Links -->
                 <div class="footer-links">
                     <div class="link-column">
                         <h4>Services</h4>
-                        <a href="#">Design Premium</a>
-                        <a href="#">Développement</a>
-                        <a href="#">E-commerce</a>
-                        <a href="#">Applications Web</a>
+                        <a href="#pricing">Sites Vitrine</a>
+                        <a href="#pricing">E-commerce</a>
+                        <a href="#pricing">SEO</a>
+                        <a href="#pricing">Maintenance</a>
                     </div>
                     <div class="link-column">
                         <h4>Entreprise</h4>
-                        <a href="#">À propos</a>
-                        <a href="#">Carrières</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Contact</a>
+                        <a href="#why">Pourquoi nous</a>
+                        <a href="#process">Notre process</a>
+                        <a href="#portfolio">Réalisations</a>
+                        <a href="#contact">Contact</a>
                     </div>
                     <div class="link-column">
                         <h4>Légal</h4>
-                        <a href="#">Confidentialité</a>
-                        <a href="#">Conditions</a>
-                        <a href="#">Cookies</a>
                         <a href="#">Mentions légales</a>
+                        <a href="#">Confidentialité</a>
+                        <a href="#">CGV</a>
+                        <a href="#">CGU</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <div class="footer-copyright">
-                    © 2024 WebCraft Pro. Tous droits réservés.
+                <div class="copyright">
+                    © 2024 Marone Web. Tous droits réservés.
                 </div>
-                <div class="footer-social">
-                    <a href="#" class="social-link">
-                        <i class="fab fa-dribbble"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div class="footer-stats">
+                    <span class="stat">Sites livrés : 500+</span>
+                    <span class="stat">Satisfaction : 99.8%</span>
+                    <span class="stat">Délai moyen : 24h</span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to top -->
-    <a href="#hero" class="apple-back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
+    <!-- Back to Top -->
+    <a href="#hero" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
