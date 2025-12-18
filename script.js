@@ -1,51 +1,50 @@
-// Marone Web - Premium Script
+// MARONE WEB - Ultra Premium Script
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize everything
-    initMaroneWeb();
+    initMarone();
     
-    // Preloader
-    const preloader = document.getElementById('preloader');
+    // Loading screen
+    const loadingScreen = document.getElementById('loadingScreen');
     setTimeout(() => {
-        preloader.classList.add('loaded');
+        loadingScreen.classList.add('loaded');
         setTimeout(() => {
-            preloader.style.display = 'none';
+            loadingScreen.style.display = 'none';
         }, 500);
-    }, 2000);
+    }, 1500);
     
-    // Mobile Menu
-    const navToggle = document.getElementById('navToggle');
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    const closeMenu = document.getElementById('closeMenu');
-    const overlayLinks = document.querySelectorAll('.overlay-link');
+    const mobileClose = document.getElementById('mobileClose');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
     
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
+    mobileToggle.addEventListener('click', () => {
+        mobileToggle.classList.toggle('active');
         mobileMenu.classList.toggle('active');
         document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
     
-    closeMenu.addEventListener('click', closeMobileMenu);
-    overlayLinks.forEach(link => {
+    mobileClose.addEventListener('click', closeMobileMenu);
+    mobileLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
     
     function closeMobileMenu() {
-        navToggle.classList.remove('active');
+        mobileToggle.classList.remove('active');
         mobileMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
     
-    // Navigation scroll effect
-    const nav = document.getElementById('mainNav');
+    // Header scroll effect
+    const header = document.querySelector('.main-header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
+            header.style.padding = '0.5rem 0';
+            header.style.background = 'rgba(0, 0, 0, 0.98)';
         } else {
-            nav.classList.remove('scrolled');
+            header.style.padding = '1rem 0';
+            header.style.background = 'rgba(0, 0, 0, 0.95)';
         }
-        
-        // Update active nav link
-        updateActiveNavLink();
         
         // Back to top button
         const backToTop = document.getElementById('backToTop');
@@ -73,30 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Pricing toggle
-    const toggleOptions = document.querySelectorAll('.toggle-option');
-    const monthlyPrices = document.querySelectorAll('.plan-price.monthly');
-    const yearlyPrices = document.querySelectorAll('.plan-price.yearly');
-    
-    toggleOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const plan = this.dataset.plan;
-            
-            toggleOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-            
-            if (plan === 'monthly') {
-                monthlyPrices.forEach(p => p.classList.add('active'));
-                yearlyPrices.forEach(p => p.classList.remove('active'));
-            } else {
-                monthlyPrices.forEach(p => p.classList.remove('active'));
-                yearlyPrices.forEach(p => p.classList.add('active'));
-            }
-        });
-    });
-    
     // Plan selection
-    const planButtons = document.querySelectorAll('.card-cta');
+    const planButtons = document.querySelectorAll('.card-button');
     planButtons.forEach(button => {
         button.addEventListener('click', function() {
             const plan = this.dataset.plan;
@@ -104,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Map plan to option value
             const planMap = {
-                'starter': '35€/mois - Starter',
-                'pro': '399€ - Pro',
-                'ecommerce': '1249€ - E-commerce'
+                'vitrine': 'Site Vitrine - 399€',
+                'pro': 'Site Pro - 499€',
+                'ecommerce': 'E-commerce - 1 249€ + 35€/mois'
             };
             
             if (planMap[plan]) {
@@ -121,10 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Contact form submission
     const contactForm = document.getElementById('quoteForm');
-    const successToast = document.getElementById('successToast');
+    const successToast = document.getElementById('notificationToast');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Show loading state
@@ -133,20 +110,18 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.querySelector('.submit-text').textContent = 'Envoi en cours...';
             submitBtn.disabled = true;
             
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Send email via FormSubmit
-            fetch(this.action, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
+            try {
+                // Send form data using FormSubmit
+                const formData = new FormData(this);
+                
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
                 if (response.ok) {
                     // Show success toast
                     showToast();
@@ -155,20 +130,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.reset();
                     
                     // Show success message
-                    showNotification('Devis envoyé ! Nous vous contactons dans les 2 heures.', 'success');
+                    showNotification('🎉 Parfait ! Nous vous contactons dans l\'heure.', 'success');
+                    
+                    // Scroll to top
+                    setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 1000);
                 } else {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Erreur réseau');
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error:', error);
-                showNotification('Une erreur est survenue. Veuillez réessayer.', 'error');
-            })
-            .finally(() => {
+                showNotification('⚠️ Une erreur est survenue. Réessayez ou appelez-nous.', 'error');
+            } finally {
                 // Reset button
                 submitBtn.querySelector('.submit-text').textContent = originalText;
                 submitBtn.disabled = false;
-            });
+            }
         });
     }
     
@@ -180,10 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Initialize Marone Web
-function initMaroneWeb() {
-    // Premium cursor
-    initPremiumCursor();
-    
+function initMarone() {
     // Text animations
     initTextAnimations();
     
@@ -194,57 +169,103 @@ function initMaroneWeb() {
     initScrollAnimations();
 }
 
-// Premium Cursor
-function initPremiumCursor() {
-    const cursor = document.createElement('div');
-    cursor.className = 'marone-cursor';
-    document.body.appendChild(cursor);
+// Particles Background
+function initParticles() {
+    const canvas = document.getElementById('particlesCanvas');
+    if (!canvas) return;
     
-    const trail = document.createElement('div');
-    trail.className = 'cursor-trail';
-    document.body.appendChild(trail);
+    const ctx = canvas.getContext('2d');
     
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
+    // Set canvas dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Particles array
+    const particles = [];
+    const particleCount = 80;
+    
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 3 + 1,
+            speedX: Math.random() * 1 - 0.5,
+            speedY: Math.random() * 1 - 0.5,
+            color: `rgba(255, ${Math.random() * 100}, ${Math.random() * 100}, ${Math.random() * 0.3 + 0.1})`
+        });
+    }
+    
+    // Animation loop
+    function animate() {
+        // Clear canvas with fade effect
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         
-        // Trail with delay
-        setTimeout(() => {
-            trail.style.left = `${e.clientX}px`;
-            trail.style.top = `${e.clientY}px`;
-        }, 100);
-    });
-    
-    // Hover effects
-    const hoverElements = document.querySelectorAll('a, button, .benefit-card, .pricing-card, .portfolio-item');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
+        // Update and draw particles
+        particles.forEach(particle => {
+            // Update position
+            particle.x += particle.speedX;
+            particle.y += particle.speedY;
+            
+            // Bounce off edges
+            if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+            if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+            
+            // Draw particle
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fillStyle = particle.color;
+            ctx.fill();
+            
+            // Draw connections
+            particles.forEach(otherParticle => {
+                const dx = particle.x - otherParticle.x;
+                const dy = particle.y - otherParticle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(255, 0, 0, ${0.1 * (1 - distance / 100)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particle.x, particle.y);
+                    ctx.lineTo(otherParticle.x, otherParticle.y);
+                    ctx.stroke();
+                }
+            });
         });
         
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-        });
-    });
+        requestAnimationFrame(animate);
+    }
     
-    // Click effect
-    document.addEventListener('click', (e) => {
-        cursor.classList.add('click');
-        setTimeout(() => cursor.classList.remove('click'), 300);
+    // Start animation
+    animate();
+    
+    // Resize handler
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 }
 
 // Text Animations
 function initTextAnimations() {
-    const words = document.querySelectorAll('.title-word');
-    words.forEach((word, index) => {
-        word.style.animationDelay = `${index * 0.1}s`;
+    const titles = document.querySelectorAll('.title-line');
+    titles.forEach((title, index) => {
+        title.style.opacity = '0';
+        title.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            title.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            title.style.opacity = '1';
+            title.style.transform = 'translateY(0)';
+        }, index * 200);
     });
 }
 
 // Card Effects
 function initCardEffects() {
-    const cards = document.querySelectorAll('.benefit-card, .pricing-card');
+    const cards = document.querySelectorAll('.pricing-card, .portfolio-card, .info-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -254,8 +275,8 @@ function initCardEffects() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateY = ((x - centerX) / centerX) * 3;
-            const rotateX = ((centerY - y) / centerY) * 3;
+            const rotateY = ((x - centerX) / centerX) * 2;
+            const rotateX = ((centerY - y) / centerY) * 2;
             
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
         });
@@ -282,179 +303,16 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements
-    const animateElements = document.querySelectorAll('.benefit-card, .pricing-card, .portfolio-item, .timeline-step, .info-card');
+    const animateElements = document.querySelectorAll('.pricing-card, .portfolio-card, .process-step, .info-card');
     animateElements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
 }
 
-// Update Active Nav Link
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const overlayLinks = document.querySelectorAll('.overlay-link');
-    
-    let currentSection = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= (sectionTop - 100) && 
-            window.scrollY < (sectionTop + sectionHeight - 100)) {
-            currentSection = section.getAttribute('id');
-        }
-    });
-    
-    // Update nav links
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === currentSection) {
-            link.classList.add('active');
-        }
-    });
-    
-    // Update overlay links
-    overlayLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === currentSection) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// Particles Background
-function initParticles() {
-    const particlesContainer = document.getElementById('heroParticles');
-    if (!particlesContainer) return;
-    
-    particlesJS('heroParticles', {
-        particles: {
-            number: {
-                value: 80,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#FF3B30"
-            },
-            shape: {
-                type: "circle"
-            },
-            opacity: {
-                value: 0.3,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 1,
-                    opacity_min: 0.1,
-                    sync: false
-                }
-            },
-            size: {
-                value: 3,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 2,
-                    size_min: 0.1,
-                    sync: false
-                }
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#FF3B30",
-                opacity: 0.2,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 1,
-                direction: "none",
-                random: true,
-                straight: false,
-                out_mode: "out",
-                bounce: false,
-                attract: {
-                    enable: false,
-                    rotateX: 600,
-                    rotateY: 1200
-                }
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "grab"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 200,
-                    line_linked: {
-                        opacity: 0.5
-                    }
-                },
-                push: {
-                    particles_nb: 4
-                }
-            }
-        },
-        retina_detect: true
-    });
-}
-
-// Animations
-function initAnimations() {
-    // Add CSS for animations
-    const style = document.createElement('style');
-    style.textContent = `
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
-        }
-        
-        .animate-on-scroll.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Staggered animations */
-        .benefit-card:nth-child(1) { transition-delay: 0.1s; }
-        .benefit-card:nth-child(2) { transition-delay: 0.2s; }
-        .benefit-card:nth-child(3) { transition-delay: 0.3s; }
-        
-        .pricing-card:nth-child(1) { transition-delay: 0.1s; }
-        .pricing-card:nth-child(2) { transition-delay: 0.2s; }
-        .pricing-card:nth-child(3) { transition-delay: 0.3s; }
-        
-        .portfolio-item:nth-child(1) { transition-delay: 0.1s; }
-        .portfolio-item:nth-child(2) { transition-delay: 0.2s; }
-        .portfolio-item:nth-child(3) { transition-delay: 0.3s; }
-        
-        .timeline-step:nth-child(1) { transition-delay: 0.1s; }
-        .timeline-step:nth-child(2) { transition-delay: 0.2s; }
-        .timeline-step:nth-child(3) { transition-delay: 0.3s; }
-        .timeline-step:nth-child(4) { transition-delay: 0.4s; }
-    `;
-    document.head.appendChild(style);
-}
-
 // Show Toast
 function showToast() {
-    const toast = document.getElementById('successToast');
+    const toast = document.getElementById('notificationToast');
     toast.classList.add('show');
     
     setTimeout(() => {
@@ -464,10 +322,11 @@ function showToast() {
 
 // Show Notification
 function showNotification(message, type = 'success') {
+    // Create notification element
     const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
+    notification.className = `floating-notification ${type}`;
     
-    const icon = type === 'success' ? '✓' : '✕';
+    const icon = type === 'success' ? '🎉' : '⚠️';
     notification.innerHTML = `
         <div class="notification-content">
             <span class="notification-icon">${icon}</span>
@@ -482,7 +341,7 @@ function showNotification(message, type = 'success') {
         const styles = document.createElement('style');
         styles.className = 'notification-styles';
         styles.textContent = `
-            .notification {
+            .floating-notification {
                 position: fixed;
                 top: 2rem;
                 left: 50%;
@@ -500,29 +359,20 @@ function showNotification(message, type = 'success') {
                 transition: transform 0.3s var(--transition);
             }
             
-            .notification.success {
+            .floating-notification.success {
                 border-left: 4px solid var(--success);
             }
             
-            .notification.error {
+            .floating-notification.error {
                 border-left: 4px solid var(--danger);
             }
             
-            .notification.show {
+            .floating-notification.show {
                 transform: translateX(-50%) translateY(0);
             }
             
             .notification-icon {
                 font-size: 1.25rem;
-                font-weight: bold;
-            }
-            
-            .notification.success .notification-icon {
-                color: var(--success);
-            }
-            
-            .notification.error .notification-icon {
-                color: var(--danger);
             }
         `;
         document.head.appendChild(styles);
@@ -548,16 +398,54 @@ window.addEventListener('load', () => {
     if ('performance' in window) {
         const perfData = performance.getEntriesByType('navigation')[0];
         if (perfData) {
-            console.log(`🚀 Marone Web loaded in ${perfData.domContentLoadedEventEnd - perfData.fetchStart}ms`);
+            console.log(`🚀 MARONE WEB chargé en ${perfData.domContentLoadedEventEnd - perfData.fetchStart}ms`);
         }
     }
+    
+    // Easter egg
+    console.log(`
+    ╔══════════════════════════════════════╗
+    ║      MARONE WEB - SITE EXCEPTIONNEL  ║
+    ║                                      ║
+    ║  🚀 Sites web pro à 399€            ║
+    ║  ⚡ Livraison 24h                    ║
+    ║  🎯 500+ clients satisfaits         ║
+    ║  📧 contact@maroneweb.com           ║
+    ║                                      ║
+    ╚══════════════════════════════════════╝
+    `);
 });
 
-// Easter egg - Console message
-console.log(`
-🚀 MARONE WEB - Premium Web Development
-🔗 Site: https://maroneweb.com
-📧 Contact: martin.federer08@gmail.com
-💎 Création de sites web Apple-Level
-🎯 Conversions maximales garanties
-`);
+// Add CSS for animations
+const style = document.createElement('style');
+style.textContent = `
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
+    }
+    
+    .animate-on-scroll.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Staggered animations */
+    .pricing-card:nth-child(1) { transition-delay: 0.1s; }
+    .pricing-card:nth-child(2) { transition-delay: 0.2s; }
+    .pricing-card:nth-child(3) { transition-delay: 0.3s; }
+    
+    .portfolio-card:nth-child(1) { transition-delay: 0.1s; }
+    .portfolio-card:nth-child(2) { transition-delay: 0.2s; }
+    .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
+    
+    .process-step:nth-child(1) { transition-delay: 0.1s; }
+    .process-step:nth-child(2) { transition-delay: 0.2s; }
+    .process-step:nth-child(3) { transition-delay: 0.3s; }
+    .process-step:nth-child(4) { transition-delay: 0.4s; }
+    
+    .info-card:nth-child(1) { transition-delay: 0.1s; }
+    .info-card:nth-child(2) { transition-delay: 0.2s; }
+    .info-card:nth-child(3) { transition-delay: 0.3s; }
+`;
+document.head.appendChild(style);
