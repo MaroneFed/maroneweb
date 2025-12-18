@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>WebCraft Pro | Excellence Digitale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23000000%22>◈</text></svg>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body class="dark-mode">
+    <!-- Preloader Apple Style -->
+    <div class="apple-preloader" id="preloader">
+        <div class="apple-loader">
+            <div class="apple-loader-spinner"></div>
+            <div class="apple-logo">
+                <svg viewBox="0 0 24 24" width="48" height="48">
+                    <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Curseur premium -->
+    <div class="apple-cursor" id="cursor"></div>
+    <div class="apple-cursor-trail"></div>
+    <div class="cursor-ripple"></div>
+
+    <!-- Navigation Apple Pro -->
+    <nav class="apple-nav" id="mainNav">
+        <div class="apple-nav-container">
+            <!-- Logo minimaliste -->
+            <a href="#hero" class="apple-logo-link">
+                <div class="apple-logo-mark">
+                    <span class="logo-dot"></span>
+                    <span class="logo-ring"></span>
+                </div>
+                <span class="apple-logo-text">WebCraft<span class="logo-pro">Pro</span></span>
+            </a>
+
+            <!-- Menu principal -->
+            <div class="apple-menu">
+                <a href="#hero" class="apple-menu-link active" data-text="Accueil">
+                    <span class="menu-link-text">Accueil</span>
+                    <span class="menu-link-dot"></span>
+                </a>
+                <a href="#experience" class="apple-menu-link" data-text="Expérience">
+                    <span class="menu-link-text">Expérience</span>
+                    <span class="menu-link-dot"></span>
+                </a>
+                <a href="#showcase" class="apple-menu-link" data-text="Réalisations">
+                    <span class="menu-link-text">Réalisations</span>
+                    <span class="menu-link-dot"></span>
+                </a>
+                <a href="#process" class="apple-menu-link" data-text="Process">
+                    <span class="menu-link-text">Process</span>
+                    <span class="menu-link-dot"></span>
+                </a>
+                <a href="#contact" class="apple-menu-link" data-text="Contact">
+                    <span class="menu-link-text">Contact</span>
+                    <span class="menu-link-dot"></span>
+                </a>
+            </div>
+
+            <!-- Actions -->
+            <div class="apple-nav-actions">
+                <button class="apple-theme-toggle" id="themeToggle" aria-label="Changer le thème">
+                    <div class="theme-toggle-inner">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </button>
+                <a href="#contact" class="apple-cta-button">
+                    <span>Demander un devis</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Menu mobile -->
+            <button class="apple-menu-toggle" id="menuToggle" aria-label="Menu">
+                <span class="menu-toggle-line top"></span>
+                <span class="menu-toggle-line middle"></span>
+                <span class="menu-toggle-line bottom"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu mobile overlay -->
+    <div class="apple-mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <div class="apple-logo-mark">
+                    <span class="logo-dot"></span>
+                    <span class="logo-ring"></span>
+                </div>
+                <button class="mobile-menu-close" id="menuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="#hero" class="mobile-menu-link active">
+                    <span>Accueil</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#experience" class="mobile-menu-link">
+                    <span>Expérience</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#showcase" class="mobile-menu-link">
+                    <span>Réalisations</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#process" class="mobile-menu-link">
+                    <span>Process</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#contact" class="mobile-menu-link">
+                    <span>Contact</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="mobile-menu-footer">
+                <a href="#contact" class="apple-cta-button full">
+                    <span>Demander un devis</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Apple Level -->
+    <section class="apple-hero" id="hero">
+        <!-- Particles background -->
+        <div class="hero-particles" id="particles"></div>
+        
+        <!-- Floating elements -->
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+
+        <div class="apple-hero-container">
+            <!-- Badge d'excellence -->
+            <div class="excellence-badge">
+                <span class="badge-text">Design Award 2024</span>
+                <div class="badge-sparkle"></div>
+            </div>
+
+            <!-- Contenu principal -->
+            <div class="hero-content">
+                <div class="hero-pre-title">
+                    <span class="pre-title-line"></span>
+                    <span>Excellence Digitale</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line line-1">
+                        <span class="word">Websites</span>
+                        <span class="title-highlight">
+                            <span class="highlight-text">so</span>
+                            <span class="highlight-underline"></span>
+                        </span>
+                    </span>
+                    <span class="title-line line-2">
+                        <span class="title-highlight">
+                            <span class="highlight-text">perfect</span>
+                            <span class="highlight-underline"></span>
+                        </span>
+                        <span class="word">they feel</span>
+                    </span>
+                    <span class="title-line line-3">
+                        <span class="word">like</span>
+                        <span class="magic-word">
+                            <span class="magic-text">magic</span>
+                            <span class="magic-sparkle">
+                                <i class="fas fa-sparkle"></i>
+                            </span>
+                        </span>
+                    </span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Nous créons des expériences digitales tellement fluides et intuitives que vos utilisateurs oublient qu'ils utilisent un site web.
+                    <span class="subtitle-highlight">Chaque pixel a un purpose.</span>
+                </p>
+
+                <!-- Actions hero -->
+                <div class="hero-actions">
+                    <a href="#showcase" class="apple-primary-button">
+                        <span class="button-content">
+                            <span class="button-text">Explorer les réalisations</span>
+                            <span class="button-icon">
+                                <i class="fas fa-arrow-down"></i>
+                            </span>
+                        </span>
+                        <span class="button-glow"></span>
+                    </a>
+                    
+                    <a href="#process" class="apple-secondary-button">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span>Voir notre process</span>
+                    </a>
+                </div>
+
+                <!-- Stats premium -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="99">0</div>
+                        <div class="stat-label">Satisfaction clients</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="247">0</div>
+                        <div class="stat-label">Projets livrés</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="42">0</div>
+                        <div class="stat-label">Awards design</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual hero - MacBook Pro mockup -->
+            <div class="hero-visual">
+                <div class="macbook-pro">
+                    <div class="macbook-screen">
+                        <div class="screen-content">
+                            <!-- Animation de code -->
+                            <div class="code-animation">
+                                <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">website</span> = <span class="code-string">"perfection"</span>;</div>
+                                <div class="code-line"><span class="code-keyword">function</span> <span class="code-func">createExperience</span>() {</div>
+                                <div class="code-line">&nbsp;&nbsp;<span class="code-return">return</span> {</div>
+                                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;design: <span class="code-string">"apple-level"</span>,</div>
+                                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;performance: <span class="code-number">100</span>,</div>
+                                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;innovation: <span class="code-boolean">true</span></div>
+                                <div class="code-line">&nbsp;&nbsp;}</div>
+                                <div class="code-line">}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="macbook-base"></div>
+                    <div class="macbook-notch">
+                        <div class="notch-camera"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-line">
+                <div class="scroll-dot"></div>
+            </div>
+            <span class="scroll-text">Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Marquee brands -->
+    <div class="brands-marquee">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span class="brand-item">APPLE DESIGN INSPIRED</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">PREMIUM EXPERIENCES</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">INNOVATION DIGITALE</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">PERFORMANCE MAXIMALE</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">UI/UX EXCEPTIONNEL</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">APPLE DESIGN INSPIRED</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">PREMIUM EXPERIENCES</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">INNOVATION DIGITALE</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">PERFORMANCE MAXIMALE</span>
+                <span class="brand-divider">•</span>
+                <span class="brand-item">UI/UX EXCEPTIONNEL</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section class="apple-experience" id="experience">
+        <div class="experience-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-number">01</span>
+                    <span class="title-text">L'Expérience <span class="title-highlight">Apple-Level</span></span>
+                </h2>
+                <p class="section-subtitle">
+                    Nous ne créons pas des sites web, nous créons des expériences digitales qui 
+                    <span class="text-gradient">définissent les standards de l'industrie.</span>
+                </p>
+            </div>
+
+            <div class="experience-grid">
+                <!-- Carte 1 -->
+                <div class="experience-card" data-card="1">
+                    <div class="card-icon">
+                        <div class="icon-shape">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="card-title">Design Premium</h3>
+                    <p class="card-description">
+                        Chaque interface est conçue avec le même niveau de détail qu'un produit Apple. 
+                        Animation à 120fps, typographie parfaite, espacement millimétré.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Design System</span>
+                        <span class="feature-tag">Micro-interactions</span>
+                        <span class="feature-tag">Dark/Light Mode</span>
+                    </div>
+                    <div class="card-hover-effect"></div>
+                </div>
+
+                <!-- Carte 2 -->
+                <div class="experience-card" data-card="2">
+                    <div class="card-icon">
+                        <div class="icon-shape">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="card-title">Performance Extrême</h3>
+                    <p class="card-description">
+                        Sites optimisés pour charger en moins de 0.8s. Score Lighthouse 100/100. 
+                        Expérience utilisateur parfaitement fluide sur tous les devices.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Core Web Vitals</span>
+                        <span class="feature-tag">PWA Ready</span>
+                        <span class="feature-tag">Edge Computing</span>
+                    </div>
+                    <div class="card-hover-effect"></div>
+                </div>
+
+                <!-- Carte 3 -->
+                <div class="experience-card" data-card="3">
+                    <div class="card-icon">
+                        <div class="icon-shape">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="card-title">Sécurité Maximale</h3>
+                    <p class="card-description">
+                        Protection de niveau enterprise. SSL, protection DDoS, audit de sécurité complet. 
+                        Vos données et celles de vos clients sont en sécurité maximum.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">GDPR Compliant</span>
+                        <span class="feature-tag">Zero Trust</span>
+                        <span class="feature-tag">Encryption</span>
+                    </div>
+                    <div class="card-hover-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="apple-showcase" id="showcase">
+        <div class="showcase-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-number">02</span>
+                    <span class="title-text">Réalisations <span class="title-highlight">Exclusives</span></span>
+                </h2>
+                <p class="section-subtitle">
+                    Des projets qui redéfinissent l'excellence digitale. 
+                    <span class="text-gradient">Chaque détail compte.</span>
+                </p>
+            </div>
+
+            <div class="showcase-slider">
+                <!-- Project 1 -->
+                <div class="showcase-project active" data-project="1">
+                    <div class="project-content">
+                        <div class="project-badge">
+                            <span class="badge-year">2024</span>
+                            <span class="badge-category">E-commerce Luxe</span>
+                        </div>
+                        <h3 class="project-title">NovaLuxe</h3>
+                        <p class="project-description">
+                            Plateforme e-commerce de luxe avec réalité augmentée, 
+                            paiement sécurisé et expérience immersive.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="stat-value">+320%</div>
+                                <div class="stat-label">Conversion</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-value">0.6s</div>
+                                <div class="stat-label">Load Time</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-value">99.9%</div>
+                                <div class="stat-label">Uptime</div>
+                            </div>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>Voir l'étude de cas</span>
+                            <i class="fas fa-arrow-up-right"></i>
+                        </a>
+                    </div>
+                    <div class="project-visual">
+                        <div class="iphone-mockup">
+                            <div class="iphone-screen">
+                                <div class="screen-app"></div>
+                            </div>
+                            <div class="iphone-frame"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="showcase-project" data-project="2">
+                    <div class="project-content">
+                        <div class="project-badge">
+                            <span class="badge-year">2024</span>
+                            <span class="badge-category">SaaS Enterprise</span>
+                        </div>
+                        <h3 class="project-title">QuantumFlow</h3>
+                        <p class="project-description">
+                            Dashboard SaaS avec analytics temps réel, AI intégrée et 
+                            interface adaptative pour les grandes entreprises.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="stat-value">-65%</div>
+                                <div class="stat-label">Temps de task</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-value">10k+</div>
+                                <div class="stat-label">Utilisateurs</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">Satisfaction</div>
+                            </div>
+                        </div>
+                        <a href="#" class="project-link">
+                            <span>Voir l'étude de cas</span>
+                            <i class="fas fa-arrow-up-right"></i>
+                        </a>
+                    </div>
+                    <div class="project-visual">
+                        <div class="ipad-mockup">
+                            <div class="ipad-screen">
+                                <div class="screen-dashboard"></div>
+                            </div>
+                            <div class="ipad-frame"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider controls -->
+            <div class="showcase-controls">
+                <button class="slider-prev" id="prevProject">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots">
+                    <button class="slider-dot active" data-slide="0"></button>
+                    <button class="slider-dot" data-slide="1"></button>
+                    <button class="slider-dot" data-slide="2"></button>
+                </div>
+                <button class="slider-next" id="nextProject">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="apple-process" id="process">
+        <div class="process-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-number">03</span>
+                    <span class="title-text">Process <span class="title-highlight">Créatif</span></span>
+                </h2>
+                <p class="section-subtitle">
+                    Une méthodologie rigoureuse qui garantit l'excellence à chaque étape.
+                    <span class="text-gradient">De l'idée au produit final.</span>
+                </p>
+            </div>
+
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number">
+                        <span>01</span>
+                        <div class="step-connector"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Discovery & Strategy</h3>
+                        <p class="step-description">
+                            Analyse approfondie de votre marché, compétition et objectifs. 
+                            Définition d'une stratégie digitale sur mesure.
+                        </p>
+                        <div class="step-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>1-2 semaines</span>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number">
+                        <span>02</span>
+                        <div class="step-connector"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Design & Prototype</h3>
+                        <p class="step-description">
+                            Création de wireframes, design system et prototypes interactifs. 
+                            Chaque pixel est placé avec intention.
+                        </p>
+                        <div class="step-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>2-3 semaines</span>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number">
+                        <span>03</span>
+                        <div class="step-connector"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Development</h3>
+                        <p class="step-description">
+                            Développement avec les dernières technologies. Code optimisé, 
+                            architecture scalable et tests approfondis.
+                        </p>
+                        <div class="step-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>3-5 semaines</span>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number">
+                        <span>04</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Launch & Optimize</h3>
+                        <p class="step-description">
+                            Déploiement, monitoring et optimisation continue. 
+                            Support premium et maintenance proactive.
+                        </p>
+                        <div class="step-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>Ongoing</span>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="apple-cta" id="contact">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    Prêt à créer 
+                    <span class="text-gradient">l'expérience digitale</span> 
+                    de vos rêves ?
+                </h2>
+                <p class="cta-subtitle">
+                    Contactez-nous pour une consultation gratuite. Discutons de votre projet 
+                    et de comment nous pouvons créer quelque chose d'extraordinaire ensemble.
+                </p>
+                
+                <form class="apple-contact-form" id="contactForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="text" id="ctaName" required>
+                            <label for="ctaName">Votre nom</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="ctaEmail" required>
+                            <label for="ctaEmail">Votre email</label>
+                            <div class="form-line"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="ctaMessage" rows="4" required></textarea>
+                        <label for="ctaMessage">Votre message</label>
+                        <div class="form-line"></div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <button type="submit" class="apple-submit-button">
+                            <span class="submit-text">Envoyer la demande</span>
+                            <span class="submit-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </span>
+                            <span class="submit-glow"></span>
+                        </button>
+                        <div classform-agreement">
+                            <i class="fas fa-lock"></i>
+                            <span>Vos données sont sécurisées. Pas de spam.</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="cta-visual">
+                <div class="visual-container">
+                    <div class="floating-orb orb-1"></div>
+                    <div class="floating-orb orb-2"></div>
+                    <div class="floating-orb orb-3"></div>
+                    
+                    <div class="visual-message">
+                        <div class="message-bubble">
+                            <div class="bubble-text">Let's create something amazing</div>
+                            <div class="bubble-tail"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Apple Style -->
+    <footer class="apple-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#hero" class="apple-logo-link">
+                        <div class="apple-logo-mark">
+                            <span class="logo-dot"></span>
+                            <span class="logo-ring"></span>
+                        </div>
+                        <span class="apple-logo-text">WebCraft<span class="logo-pro">Pro</span></span>
+                    </a>
+                    <p class="footer-tagline">
+                        Créateurs d'expériences digitales exceptionnelles. 
+                        <span class="tagline-highlight">Apple-level quality.</span>
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-column">
+                        <h4>Services</h4>
+                        <a href="#">Design Premium</a>
+                        <a href="#">Développement</a>
+                        <a href="#">E-commerce</a>
+                        <a href="#">Applications Web</a>
+                    </div>
+                    <div class="link-column">
+                        <h4>Entreprise</h4>
+                        <a href="#">À propos</a>
+                        <a href="#">Carrières</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="link-column">
+                        <h4>Légal</h4>
+                        <a href="#">Confidentialité</a>
+                        <a href="#">Conditions</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Mentions légales</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 WebCraft Pro. Tous droits réservés.
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <a href="#hero" class="apple-back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
