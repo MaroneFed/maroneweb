@@ -1,119 +1,144 @@
-// MARONE WEB - Ultra Premium Script
+// MARONEWEB - Script Final Perfectionné
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize everything
-    initMarone();
+    console.log('🚀 MARONEWEB initialisé');
     
-    // Loading screen
-    const loadingScreen = document.getElementById('loadingScreen');
+    // Initialisation
+    initMaroneWeb();
+    
+    // Critical loading
     setTimeout(() => {
-        loadingScreen.classList.add('loaded');
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }, 1500);
+        document.getElementById('criticalLoading').classList.add('loaded');
+        document.body.classList.add('loaded');
+    }, 500);
     
     // Mobile menu
     const mobileToggle = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
     const mobileClose = document.getElementById('mobileClose');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
     
     mobileToggle.addEventListener('click', () => {
         mobileToggle.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        mobileOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
     });
     
     mobileClose.addEventListener('click', closeMobileMenu);
-    mobileLinks.forEach(link => {
+    document.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
     
     function closeMobileMenu() {
         mobileToggle.classList.remove('active');
-        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
     
     // Header scroll effect
     const header = document.querySelector('.main-header');
+    const backToTop = document.getElementById('backToTop');
+    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.style.padding = '0.5rem 0';
-            header.style.background = 'rgba(0, 0, 0, 0.98)';
+            header.classList.add('scrolled');
         } else {
-            header.style.padding = '1rem 0';
-            header.style.background = 'rgba(0, 0, 0, 0.95)';
+            header.classList.remove('scrolled');
         }
         
-        // Back to top button
-        const backToTop = document.getElementById('backToTop');
-        if (window.scrollY > 500) {
+        // Back to top
+        if (window.scrollY > 300) {
             backToTop.classList.add('visible');
         } else {
             backToTop.classList.remove('visible');
         }
+        
+        // Active nav link
+        updateActiveNavLink();
     });
     
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            const href = this.getAttribute('href');
+            if (href === '#') return;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const headerHeight = header.offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
+    // Pricing toggle
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+    const oneTimePrices = document.querySelectorAll('.plan-price.one-time');
+    const monthlyPrices = document.querySelectorAll('.plan-price.monthly');
+    
+    toggleOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const plan = this.dataset.plan;
+            
+            toggleOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            if (plan === 'one-time') {
+                oneTimePrices.forEach(p => p.classList.add('active'));
+                monthlyPrices.forEach(p => p.classList.remove('active'));
+            } else {
+                oneTimePrices.forEach(p => p.classList.remove('active'));
+                monthlyPrices.forEach(p => p.classList.add('active'));
+            }
+        });
+    });
+    
     // Plan selection
     const planButtons = document.querySelectorAll('.card-button');
+    const serviceSelect = document.getElementById('service');
+    
     planButtons.forEach(button => {
         button.addEventListener('click', function() {
             const plan = this.dataset.plan;
-            const planSelect = document.getElementById('plan');
             
-            // Map plan to option value
+            // Map plan to service
             const planMap = {
-                'vitrine': 'Site Vitrine - 399€',
-                'pro': 'Site Pro - 499€',
-                'ecommerce': 'E-commerce - 1 249€ + 35€/mois'
+                'starter': 'Site Vitrine - 199€',
+                'pro': 'Site Pro - 399€',
+                'ecommerce': 'E-commerce - 799€'
             };
             
             if (planMap[plan]) {
-                planSelect.value = planMap[plan];
-                // Scroll to contact form
+                serviceSelect.value = planMap[plan];
+                // Scroll to contact
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                // Focus on name field
+                // Focus on name
                 document.getElementById('name').focus();
             }
         });
     });
     
-    // Contact form submission
-    const contactForm = document.getElementById('quoteForm');
-    const successToast = document.getElementById('notificationToast');
-    
+    // Contact form
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Show loading state
+            // Get form data
+            const formData = new FormData(this);
             const submitBtn = this.querySelector('.submit-button');
             const originalText = submitBtn.querySelector('.submit-text').textContent;
+            
+            // Show loading
             submitBtn.querySelector('.submit-text').textContent = 'Envoi en cours...';
             submitBtn.disabled = true;
             
             try {
-                // Send form data using FormSubmit
-                const formData = new FormData(this);
-                
+                // Send to FormSubmit
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
@@ -123,29 +148,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 if (response.ok) {
-                    // Show success toast
-                    showToast();
-                    
-                    // Reset form
-                    this.reset();
+                    // Success
+                    submitBtn.querySelector('.submit-text').textContent = 'Envoyé !';
+                    submitBtn.style.background = 'var(--success)';
                     
                     // Show success message
-                    showNotification('🎉 Parfait ! Nous vous contactons dans l\'heure.', 'success');
+                    showNotification('🎉 Message envoyé ! Nous vous répondrons rapidement.', 'success');
                     
-                    // Scroll to top
+                    // Reset form
                     setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }, 1000);
+                        this.reset();
+                        submitBtn.querySelector('.submit-text').textContent = originalText;
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 2000);
                 } else {
                     throw new Error('Erreur réseau');
                 }
             } catch (error) {
-                console.error('Error:', error);
-                showNotification('⚠️ Une erreur est survenue. Réessayez ou appelez-nous.', 'error');
-            } finally {
-                // Reset button
-                submitBtn.querySelector('.submit-text').textContent = originalText;
-                submitBtn.disabled = false;
+                console.error('Erreur:', error);
+                submitBtn.querySelector('.submit-text').textContent = 'Erreur';
+                submitBtn.style.background = 'var(--warning)';
+                
+                showNotification('⚠️ Une erreur est survenue. Veuillez réessayer.', 'error');
+                
+                setTimeout(() => {
+                    submitBtn.querySelector('.submit-text').textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
             }
         });
     }
@@ -157,15 +188,44 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
 });
 
-// Initialize Marone Web
-function initMarone() {
-    // Text animations
-    initTextAnimations();
+// Initialize MARONEWEB
+function initMaroneWeb() {
+    // Add performance CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
+        }
+        
+        .animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger animations */
+        .service-card:nth-child(1) { transition-delay: 0.1s; }
+        .service-card:nth-child(2) { transition-delay: 0.2s; }
+        .service-card:nth-child(3) { transition-delay: 0.3s; }
+        
+        .portfolio-bubble:nth-child(1) { transition-delay: 0.1s; }
+        .portfolio-bubble:nth-child(2) { transition-delay: 0.2s; }
+        .portfolio-bubble:nth-child(3) { transition-delay: 0.3s; }
+        .portfolio-bubble:nth-child(4) { transition-delay: 0.4s; }
+        
+        .pricing-card:nth-child(1) { transition-delay: 0.1s; }
+        .pricing-card:nth-child(2) { transition-delay: 0.2s; }
+        .pricing-card:nth-child(3) { transition-delay: 0.3s; }
+        
+        .process-step:nth-child(1) { transition-delay: 0.1s; }
+        .process-step:nth-child(2) { transition-delay: 0.2s; }
+        .process-step:nth-child(3) { transition-delay: 0.3s; }
+        .process-step:nth-child(4) { transition-delay: 0.4s; }
+    `;
+    document.head.appendChild(style);
     
-    // Card hover effects
-    initCardEffects();
-    
-    // Scroll animations
+    // Initialize scroll animations
     initScrollAnimations();
 }
 
@@ -176,35 +236,34 @@ function initParticles() {
     
     const ctx = canvas.getContext('2d');
     
-    // Set canvas dimensions
+    // Set dimensions
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    // Particles array
-    const particles = [];
-    const particleCount = 80;
-    
     // Create particles
+    const particles = [];
+    const particleCount = Math.min(100, Math.floor(window.innerWidth / 10));
+    
     for (let i = 0; i < particleCount; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             size: Math.random() * 3 + 1,
-            speedX: Math.random() * 1 - 0.5,
-            speedY: Math.random() * 1 - 0.5,
-            color: `rgba(255, ${Math.random() * 100}, ${Math.random() * 100}, ${Math.random() * 0.3 + 0.1})`
+            speedX: (Math.random() - 0.5) * 0.5,
+            speedY: (Math.random() - 0.5) * 0.5,
+            color: `rgba(255, 51, 102, ${Math.random() * 0.3 + 0.1})`
         });
     }
     
     // Animation loop
-    function animate() {
-        // Clear canvas with fade effect
+    function animateParticles() {
+        // Clear with fade effect
         ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // Update and draw particles
         particles.forEach(particle => {
-            // Update position
+            // Move particle
             particle.x += particle.speedX;
             particle.y += particle.speedY;
             
@@ -226,7 +285,7 @@ function initParticles() {
                 
                 if (distance < 100) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255, 0, 0, ${0.1 * (1 - distance / 100)})`;
+                    ctx.strokeStyle = `rgba(255, 51, 102, ${0.2 * (1 - distance / 100)})`;
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(particle.x, particle.y);
                     ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -235,55 +294,15 @@ function initParticles() {
             });
         });
         
-        requestAnimationFrame(animate);
+        requestAnimationFrame(animateParticles);
     }
     
-    // Start animation
-    animate();
+    animateParticles();
     
-    // Resize handler
+    // Handle resize
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-    });
-}
-
-// Text Animations
-function initTextAnimations() {
-    const titles = document.querySelectorAll('.title-line');
-    titles.forEach((title, index) => {
-        title.style.opacity = '0';
-        title.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            title.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            title.style.opacity = '1';
-            title.style.transform = 'translateY(0)';
-        }, index * 200);
-    });
-}
-
-// Card Effects
-function initCardEffects() {
-    const cards = document.querySelectorAll('.pricing-card, .portfolio-card, .info-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateY = ((x - centerX) / centerX) * 2;
-            const rotateX = ((centerY - y) / centerY) * 2;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
     });
 }
 
@@ -291,7 +310,7 @@ function initCardEffects() {
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
@@ -303,51 +322,67 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe elements
-    const animateElements = document.querySelectorAll('.pricing-card, .portfolio-card, .process-step, .info-card');
-    animateElements.forEach(el => {
+    document.querySelectorAll('.service-card, .portfolio-bubble, .pricing-card, .process-step').forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
 }
 
-// Show Toast
-function showToast() {
-    const toast = document.getElementById('notificationToast');
-    toast.classList.add('show');
+// Update Active Nav Link
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
     
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3000);
+    let current = '';
+    const scrollPos = window.scrollY + 100;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
 }
 
 // Show Notification
 function showNotification(message, type = 'success') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `floating-notification ${type}`;
+    // Remove existing
+    const existing = document.querySelector('.notification-toast');
+    if (existing) existing.remove();
     
-    const icon = type === 'success' ? '🎉' : '⚠️';
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = `notification-toast ${type}`;
     notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-icon">${icon}</span>
-            <span class="notification-text">${message}</span>
+        <div class="toast-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
         </div>
     `;
     
     document.body.appendChild(notification);
     
-    // Add styles if not present
-    if (!document.querySelector('.notification-styles')) {
+    // Add styles if needed
+    if (!document.querySelector('#toast-styles')) {
         const styles = document.createElement('style');
-        styles.className = 'notification-styles';
+        styles.id = 'toast-styles';
         styles.textContent = `
-            .floating-notification {
+            .notification-toast {
                 position: fixed;
-                top: 2rem;
-                left: 50%;
-                transform: translateX(-50%) translateY(-100%);
+                top: 20px;
+                right: 20px;
                 background: rgba(0, 0, 0, 0.9);
-                backdrop-filter: blur(20px);
+                backdrop-filter: blur(10px);
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 12px;
                 padding: 1rem 1.5rem;
@@ -356,96 +391,79 @@ function showNotification(message, type = 'success') {
                 align-items: center;
                 gap: 0.75rem;
                 z-index: 10000;
-                transition: transform 0.3s var(--transition);
+                transform: translateX(120%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
             
-            .floating-notification.success {
+            .notification-toast.success {
                 border-left: 4px solid var(--success);
             }
             
-            .floating-notification.error {
-                border-left: 4px solid var(--danger);
+            .notification-toast.error {
+                border-left: 4px solid var(--warning);
             }
             
-            .floating-notification.show {
-                transform: translateX(-50%) translateY(0);
+            .notification-toast.show {
+                transform: translateX(0);
             }
             
-            .notification-icon {
+            .toast-content i {
                 font-size: 1.25rem;
+            }
+            
+            .notification-toast.success .toast-content i {
+                color: var(--success);
+            }
+            
+            .notification-toast.error .toast-content i {
+                color: var(--warning);
             }
         `;
         document.head.appendChild(styles);
     }
     
     // Show
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
+    setTimeout(() => notification.classList.add('show'), 10);
     
-    // Hide after 3 seconds
+    // Hide after 5 seconds
     setTimeout(() => {
         notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Initialize animations
+function initAnimations() {
+    // Hero title animation
+    const words = document.querySelectorAll('.word');
+    words.forEach((word, index) => {
+        word.style.animationDelay = `${index * 0.2}s`;
+    });
+    
+    // Floating devices animation
+    const devices = document.querySelectorAll('.floating-device');
+    devices.forEach((device, index) => {
+        device.style.animationDelay = `${index * 2}s`;
+    });
 }
 
 // Performance monitoring
 window.addEventListener('load', () => {
-    // Track performance
     if ('performance' in window) {
-        const perfData = performance.getEntriesByType('navigation')[0];
-        if (perfData) {
-            console.log(`🚀 MARONE WEB chargé en ${perfData.domContentLoadedEventEnd - perfData.fetchStart}ms`);
+        const perf = performance.getEntriesByType('navigation')[0];
+        if (perf) {
+            const loadTime = perf.domContentLoadedEventEnd - perf.fetchStart;
+            console.log(`⚡ MARONEWEB chargé en ${Math.round(loadTime)}ms`);
         }
     }
     
     // Easter egg
     console.log(`
     ╔══════════════════════════════════════╗
-    ║      MARONE WEB - SITE EXCEPTIONNEL  ║
-    ║                                      ║
-    ║  🚀 Sites web pro à 399€            ║
-    ║  ⚡ Livraison 24h                    ║
-    ║  🎯 500+ clients satisfaits         ║
-    ║  📧 contact@maroneweb.com           ║
-    ║                                      ║
+    ║         🚀 MARONEWEB                 ║
+    ║   Création de sites web exceptionnels ║
+    ║   À partir de 199€                  ║
+    ║   contact@maroneweb.com             ║
     ╚══════════════════════════════════════╝
     `);
 });
-
-// Add CSS for animations
-const style = document.createElement('style');
-style.textContent = `
-    .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
-    }
-    
-    .animate-on-scroll.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    /* Staggered animations */
-    .pricing-card:nth-child(1) { transition-delay: 0.1s; }
-    .pricing-card:nth-child(2) { transition-delay: 0.2s; }
-    .pricing-card:nth-child(3) { transition-delay: 0.3s; }
-    
-    .portfolio-card:nth-child(1) { transition-delay: 0.1s; }
-    .portfolio-card:nth-child(2) { transition-delay: 0.2s; }
-    .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
-    
-    .process-step:nth-child(1) { transition-delay: 0.1s; }
-    .process-step:nth-child(2) { transition-delay: 0.2s; }
-    .process-step:nth-child(3) { transition-delay: 0.3s; }
-    .process-step:nth-child(4) { transition-delay: 0.4s; }
-    
-    .info-card:nth-child(1) { transition-delay: 0.1s; }
-    .info-card:nth-child(2) { transition-delay: 0.2s; }
-    .info-card:nth-child(3) { transition-delay: 0.3s; }
-`;
-document.head.appendChild(style);

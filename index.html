@@ -3,289 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Marone Web | Sites Web Pro à 399€ - Livraison 24h</title>
-    <meta name="description" content="Votre site web professionnel à 399€ seulement. Design Apple, livraison en 24h, satisfaction garantie. Commencez à vendre maintenant.">
+    <title>MARONEWEB | Sites Web Pro à 199€ - Design Exceptionnel</title>
+    <meta name="description" content="MARONEWEB crée votre site web professionnel avec un design incroyable. Sites vitrine à partir de 199€, e-commerce à 799€.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23FF0000%22>▸</text></svg>">
-    <!-- Apple Web App Meta -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="format-detection" content="telephone=no">
-    <!-- Facebook / Open Graph -->
-    <meta property="og:title" content="Marone Web - Votre Site Pro 399€">
-    <meta property="og:description" content="Site web professionnel livré en 24h. Design Apple, prix disruptif.">
-    <meta property="og:type" content="website">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Votre Site Web à 399€ - Marone Web">
-    <!-- Preload critical resources -->
-    <link rel="preload" href="style.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23FF3366%22>◈</text></svg>">
+    <style>
+        /* Critical CSS */
+        .critical-loading { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center;
+        }
+        .critical-logo { color: #FF3366; font-size: 2rem; font-weight: 900; }
+    </style>
 </head>
 <body>
-    <!-- Loading Screen - Premium -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-pulse"></div>
-                <div class="logo-text">MARONE</div>
-            </div>
-            <div class="loading-progress">
-                <div class="progress-bar"></div>
-                <div class="progress-text">Chargement de l'expérience...</div>
-            </div>
-        </div>
+    <!-- Critical Loading -->
+    <div class="critical-loading" id="criticalLoading">
+        <div class="critical-logo">MARONEWEB</div>
     </div>
 
-    <!-- Notification Toast -->
-    <div class="notification-toast" id="notificationToast">
-        <div class="toast-content">
-            <i class="fas fa-check-circle"></i>
-            <span>Devis envoyé avec succès !</span>
-        </div>
-    </div>
+    <!-- Particle Background -->
+    <canvas id="particlesCanvas" class="particles-background"></canvas>
 
     <!-- Header -->
     <header class="main-header">
-        <div class="header-container">
-            <!-- Logo + Brand -->
-            <div class="header-brand">
-                <a href="#hero" class="brand-logo">
-                    <div class="logo-symbol">
-                        <div class="symbol-m">M</div>
-                        <div class="symbol-glow"></div>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-primary">MARONE</span>
-                        <span class="logo-sub">WEB</span>
-                    </div>
+        <div class="container">
+            <nav class="header-nav">
+                <a href="#hero" class="logo">
+                    <span class="logo-icon">◈</span>
+                    <span class="logo-text">MARONEWEB</span>
                 </a>
-                <div class="brand-tagline">Sites web qui convertissent</div>
-            </div>
+                
+                <div class="nav-menu">
+                    <a href="#services" class="nav-link">
+                        <span>Services</span>
+                        <div class="link-underline"></div>
+                    </a>
+                    <a href="#portfolio" class="nav-link">
+                        <span>Réalisations</span>
+                        <div class="link-underline"></div>
+                    </a>
+                    <a href="#pricing" class="nav-link">
+                        <span>Tarifs</span>
+                        <div class="link-underline"></div>
+                    </a>
+                    <a href="#contact" class="nav-link cta">
+                        <span>Contact</span>
+                        <i class="fas fa-bolt"></i>
+                    </a>
+                </div>
 
-            <!-- Navigation -->
-            <nav class="main-nav">
-                <a href="#pricing" class="nav-link">
-                    <i class="fas fa-tag"></i>
-                    <span>Nos Offres</span>
-                </a>
-                <a href="#portfolio" class="nav-link">
-                    <i class="fas fa-star"></i>
-                    <span>Réalisations</span>
-                </a>
-                <a href="#process" class="nav-link">
-                    <i class="fas fa-play"></i>
-                    <span>Comment ça marche</span>
-                </a>
-                <a href="#guarantee" class="nav-link">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Garantie</span>
-                </a>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
-
-            <!-- CTA Button -->
-            <div class="header-actions">
-                <a href="#contact" class="cta-button pulse">
-                    <span>Obtenir mon site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-toggle" id="mobileToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-header">
-            <div class="brand-logo">
-                <div class="logo-symbol">
-                    <div class="symbol-m">M</div>
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="mobile-content">
+            <div class="mobile-header">
+                <div class="logo">
+                    <span class="logo-icon">◈</span>
+                    <span class="logo-text">MARONEWEB</span>
                 </div>
-                <div class="logo-text">
-                    <span class="logo-primary">MARONE</span>
-                    <span class="logo-sub">WEB</span>
-                </div>
+                <button class="mobile-close" id="mobileClose">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <button class="mobile-close" id="mobileClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="mobile-links">
-            <a href="#pricing" class="mobile-link">
-                <i class="fas fa-tag"></i>
-                <span>Nos Offres</span>
-                <i class="fas fa-chevron-right"></i>
-            </a>
-            <a href="#portfolio" class="mobile-link">
-                <i class="fas fa-star"></i>
-                <span>Réalisations</span>
-                <i class="fas fa-chevron-right"></i>
-            </a>
-            <a href="#process" class="mobile-link">
-                <i class="fas fa-play"></i>
-                <span>Comment ça marche</span>
-                <i class="fas fa-chevron-right"></i>
-            </a>
-            <a href="#guarantee" class="mobile-link">
-                <i class="fas fa-shield-alt"></i>
-                <span>Garantie</span>
-                <i class="fas fa-chevron-right"></i>
-            </a>
-            <a href="#contact" class="mobile-link highlight">
-                <i class="fas fa-bolt"></i>
-                <span>Obtenir mon site</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
+            
+            <div class="mobile-links">
+                <a href="#services" class="mobile-link">
+                    <i class="fas fa-rocket"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#portfolio" class="mobile-link">
+                    <i class="fas fa-star"></i>
+                    <span>Réalisations</span>
+                </a>
+                <a href="#pricing" class="mobile-link">
+                    <i class="fas fa-tag"></i>
+                    <span>Tarifs</span>
+                </a>
+                <a href="#contact" class="mobile-link highlight">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Demander un devis</span>
+                </a>
+            </div>
         </div>
     </div>
 
-    <!-- Hero Section - IMMEDIATE IMPACT -->
+    <!-- Hero Section - ULTRA IMPACTANT -->
     <section class="hero-section" id="hero">
-        <!-- Animated Background -->
-        <div class="hero-bg">
-            <canvas id="particlesCanvas"></canvas>
-            <div class="bg-gradients">
-                <div class="gradient-1"></div>
-                <div class="gradient-2"></div>
+        <!-- Animated Background Elements -->
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
             </div>
+            <div class="hero-glow"></div>
         </div>
 
         <div class="container">
-            <div class="hero-grid">
-                <!-- Left Column - Main Message -->
-                <div class="hero-content">
-                    <!-- Badge Social Proof -->
-                    <div class="social-badge">
-                        <div class="badge-content">
-                            <i class="fas fa-crown"></i>
-                            <span>+500 sites livrés • Satisfaction 99%</span>
-                        </div>
+            <div class="hero-content">
+                <!-- Badge Impact -->
+                <div class="impact-badge">
+                    <div class="badge-content">
+                        <i class="fas fa-fire"></i>
+                        <span>+200 SITES CRÉÉS • 100% SATISFACTION</span>
                     </div>
+                    <div class="badge-sparkle"></div>
+                </div>
 
-                    <!-- Main Headline -->
-                    <h1 class="hero-title">
-                        <span class="title-line">Votre site web</span>
-                        <span class="title-line highlight">professionnel</span>
-                        <span class="title-line">à seulement <span class="price">399€</span></span>
-                    </h1>
+                <!-- Main Title -->
+                <h1 class="hero-title">
+                    <span class="title-line">
+                        <span class="word">Votre site web</span>
+                        <span class="word highlight">EXCEPTIONNEL</span>
+                    </span>
+                    <span class="title-line">
+                        <span class="word">à partir de</span>
+                        <span class="price-tag">
+                            <span class="price">MaroneWeb</span>
+                            <span class="price-glow"></span>
+                        </span>
+                    </span>
+                </h1>
 
-                    <!-- Subheadline -->
-                    <p class="hero-subtitle">
-                        Design Apple, livraison en <strong>24h</strong>, hébergement inclus. 
-                        <span class="highlight-text">Pas de frais cachés.</span>
-                    </p>
+                <!-- Subtitle -->
+                <p class="hero-subtitle">
+                    Nous créons des sites web qui <strong>captivent vos clients</strong> et 
+                    <strong>transforment vos visiteurs en acheteurs</strong>. 
+                    Design futuriste, performance extrême.
+                </p>
 
-                    <!-- Value Proposition -->
-                    <div class="value-props">
-                        <div class="value-prop">
+                <!-- Features -->
+                <div class="hero-features">
+                    <div class="feature">
+                        <div class="feature-icon">
                             <i class="fas fa-bolt"></i>
-                            <span>Livré en 24h chrono</span>
                         </div>
-                        <div class="value-prop">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Hébergement inclus</span>
+                        <div class="feature-text">
+                            <div class="feature-title">ULTRA RAPIDE</div>
+                            <div class="feature-desc">Chargement < 1s</div>
                         </div>
-                        <div class="value-prop">
-                            <i class="fas fa-chart-line"></i>
-                            <span>SEO optimisé</span>
-                        </div>
-                        <div class="value-prop">
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
                             <i class="fas fa-mobile-alt"></i>
-                            <span>Mobile first</span>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title">100% RESPONSIVE</div>
+                            <div class="feature-desc">Parfait sur tous devices</div>
                         </div>
                     </div>
-
-                    <!-- CTA Buttons -->
-                    <div class="hero-actions">
-                        <a href="#pricing" class="btn-primary">
-                            <span class="btn-text">Voir les offres</span>
-                            <span class="btn-price">Dès 35€/mois</span>
-                            <i class="fas fa-arrow-right"></i>
-                            <div class="btn-glow"></div>
-                        </a>
-                        <a href="#contact" class="btn-secondary">
-                            <i class="fas fa-video"></i>
-                            <span>Consultation gratuite</span>
-                        </a>
-                    </div>
-
-                    <!-- Trust Indicators -->
-                    <div class="trust-badges">
-                        <div class="trust-badge">
-                            <i class="fas fa-clock"></i>
-                            <div class="badge-content">
-                                <div class="badge-title">24h</div>
-                                <div class="badge-desc">Délai moyen</div>
-                            </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="trust-badge">
-                            <i class="fas fa-check-circle"></i>
-                            <div class="badge-content">
-                                <div class="badge-title">100%</div>
-                                <div class="badge-desc">Satisfaction</div>
-                            </div>
-                        </div>
-                        <div class="trust-badge">
-                            <i class="fas fa-trophy"></i>
-                            <div class="badge-content">
-                                <div class="badge-title">#1</div>
-                                <div class="badge-desc">Prix/Rapport</div>
-                            </div>
+                        <div class="feature-text">
+                            <div class="feature-title">SÉCURISÉ</div>
+                            <div class="feature-desc">SSL & Protection</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column - Visual -->
-                <div class="hero-visual">
-                    <!-- Device Showcase -->
-                    <div class="device-showcase">
-                        <div class="macbook">
-                            <div class="macbook-screen">
-                                <div class="screen-content">
-                                    <!-- Demo Website -->
-                                    <div class="website-demo">
-                                        <div class="demo-nav">
-                                            <div class="nav-logo">MARONE</div>
-                                            <div class="nav-links">
-                                                <span>Accueil</span>
-                                                <span>Services</span>
-                                                <span>Contact</span>
-                                            </div>
-                                        </div>
-                                        <div class="demo-hero">
-                                            <h3>Transformez vos visiteurs en clients</h3>
-                                            <p>Site optimisé pour la conversion</p>
-                                        </div>
+                <!-- CTA Buttons -->
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span class="btn-content">
+                            <span class="btn-text">Voir nos réalisations</span>
+                            <span class="btn-icon">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </span>
+                        <span class="btn-glow"></span>
+                    </a>
+                    
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Discuter de mon projet</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual - Device Showcase -->
+            <div class="hero-visual">
+                <div class="device-showcase">
+                    <!-- Floating Devices -->
+                    <div class="floating-device phone">
+                        <div class="device-screen">
+                            <div class="screen-content">
+                                <div class="app-demo">
+                                    <div class="app-header">MARONEWEB</div>
+                                    <div class="app-body">
+                                        <div class="demo-text">Site Mobile</div>
                                         <div class="demo-stats">
-                                            <div class="stat">
-                                                <div class="stat-value">+225%</div>
-                                                <div class="stat-label">Trafic</div>
-                                            </div>
-                                            <div class="stat">
-                                                <div class="stat-value">+325%</div>
-                                                <div class="stat-label">Ventes</div>
-                                            </div>
+                                            <span>100% Responsive</span>
+                                            <span>Performance</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="macbook-base"></div>
                         </div>
-
-                        <!-- Floating Price Tag -->
-                        <div class="price-tag">
-                            <div class="tag-content">
-                                <div class="tag-price">399€</div>
-                                <div class="tag-text">Site Pro</div>
+                    </div>
+                    
+                    <div class="floating-device tablet">
+                        <div class="device-screen">
+                            <div class="screen-content">
+                                <div class="tablet-demo">
+                                    <div class="demo-title">Tablet Ready</div>
+                                    <div class="demo-badge">Optimisé</div>
+                                </div>
                             </div>
-                            <div class="tag-glow"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-device laptop">
+                        <div class="device-screen">
+                            <div class="screen-content">
+                                <div class="laptop-demo">
+                                    <div class="demo-logo">MARONEWEB</div>
+                                    <div class="demo-features">
+                                        <span>Design</span>
+                                        <span>Performance</span>
+                                        <span>SEO</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -297,56 +249,198 @@
             <div class="scroll-line">
                 <div class="scroll-dot"></div>
             </div>
-            <span>Découvrir les offres</span>
+            <span class="scroll-text">Découvrir</span>
         </div>
     </section>
 
-    <!-- Marquee Brands -->
-    <div class="marquee-section">
-        <div class="marquee-track">
-            <div class="marquee-content">
-                <span>🚀 LIVRAISON 24H •</span>
-                <span>💰 PRIX 399€ SEULEMENT •</span>
-                <span>⭐ SATISFACTION GARANTIE •</span>
-                <span>📱 DESIGN APPLE •</span>
-                <span>🚀 LIVRAISON 24H •</span>
-                <span>💰 PRIX 399€ SEULEMENT •</span>
-                <span>⭐ SATISFACTION GARANTIE •</span>
-                <span>📱 DESIGN APPLE •</span>
+    <!-- Services -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">NOS SERVICES</div>
+                <h2 class="section-title">Nous Créons Votre <span class="highlight">Présence en Ligne</span></h2>
+                <p class="section-subtitle">Des solutions web complètes pour propulser votre business</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-shine"></div>
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="service-title">Site Vitrine</h3>
+                        <p class="service-description">
+                            Présentez votre activité avec un design moderne et percutant. 
+                            Idéal pour les professionnels et petites entreprises.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Design unique</li>
+                            <li><i class="fas fa-check"></i> Responsive design</li>
+                            <li><i class="fas fa-check"></i> SEO optimisé</li>
+                            <li><i class="fas fa-check"></i> Hébergement inclus</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">À partir de 199€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card featured">
+                    <div class="featured-badge">LE PLUS POPULAIRE</div>
+                    <div class="card-shine"></div>
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="service-title">E-commerce</h3>
+                        <p class="service-description">
+                            Boutique en ligne complète pour vendre vos produits. 
+                            Gestion des stocks, paiements sécurisés, analytics.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Boutique complète</li>
+                            <li><i class="fas fa-check"></i> Paiements sécurisés</li>
+                            <li><i class="fas fa-check"></i> Gestion stocks</li>
+                            <li><i class="fas fa-check"></i> Marketing tools</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">À partir de 799€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-shine"></div>
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="service-title">Site Pro</h3>
+                        <p class="service-description">
+                            Solution premium pour les entreprises qui veulent se démarquer. 
+                            Design sur mesure, fonctionnalités avancées.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Design sur mesure</li>
+                            <li><i class="fas fa-check"></i> Fonctionnalités avancées</li>
+                            <li><i class="fas fa-check"></i> Support prioritaire</li>
+                            <li><i class="fas fa-check"></i> Maintenance incluse</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">À partir de 399€</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Pricing Section - CRYSTAL CLEAR -->
+    <!-- Portfolio - BULLES STYLÉES -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">NOS RÉALISATIONS</div>
+                <h2 class="section-title">Des Sites qui <span class="highlight">Démarquent</span></h2>
+                <p class="section-subtitle">Découvrez nos dernières créations</p>
+            </div>
+
+            <!-- Portfolio Bubbles -->
+            <div class="portfolio-bubbles">
+                <!-- Bubble 1 -->
+                <div class="portfolio-bubble" style="--bubble-size: 300px; --bubble-color: #FF3366;">
+                    <div class="bubble-content">
+                        <div class="bubble-badge">E-commerce</div>
+                        <h3 class="bubble-title">Boutique Mode</h3>
+                        <p class="bubble-desc">Site e-commerce avec catalogue produits</p>
+                        <div class="bubble-price">799€</div>
+                    </div>
+                    <div class="bubble-glow"></div>
+                </div>
+
+                <!-- Bubble 2 -->
+                <div class="portfolio-bubble" style="--bubble-size: 280px; --bubble-color: #0066FF;">
+                    <div class="bubble-content">
+                        <div class="bubble-badge">Restaurant</div>
+                        <h3 class="bubble-title">Gastronomie</h3>
+                        <p class="bubble-desc">Site vitrine avec réservation en ligne</p>
+                        <div class="bubble-price">399€</div>
+                    </div>
+                    <div class="bubble-glow"></div>
+                </div>
+
+                <!-- Bubble 3 -->
+                <div class="portfolio-bubble" style="--bubble-size: 260px; --bubble-color: #00CC99;">
+                    <div class="bubble-content">
+                        <div class="bubble-badge">Professionnel</div>
+                        <h3 class="bubble-title">Cabinet Avocats</h3>
+                        <p class="bubble-desc">Site corporate avec espace client</p>
+                        <div class="bubble-price">599€</div>
+                    </div>
+                    <div class="bubble-glow"></div>
+                </div>
+
+                <!-- Bubble 4 -->
+                <div class="portfolio-bubble" style="--bubble-size: 320px; --bubble-color: #FF9900;">
+                    <div class="bubble-content">
+                        <div class="bubble-badge">Startup</div>
+                        <h3 class="bubble-title">Tech Startup</h3>
+                        <p class="bubble-desc">Site landing page avec animations</p>
+                        <div class="bubble-price">299€</div>
+                    </div>
+                    <div class="bubble-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing - TARIFS SIMPLES -->
     <section class="pricing-section" id="pricing">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Choisissez Votre Site</h2>
-                <p class="section-subtitle">Des offres simples, des prix transparents. Aucun frais caché.</p>
+                <div class="section-badge">NOS TARIFS</div>
+                <h2 class="section-title">Des Prix <span class="highlight">Transparents</span></h2>
+                <p class="section-subtitle">Choisissez la formule qui correspond à vos besoins</p>
+            </div>
+
+            <!-- Pricing Toggle -->
+            <div class="pricing-toggle">
+                <div class="toggle-wrapper">
+                    <button class="toggle-option active" data-plan="one-time">
+                        <span>Paiement unique</span>
+                    </button>
+                    <button class="toggle-option" data-plan="monthly">
+                        <span>Abonnement mensuel</span>
+                        <div class="toggle-badge">Économisez</div>
+                    </button>
+                </div>
             </div>
 
             <!-- Pricing Cards -->
-            <div class="pricing-grid">
-                <!-- Starter -->
+            <div class="pricing-cards">
+                <!-- Plan 1 -->
                 <div class="pricing-card">
-                    <div class="card-badge">Populaire</div>
                     <div class="card-header">
-                        <h3 class="plan-name">Site Vitrine</h3>
-                        <div class="plan-desc">Pour commencer en ligne</div>
-                        <div class="plan-price">
-                            <span class="price">399€</span>
-                            <span class="note">une fois</span>
+                        <h3 class="plan-name">STARTER</h3>
+                        <div class="plan-description">Pour débuter en ligne</div>
+                        <div class="plan-price one-time active">
+                            <span class="price">199€</span>
+                            <span class="period">une fois</span>
                         </div>
-                        <div class="plan-savings">Ou 35€/mois</div>
+                        <div class="plan-price monthly">
+                            <span class="price">29€</span>
+                            <span class="period">/mois</span>
+                        </div>
                     </div>
+                    
                     <div class="card-features">
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>5 pages design professionnel</span>
+                            <span>5 pages design</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>100% responsive mobile</span>
+                            <span>Responsive mobile</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
@@ -354,39 +448,48 @@
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Hébergement inclus</span>
+                            <span>Hébergement 1 an</span>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Livraison 48h</span>
+                        <div class="feature disabled">
+                            <i class="fas fa-times"></i>
+                            <span>SEO avancé</span>
+                        </div>
+                        <div class="feature disabled">
+                            <i class="fas fa-times"></i>
+                            <span>E-commerce</span>
                         </div>
                     </div>
-                    <button class="card-button" data-plan="vitrine">
+                    
+                    <button class="card-button" data-plan="starter">
                         <span>Choisir cette offre</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
 
-                <!-- Pro -->
+                <!-- Plan 2 - Featured -->
                 <div class="pricing-card featured">
-                    <div class="card-badge">RECOMMANDÉ</div>
+                    <div class="featured-label">RECOMMANDÉ</div>
                     <div class="card-header">
-                        <h3 class="plan-name">Site Pro</h3>
-                        <div class="plan-desc">Pour dominer votre marché</div>
-                        <div class="plan-price">
-                            <span class="price">499€</span>
-                            <span class="note">une fois</span>
+                        <h3 class="plan-name">PRO</h3>
+                        <div class="plan-description">Pour développer votre activité</div>
+                        <div class="plan-price one-time active">
+                            <span class="price">399€</span>
+                            <span class="period">une fois</span>
                         </div>
-                        <div class="plan-savings">Meilleur rapport qualité/prix</div>
+                        <div class="plan-price monthly">
+                            <span class="price">59€</span>
+                            <span class="period">/mois</span>
+                        </div>
                     </div>
+                    
                     <div class="card-features">
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>10 pages sur-mesure</span>
+                            <span>10 pages sur mesure</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Design Apple-level</span>
+                            <span>Design premium</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
@@ -398,31 +501,35 @@
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Livraison 24h</span>
+                            <span>Maintenance 6 mois</span>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Formation offerte</span>
+                        <div class="feature disabled">
+                            <i class="fas fa-times"></i>
+                            <span>E-commerce</span>
                         </div>
                     </div>
+                    
                     <button class="card-button primary" data-plan="pro">
                         <span>Choisir cette offre</span>
                         <i class="fas fa-bolt"></i>
                     </button>
                 </div>
 
-                <!-- E-commerce -->
+                <!-- Plan 3 -->
                 <div class="pricing-card">
-                    <div class="card-badge">Premium</div>
                     <div class="card-header">
-                        <h3 class="plan-name">E-commerce</h3>
-                        <div class="plan-desc">Pour vendre en ligne</div>
-                        <div class="plan-price">
-                            <span class="price">1 249€</span>
-                            <span class="note">+ 35€/mois</span>
+                        <h3 class="plan-name">E-COMMERCE</h3>
+                        <div class="plan-description">Pour vendre en ligne</div>
+                        <div class="plan-price one-time active">
+                            <span class="price">799€</span>
+                            <span class="period">+ 39€/mois</span>
                         </div>
-                        <div class="plan-savings">Tout inclus</div>
+                        <div class="plan-price monthly">
+                            <span class="price">99€</span>
+                            <span class="period">/mois</span>
+                        </div>
                     </div>
+                    
                     <div class="card-features">
                         <div class="feature">
                             <i class="fas fa-check"></i>
@@ -434,7 +541,7 @@
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Gestion des stocks</span>
+                            <span>Gestion stocks</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
@@ -446,149 +553,56 @@
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Livraison 72h</span>
+                            <span>Formation incluse</span>
                         </div>
                     </div>
+                    
                     <button class="card-button" data-plan="ecommerce">
                         <span>Choisir cette offre</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
-
-            <!-- Comparison -->
-            <div class="comparison-section">
-                <h3 class="comparison-title">Pourquoi nous sommes imbattables</h3>
-                <div class="comparison-grid">
-                    <div class="comparison-item other">
-                        <div class="item-title">Autres agences</div>
-                        <div class="item-price">2 000€ à 5 000€</div>
-                        <div class="item-features">
-                            <span>Délais 2-4 semaines</span>
-                            <span>Hébergement en plus</span>
-                            <span>Maintenance payante</span>
-                        </div>
-                    </div>
-                    <div class="comparison-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <div class="comparison-item marone">
-                        <div class="item-title">Marone Web</div>
-                        <div class="item-price">399€ à 499€</div>
-                        <div class="item-features">
-                            <span>Livraison 24-48h</span>
-                            <span>Tout inclus</span>
-                            <span>Support gratuit</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="savings-banner">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <span>Économisez jusqu'à 4 500€ avec Marone Web</span>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio-section" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nos Réalisations</h2>
-                <p class="section-subtitle">Des sites qui génèrent des résultats concrets</p>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-overlay">
-                            <div class="overlay-content">
-                                <div class="result-badge">+450% ventes</div>
-                                <div class="view-button">Voir le site</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">E-commerce</div>
-                        <h3 class="portfolio-title">Boutique Bio</h3>
-                        <p class="portfolio-desc">Site e-commerce livré en 48h</p>
-                        <div class="portfolio-price">1 249€</div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-overlay">
-                            <div class="overlay-content">
-                                <div class="result-badge">+280% clients</div>
-                                <div class="view-button">Voir le site</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Service Pro</div>
-                        <h3 class="portfolio-title">Cabinet Avocats</h3>
-                        <p class="portfolio-desc">Site vitrine premium</p>
-                        <div class="portfolio-price">499€</div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-overlay">
-                            <div class="overlay-content">
-                                <div class="result-badge">Livraison 24h</div>
-                                <div class="view-button">Voir le site</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Restaurant</div>
-                        <h3 class="portfolio-title">Gastronomie Française</h3>
-                        <p class="portfolio-desc">Site livré en 24h</p>
-                        <div class="portfolio-price">399€</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
+    <!-- Process -->
     <section class="process-section" id="process">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Comment ça marche ?</h2>
-                <p class="section-subtitle">Un processus simple et rapide pour votre site</p>
+                <div class="section-badge">NOTRE PROCESSUS</div>
+                <h2 class="section-title">Comment Nous <span class="highlight">Travaillons</span></h2>
+                <p class="section-subtitle">Un processus simple et efficace pour votre projet</p>
             </div>
 
-            <div class="process-steps">
+            <div class="process-timeline">
                 <div class="process-step">
                     <div class="step-number">01</div>
                     <div class="step-content">
-                        <h3 class="step-title">Vous choisissez votre offre</h3>
-                        <p class="step-desc">Sélectionnez l'offre qui correspond à vos besoins.</p>
+                        <h3 class="step-title">Consultation</h3>
+                        <p class="step-description">Nous échangeons sur vos besoins et vos objectifs</p>
                     </div>
                     <div class="step-icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-comments"></i>
                     </div>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">02</div>
                     <div class="step-content">
-                        <h3 class="step-title">On discute de votre projet</h3>
-                        <p class="step-desc">Appel de 15 minutes pour comprendre vos besoins.</p>
+                        <h3 class="step-title">Conception</h3>
+                        <p class="step-description">Création du design et validation des maquettes</p>
                     </div>
                     <div class="step-icon">
-                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-pencil-ruler"></i>
                     </div>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">03</div>
                     <div class="step-content">
-                        <h3 class="step-title">On crée votre site</h3>
-                        <p class="step-desc">Design et développement de votre site.</p>
+                        <h3 class="step-title">Développement</h3>
+                        <p class="step-description">Programmation de votre site avec les dernières technologies</p>
                     </div>
                     <div class="step-icon">
                         <i class="fas fa-code"></i>
@@ -598,8 +612,8 @@
                 <div class="process-step">
                     <div class="step-number">04</div>
                     <div class="step-content">
-                        <h3 class="step-title">Votre site est livré</h3>
-                        <p class="step-desc">Votre site est en ligne et commence à convertir.</p>
+                        <h3 class="step-title">Livraison</h3>
+                        <p class="step-description">Mise en ligne, formation et suivi de votre projet</p>
                     </div>
                     <div class="step-icon">
                         <i class="fas fa-rocket"></i>
@@ -609,66 +623,66 @@
         </div>
     </section>
 
-    <!-- Guarantee Section -->
-    <section class="guarantee-section" id="guarantee">
-        <div class="container">
-            <div class="guarantee-card">
-                <div class="guarantee-content">
-                    <h2 class="guarantee-title">Notre Garantie</h2>
-                    <p class="guarantee-text">
-                        <strong>100% satisfait ou remboursé.</strong><br>
-                        Si vous n'êtes pas satisfait du résultat final, nous vous remboursons intégralement.
-                    </p>
-                    <div class="guarantee-features">
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Pas de risque</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Remboursement intégral</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>30 jours pour décider</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="guarantee-badge">
-                    <div class="badge-content">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Garantie<br>Satisfait<br>ou Remboursé</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="contact-section" id="contact">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Left Side - Form -->
-                <div class="contact-form">
-                    <div class="form-header">
-                        <h2 class="form-title">Demandez votre devis gratuit</h2>
-                        <p class="form-subtitle">Remplissez ce formulaire et nous vous contactons dans l'heure</p>
-                    </div>
+            <div class="contact-wrapper">
+                <!-- Left Side -->
+                <div class="contact-info">
+                    <h2 class="contact-title">Discutons de Votre <span class="highlight">Projet</span></h2>
+                    <p class="contact-description">
+                        Contactez-nous pour obtenir un devis personnalisé. 
+                        Nous vous répondrons sous 24 heures.
+                    </p>
 
-                    <form id="quoteForm" action="https://formsubmit.co/martin.federer08@gmail.com" method="POST">
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_subject" value="🎯 NOUVEAU DEVIS MARONE WEB - PRIORITAIRE">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>contact@maroneweb.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Téléphone</h3>
+                                <p>+33 1 23 45 67 89</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Disponibilité</h3>
+                                <p>Lundi - Vendredi : 9h - 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Form -->
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formsubmit.co/martin.federer08@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="🚀 NOUVEAU DEVIS MARONEWEB">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="#success">
-                        <input type="text" name="_honey" style="display:none">
                         
-                        <div class="form-row">
+                        <div class="form-grid">
                             <div class="form-group">
                                 <input type="text" name="name" id="name" required placeholder=" ">
-                                <label for="name">Votre nom complet</label>
+                                <label for="name">Votre nom</label>
                                 <div class="form-line"></div>
                             </div>
+                            
                             <div class="form-group">
                                 <input type="email" name="email" id="email" required placeholder=" ">
                                 <label for="email">Votre email</label>
@@ -682,78 +696,33 @@
                             <div class="form-line"></div>
                         </div>
 
+                        <!-- Service Select - CORRIGÉ -->
                         <div class="form-group">
-                            <select name="plan" id="plan" required>
-                                <option value="" disabled selected>Choisissez votre offre</option>
-                                <option value="Site Vitrine - 399€">Site Vitrine - 399€</option>
-                                <option value="Site Pro - 499€">Site Pro - 499€</option>
-                                <option value="E-commerce - 1 249€ + 35€/mois">E-commerce - 1 249€ + 35€/mois</option>
-                                <option value="Je ne sais pas - Besoin de conseils">Je ne sais pas - Besoin de conseils</option>
-                            </select>
-                            <div class="form-line"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea name="message" id="message" rows="3" placeholder="Décrivez votre projet (facultatif)"></textarea>
-                            <div class="form-line"></div>
-                        </div>
-
-                        <div class="form-footer">
-                            <button type="submit" class="submit-button">
-                                <span class="submit-text">Envoyer ma demande</span>
-                                <i class="fas fa-paper-plane"></i>
-                                <div class="button-glow"></div>
-                            </button>
-                            <div class="form-security">
-                                <i class="fas fa-lock"></i>
-                                <span>Vos données sont sécurisées. Nous détestons le spam.</span>
+                            <div class="select-wrapper">
+                                <select name="service" id="service" required>
+                                    <option value="" disabled selected>Choisissez un service</option>
+                                    <option value="Site Vitrine - 199€">Site Vitrine (199€)</option>
+                                    <option value="Site Pro - 399€">Site Pro (399€)</option>
+                                    <option value="E-commerce - 799€">E-commerce (799€)</option>
+                                    <option value="Autre projet">Autre projet (Devis sur mesure)</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-arrow"></i>
                             </div>
+                            <div class="form-line"></div>
                         </div>
+
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="4" placeholder=" "></textarea>
+                            <label for="message">Votre message (optionnel)</label>
+                            <div class="form-line"></div>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            <span class="submit-text">Envoyer ma demande</span>
+                            <i class="fas fa-paper-plane"></i>
+                            <div class="submit-glow"></div>
+                        </button>
                     </form>
-                </div>
-
-                <!-- Right Side - Info -->
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Réponse ultra-rapide</h3>
-                            <p class="card-text">Nous vous contactons dans l'heure qui suit votre demande.</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-gift"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Bonus gratuit</h3>
-                            <p class="card-text">Toute demande reçue aujourd'hui reçoit un audit SEO gratuit.</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">500+ clients satisfaits</h3>
-                            <p class="card-text">Rejoignez nos centaines de clients heureux.</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-cta">
-                        <div class="cta-content">
-                            <h3>Questions ? Appelez-nous</h3>
-                            <a href="tel:+33123456789" class="phone-link">
-                                <i class="fas fa-phone"></i>
-                                <span>01 23 45 67 89</span>
-                            </a>
-                            <p class="cta-note">Lun-Ven : 9h-19h</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -762,21 +731,14 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <div class="footer-grid">
-                <!-- Brand -->
+            <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="brand-logo">
-                        <div class="logo-symbol">
-                            <div class="symbol-m">M</div>
-                        </div>
-                        <div class="logo-text">
-                            <span class="logo-primary">MARONE</span>
-                            <span class="logo-sub">WEB</span>
-                        </div>
-                    </div>
-                    <p class="footer-tagline">
-                        Création de sites web professionnels à prix disruptif. 
-                        <strong>Qualité Apple, prix accessible.</strong>
+                    <a href="#hero" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">MARONEWEB</span>
+                    </a>
+                    <p class="footer-description">
+                        Création de sites web exceptionnels. Design moderne, développement sur mesure.
                     </p>
                     <div class="footer-social">
                         <a href="#" class="social-link">
@@ -791,40 +753,33 @@
                     </div>
                 </div>
 
-                <!-- Links -->
                 <div class="footer-links">
                     <div class="link-column">
-                        <h4>Services</h4>
-                        <a href="#pricing">Sites Vitrine</a>
-                        <a href="#pricing">Sites E-commerce</a>
-                        <a href="#pricing">SEO</a>
-                        <a href="#pricing">Maintenance</a>
+                        <h3>Services</h3>
+                        <a href="#services">Sites Vitrine</a>
+                        <a href="#services">E-commerce</a>
+                        <a href="#services">Sites Pro</a>
+                        <a href="#services">Maintenance</a>
                     </div>
+
                     <div class="link-column">
-                        <h4>Entreprise</h4>
-                        <a href="#process">Comment ça marche</a>
+                        <h3>Entreprise</h3>
+                        <a href="#process">Notre processus</a>
                         <a href="#portfolio">Réalisations</a>
-                        <a href="#guarantee">Garantie</a>
+                        <a href="#pricing">Tarifs</a>
                         <a href="#contact">Contact</a>
-                    </div>
-                    <div class="link-column">
-                        <h4>Légal</h4>
-                        <a href="#">Mentions légales</a>
-                        <a href="#">Confidentialité</a>
-                        <a href="#">CGV</a>
-                        <a href="#">CGU</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <div class="copyright">
-                    © 2024 Marone Web. Tous droits réservés.
+                    © 2024 MARONEWEB. Tous droits réservés.
                 </div>
-                <div class="footer-stats">
-                    <span class="stat">Sites livrés : 500+</span>
-                    <span class="stat">Satisfaction : 99%</span>
-                    <span class="stat">Prix moyen : 450€</span>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Confidentialité</a>
+                    <a href="#">CGV</a>
                 </div>
             </div>
         </div>
@@ -835,7 +790,6 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
