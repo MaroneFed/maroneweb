@@ -1,35 +1,38 @@
-// MARONEWEB - Script Final Perfectionné
+// MARONEWEB - Version ULTRA STYLÉE
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 MARONEWEB initialisé');
-    
     // Initialisation
     initMaroneWeb();
     
-    // Critical loading
+    // Loading screen
+    const loadingScreen = document.getElementById('loadingScreen');
     setTimeout(() => {
-        document.getElementById('criticalLoading').classList.add('loaded');
-        document.body.classList.add('loaded');
-    }, 500);
+        loadingScreen.classList.add('loaded');
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            document.body.classList.add('loaded');
+        }, 500);
+    }, 1500);
     
     // Mobile menu
     const mobileToggle = document.getElementById('mobileToggle');
-    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileMenu = document.getElementById('mobileMenu');
     const mobileClose = document.getElementById('mobileClose');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
     
     mobileToggle.addEventListener('click', () => {
         mobileToggle.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
-        document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
     
     mobileClose.addEventListener('click', closeMobileMenu);
-    document.querySelectorAll('.mobile-link').forEach(link => {
+    mobileLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
     
     function closeMobileMenu() {
         mobileToggle.classList.remove('active');
-        mobileOverlay.classList.remove('active');
+        mobileMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
     
@@ -38,10 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const backToTop = document.getElementById('backToTop');
     
     window.addEventListener('scroll', () => {
+        // Header effect
         if (window.scrollY > 50) {
-            header.classList.add('scrolled');
+            header.style.padding = '1rem 0';
+            header.style.background = 'rgba(10, 10, 10, 0.98)';
         } else {
-            header.classList.remove('scrolled');
+            header.style.padding = '1.5rem 0';
+            header.style.background = 'rgba(10, 10, 10, 0.95)';
         }
         
         // Back to top
@@ -51,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
             backToTop.classList.remove('visible');
         }
         
-        // Active nav link
-        updateActiveNavLink();
+        // Animate stats
+        animateStats();
     });
     
     // Smooth scrolling
@@ -62,83 +68,79 @@ document.addEventListener('DOMContentLoaded', function() {
             if (href === '#') return;
             
             e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight;
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                const headerHeight = document.querySelector('.main-header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
                 
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Update active nav
+                updateActiveNav(this);
             }
         });
     });
     
-    // Pricing toggle
-    const toggleOptions = document.querySelectorAll('.toggle-option');
-    const oneTimePrices = document.querySelectorAll('.plan-price.one-time');
-    const monthlyPrices = document.querySelectorAll('.plan-price.monthly');
+    // Stats counter animation
+    function animateStats() {
+        const stats = document.querySelectorAll('.stat-value');
+        const heroSection = document.getElementById('hero');
+        const rect = heroSection.getBoundingClientRect();
+        
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                if (!stat.classList.contains('animated')) {
+                    animateCounter(stat, target);
+                    stat.classList.add('animated');
+                }
+            });
+        }
+    }
     
-    toggleOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const plan = this.dataset.plan;
-            
-            toggleOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-            
-            if (plan === 'one-time') {
-                oneTimePrices.forEach(p => p.classList.add('active'));
-                monthlyPrices.forEach(p => p.classList.remove('active'));
+    // Counter animation
+    function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target;
+                clearInterval(timer);
             } else {
-                oneTimePrices.forEach(p => p.classList.remove('active'));
-                monthlyPrices.forEach(p => p.classList.add('active'));
+                element.textContent = Math.floor(current);
             }
-        });
-    });
+        }, 30);
+    }
     
-    // Plan selection
-    const planButtons = document.querySelectorAll('.card-button');
-    const serviceSelect = document.getElementById('service');
-    
-    planButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const plan = this.dataset.plan;
-            
-            // Map plan to service
-            const planMap = {
-                'starter': 'Site Vitrine - 199€',
-                'pro': 'Site Pro - 399€',
-                'ecommerce': 'E-commerce - 799€'
-            };
-            
-            if (planMap[plan]) {
-                serviceSelect.value = planMap[plan];
-                // Scroll to contact
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                // Focus on name
-                document.getElementById('name').focus();
-            }
-        });
-    });
-    
-    // Contact form
+    // Form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            // Validation du select
+            const serviceSelect = document.getElementById('service');
+            if (!serviceSelect.value) {
+                showNotification('Veuillez sélectionner un service', 'error');
+                serviceSelect.focus();
+                return;
+            }
+            
             // Get form data
             const formData = new FormData(this);
-            const submitBtn = this.querySelector('.submit-button');
-            const originalText = submitBtn.querySelector('.submit-text').textContent;
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
             
             // Show loading
-            submitBtn.querySelector('.submit-text').textContent = 'Envoi en cours...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
             submitBtn.disabled = true;
             
             try {
-                // Send to FormSubmit
+                // Envoi via FormSubmit
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
@@ -149,16 +151,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (response.ok) {
                     // Success
-                    submitBtn.querySelector('.submit-text').textContent = 'Envoyé !';
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Envoyé !';
                     submitBtn.style.background = 'var(--success)';
                     
-                    // Show success message
-                    showNotification('🎉 Message envoyé ! Nous vous répondrons rapidement.', 'success');
+                    // Show success notification
+                    showNotification('🎉 Demande envoyée ! Nous vous répondrons sous 24h.', 'success');
                     
-                    // Reset form
+                    // Reset form after delay
                     setTimeout(() => {
                         this.reset();
-                        submitBtn.querySelector('.submit-text').textContent = originalText;
+                        submitBtn.innerHTML = originalText;
                         submitBtn.style.background = '';
                         submitBtn.disabled = false;
                     }, 2000);
@@ -166,14 +168,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error('Erreur réseau');
                 }
             } catch (error) {
-                console.error('Erreur:', error);
-                submitBtn.querySelector('.submit-text').textContent = 'Erreur';
+                console.error('Error:', error);
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur';
                 submitBtn.style.background = 'var(--warning)';
                 
-                showNotification('⚠️ Une erreur est survenue. Veuillez réessayer.', 'error');
+                showNotification('⚠️ Une erreur est survenue. Réessayez ou contactez-nous.', 'error');
                 
                 setTimeout(() => {
-                    submitBtn.querySelector('.submit-text').textContent = originalText;
+                    submitBtn.innerHTML = originalText;
                     submitBtn.style.background = '';
                     submitBtn.disabled = false;
                 }, 3000);
@@ -188,15 +190,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
 });
 
-// Initialize MARONEWEB
+// Initialize MaroneWeb
 function initMaroneWeb() {
-    // Add performance CSS
+    // Add CSS for animations
     const style = document.createElement('style');
     style.textContent = `
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .animate-in {
@@ -212,7 +215,6 @@ function initMaroneWeb() {
         .portfolio-bubble:nth-child(1) { transition-delay: 0.1s; }
         .portfolio-bubble:nth-child(2) { transition-delay: 0.2s; }
         .portfolio-bubble:nth-child(3) { transition-delay: 0.3s; }
-        .portfolio-bubble:nth-child(4) { transition-delay: 0.4s; }
         
         .pricing-card:nth-child(1) { transition-delay: 0.1s; }
         .pricing-card:nth-child(2) { transition-delay: 0.2s; }
@@ -222,6 +224,10 @@ function initMaroneWeb() {
         .process-step:nth-child(2) { transition-delay: 0.2s; }
         .process-step:nth-child(3) { transition-delay: 0.3s; }
         .process-step:nth-child(4) { transition-delay: 0.4s; }
+        
+        .info-card:nth-child(1) { transition-delay: 0.1s; }
+        .info-card:nth-child(2) { transition-delay: 0.2s; }
+        .info-card:nth-child(3) { transition-delay: 0.3s; }
     `;
     document.head.appendChild(style);
     
@@ -236,34 +242,37 @@ function initParticles() {
     
     const ctx = canvas.getContext('2d');
     
-    // Set dimensions
+    // Set canvas size
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    // Create particles
+    // Particles array
     const particles = [];
-    const particleCount = Math.min(100, Math.floor(window.innerWidth / 10));
+    const particleCount = window.innerWidth < 768 ? 60 : 100;
     
+    // Create particles
     for (let i = 0; i < particleCount; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             size: Math.random() * 3 + 1,
-            speedX: (Math.random() - 0.5) * 0.5,
-            speedY: (Math.random() - 0.5) * 0.5,
-            color: `rgba(255, 51, 102, ${Math.random() * 0.3 + 0.1})`
+            speedX: Math.random() * 1 - 0.5,
+            speedY: Math.random() * 1 - 0.5,
+            color: i % 3 === 0 ? 'rgba(255, 51, 102, 0.3)' : 
+                   i % 3 === 1 ? 'rgba(51, 102, 255, 0.3)' : 
+                   'rgba(0, 214, 143, 0.3)'
         });
     }
     
     // Animation loop
-    function animateParticles() {
+    function animate() {
         // Clear with fade effect
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // Update and draw particles
         particles.forEach(particle => {
-            // Move particle
+            // Update position
             particle.x += particle.speedX;
             particle.y += particle.speedY;
             
@@ -283,9 +292,9 @@ function initParticles() {
                 const dy = particle.y - otherParticle.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 100) {
+                if (distance < 120) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255, 51, 102, ${0.2 * (1 - distance / 100)})`;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - distance / 120)})`;
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(particle.x, particle.y);
                     ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -294,10 +303,11 @@ function initParticles() {
             });
         });
         
-        requestAnimationFrame(animateParticles);
+        requestAnimationFrame(animate);
     }
     
-    animateParticles();
+    // Start animation
+    animate();
     
     // Handle resize
     window.addEventListener('resize', () => {
@@ -310,61 +320,47 @@ function initParticles() {
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
     // Observe elements
-    document.querySelectorAll('.service-card, .portfolio-bubble, .pricing-card, .process-step').forEach(el => {
+    const elements = document.querySelectorAll(
+        '.service-card, .portfolio-bubble, .pricing-card, .process-step, .info-card'
+    );
+    
+    elements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
 }
 
-// Update Active Nav Link
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
+// Update Active Nav
+function updateActiveNav(clickedLink) {
     const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    const scrollPos = window.scrollY + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        if (href === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+    navLinks.forEach(link => link.classList.remove('active'));
+    clickedLink.classList.add('active');
 }
 
 // Show Notification
 function showNotification(message, type = 'success') {
-    // Remove existing
-    const existing = document.querySelector('.notification-toast');
+    // Remove existing notifications
+    const existing = document.querySelector('.notification');
     if (existing) existing.remove();
     
     // Create notification
     const notification = document.createElement('div');
-    notification.className = `notification-toast ${type}`;
+    notification.className = `notification ${type}`;
     notification.innerHTML = `
-        <div class="toast-content">
+        <div class="notification-content">
             <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
             <span>${message}</span>
         </div>
@@ -373,49 +369,50 @@ function showNotification(message, type = 'success') {
     document.body.appendChild(notification);
     
     // Add styles if needed
-    if (!document.querySelector('#toast-styles')) {
+    if (!document.querySelector('#notification-styles')) {
         const styles = document.createElement('style');
-        styles.id = 'toast-styles';
+        styles.id = 'notification-styles';
         styles.textContent = `
-            .notification-toast {
+            .notification {
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                background: rgba(0, 0, 0, 0.9);
-                backdrop-filter: blur(10px);
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 12px;
-                padding: 1rem 1.5rem;
+                padding: 1.25rem 1.75rem;
                 color: white;
                 display: flex;
                 align-items: center;
-                gap: 0.75rem;
+                gap: 1rem;
                 z-index: 10000;
                 transform: translateX(120%);
-                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                max-width: 400px;
             }
             
-            .notification-toast.success {
+            .notification.success {
                 border-left: 4px solid var(--success);
             }
             
-            .notification-toast.error {
+            .notification.error {
                 border-left: 4px solid var(--warning);
             }
             
-            .notification-toast.show {
+            .notification.show {
                 transform: translateX(0);
             }
             
-            .toast-content i {
-                font-size: 1.25rem;
+            .notification-content i {
+                font-size: 1.5rem;
             }
             
-            .notification-toast.success .toast-content i {
+            .notification.success .notification-content i {
                 color: var(--success);
             }
             
-            .notification-toast.error .toast-content i {
+            .notification.error .notification-content i {
                 color: var(--warning);
             }
         `;
@@ -428,42 +425,39 @@ function showNotification(message, type = 'success') {
     // Hide after 5 seconds
     setTimeout(() => {
         notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 300);
+        setTimeout(() => notification.remove(), 400);
     }, 5000);
 }
 
 // Initialize animations
 function initAnimations() {
-    // Hero title animation
-    const words = document.querySelectorAll('.word');
-    words.forEach((word, index) => {
-        word.style.animationDelay = `${index * 0.2}s`;
-    });
-    
-    // Floating devices animation
-    const devices = document.querySelectorAll('.floating-device');
-    devices.forEach((device, index) => {
-        device.style.animationDelay = `${index * 2}s`;
+    // Animate hero elements
+    const floatElements = document.querySelectorAll('.float-element');
+    floatElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.5}s`;
     });
 }
 
-// Performance monitoring
+// Performance check
 window.addEventListener('load', () => {
+    // Log performance
     if ('performance' in window) {
         const perf = performance.getEntriesByType('navigation')[0];
         if (perf) {
             const loadTime = perf.domContentLoadedEventEnd - perf.fetchStart;
-            console.log(`⚡ MARONEWEB chargé en ${Math.round(loadTime)}ms`);
+            console.log(`🚀 MARONEWEB chargé en ${Math.round(loadTime)}ms`);
         }
     }
     
     // Easter egg
     console.log(`
-    ╔══════════════════════════════════════╗
-    ║         🚀 MARONEWEB                 ║
-    ║   Création de sites web exceptionnels ║
-    ║   À partir de 199€                  ║
-    ║   contact@maroneweb.com             ║
-    ╚══════════════════════════════════════╝
+    ╔══════════════════════════════════════════╗
+    ║            MARONEWEB                     ║
+    ║    Création de sites web exceptionnels   ║
+    ║    contact@maroneweb.fr                  ║
+    ║    +33 1 23 45 67 89                     ║
+    ║                                          ║
+    ║    "Le web n'a jamais été aussi beau"    ║
+    ╚══════════════════════════════════════════╝
     `);
 });
