@@ -1,862 +1,2773 @@
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>MARONEWEB | Création de Sites Web Impactants</title>
-    <meta name="description" content="Création de sites web uniques qui captivent et convertissent. Design exceptionnel, développement sur mesure.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>MARONEWEB | Agence de Création Web • Sites Internet Exceptionnels • Direction Artistique</title>
+
+    <!-- META TAGS ULTRA COMPLETS -->
+    <meta name="description"
+        content="Agence de création web MARONEWEB. Nous concevons des sites internet d'exception, des expériences digitales mémorables et des identités visuelles fortes. Direction artistique, développement sur-mesure, stratégie digitale.">
+    <meta name="keywords"
+        content="agence web, création site internet, design web, développement web, e-commerce, UX/UI, direction artistique, identité visuelle, landing page, site vitrine">
+    <meta name="author" content="MARONEWEB">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="French">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="MARONEWEB | Agence de Création Web d'Exception">
+    <meta property="og:description"
+        content="Création de sites internet sur-mesure et expériences digitales mémorables.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maroneweb.com">
+    <meta property="og:image" content="https://maroneweb.com/og-image.jpg">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- TWITTER CARDS -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MARONEWEB | Agence de Création Web">
+    <meta name="twitter:description" content="Création de sites internet d'exception">
+    <meta name="twitter:image" content="https://maroneweb.com/twitter-image.jpg">
+
+    <!-- FAVICON & APPLE TOUCH ICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
+    <meta name="msapplication-TileColor" content="#0a0a0a">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- FONTS ULTRA PREMIUM -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23FF3366%22>◈</text></svg>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PRELOAD CRITICAL ASSETS -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- NOSCRIPT FALLBACK -->
+    <noscript>
+        <style>
+            .no-js-warning {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: #7c3aed;
+                color: white;
+                padding: 1rem;
+                text-align: center;
+                z-index: 9999;
+            }
+        </style>
+        <div class="no-js-warning">
+            ⚠️ JavaScript est désactivé. Certaines fonctionnalités du site peuvent être limitées.
+        </div>
+    </noscript>
+
+    <!-- INLINE CRITICAL CSS -->
     <style>
-        /* Critical CSS */
-        body { opacity: 0; }
-        body.loaded { opacity: 1; transition: opacity 0.3s; }
+        /* CRITICAL CSS - Chargé immédiatement */
+        :root {
+            --color-black: #0a0a0a;
+            --color-white: #ffffff;
+            --color-primary: #7c3aed;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--color-black);
+            color: var(--color-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .critical-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .critical-visible {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease;
+        }
     </style>
+
+    <!-- ANALYTICS & TAGS -->
+    <script>
+        // Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+
+        // Performance monitoring
+        window.__PERFORMANCE__ = {
+            startTime: performance.now(),
+            marks: {}
+        };
+    </script>
 </head>
-<body>
-    <!-- Loading -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-orb"></div>
-                <div class="logo-text">MARONEWEB</div>
+
+<body class="no-js">
+    <!-- 
+    ============================================
+    LOADING SCREEN ULTRA AVANCÉ
+    ============================================ 
+    -->
+    <div class="loader" id="globalLoader">
+        <div class="loader__container">
+            <!-- Logo animé 3D -->
+            <div class="loader__logo-3d">
+                <div class="cube">
+                    <div class="cube__face cube__face--front">M</div>
+                    <div class="cube__face cube__face--back">W</div>
+                    <div class="cube__face cube__face--right">◈</div>
+                    <div class="cube__face cube__face--left">★</div>
+                    <div class="cube__face cube__face--top"></div>
+                    <div class="cube__face cube__face--bottom"></div>
+                </div>
             </div>
-            <div class="loading-progress">
-                <div class="progress-bar"></div>
+
+            <!-- Texte de chargement animé -->
+            <div class="loader__text">
+                <div class="loader__title">
+                    <span class="loader__letter" data-letter="M">M</span>
+                    <span class="loader__letter" data-letter="A">A</span>
+                    <span class="loader__letter" data-letter="R">R</span>
+                    <span class="loader__letter" data-letter="O">O</span>
+                    <span class="loader__letter" data-letter="N">N</span>
+                    <span class="loader__letter" data-letter="E">E</span>
+                    <span class="loader__letter" data-letter="W">W</span>
+                    <span class="loader__letter" data-letter="E">E</span>
+                    <span class="loader__letter" data-letter="B">B</span>
+                </div>
+                <p class="loader__subtitle">Initialisation de l'expérience</p>
+            </div>
+
+            <!-- Barre de progression avancée -->
+            <div class="loader__progress">
+                <div class="progress__track">
+                    <div class="progress__bar" id="progressBar"></div>
+                    <div class="progress__glow"></div>
+                </div>
+                <div class="progress__stats">
+                    <span class="progress__percentage" id="progressPercentage">0%</span>
+                    <span class="progress__stage" id="progressStage">Chargement des assets...</span>
+                </div>
+            </div>
+
+            <!-- Tips aléatoires -->
+            <div class="loader__tips">
+                <div class="tip" id="currentTip">
+                    <i class="ti ti-sparkles"></i>
+                    <span>Préparation de l'expérience unique...</span>
+                </div>
+            </div>
+
+            <!-- Particules de fond -->
+            <div class="loader__particles">
+                <canvas id="loaderCanvas"></canvas>
             </div>
         </div>
+
+        <!-- Sons de chargement (optionnel) -->
+        <audio id="loaderAudio" preload="auto">
+            <source
+                src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAAHAAAHqAAEBAQICAgMDAwQEBAUFBQYGBgcHBwgICAkJCQoKCgsLCwwMDA0NDQ4ODg8PDxAQEBERERISEhMTExQUFBUVFRYWFhcXFxgYGBkZGRoaGhsbGxwcHB0dHR4eHh8fHyAgICEhISIiIiMjIyQkJCUlJSYmJicnJygoKClpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+                type="audio/mpeg">
+        </audio>
     </div>
 
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <a href="#hero" class="brand">
-                    <div class="brand-logo">
-                        <div class="logo-glow"></div>
-                        <div class="logo-m">M</div>
-                    </div>
-                    <div class="brand-text">
-                        <span class="brand-name">MARONEWEB</span>
-                        <span class="brand-tagline">Web Exceptionnel</span>
-                    </div>
-                </a>
+    <!-- 
+    ============================================
+    CURSOR PERSONNALISÉ
+    ============================================ 
+    -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__inner"></div>
+        <div class="cursor__outer"></div>
+        <div class="cursor__text"></div>
+    </div>
 
-                <nav class="main-nav">
-                    <a href="#services" class="nav-link">
-                        <span>Services</span>
-                        <div class="link-hover"></div>
-                    </a>
-                    <a href="#portfolio" class="nav-link">
-                        <span>Portfolio</span>
-                        <div class="link-hover"></div>
-                    </a>
-                    <a href="#pricing" class="nav-link">
-                        <span>Tarifs</span>
-                        <div class="link-hover"></div>
-                    </a>
-                    <a href="#process" class="nav-link">
-                        <span>Processus</span>
-                        <div class="link-hover"></div>
-                    </a>
-                    <a href="#contact" class="nav-link cta-nav">
-                        <span>Devis Gratuit</span>
-                        <i class="fas fa-bolt"></i>
-                    </a>
-                </nav>
+    <!-- 
+    ============================================
+    NAVIGATION PRINCIPALE
+    ============================================ 
+    -->
+    <header class="header" id="mainHeader">
+        <div class="header__container container">
+            <!-- Logo -->
+            <a href="#hero" class="header__logo" aria-label="MARONEWEB - Retour à l'accueil">
+                <div class="logo__symbol">◈</div>
+                <div class="logo__text">
+                    <span class="logo__name">MARONEWEB</span>
+                    <span class="logo__tagline">AGENCE DE CRÉATION</span>
+                </div>
+            </a>
 
-                <button class="mobile-toggle" id="mobileToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <!-- Navigation Desktop -->
+            <nav class="header__nav" aria-label="Navigation principale">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#expertises" class="nav__link">
+                            <span class="nav__number">01</span>
+                            <span class="nav__text">Expertises</span>
+                            <span class="nav__hover"></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#realisations" class="nav__link">
+                            <span class="nav__number">02</span>
+                            <span class="nav__text">Réalisations</span>
+                            <span class="nav__hover"></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#processus" class="nav__link">
+                            <span class="nav__number">03</span>
+                            <span class="nav__text">Processus</span>
+                            <span class="nav__hover"></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#agence" class="nav__link">
+                            <span class="nav__number">04</span>
+                            <span class="nav__text">Agence</span>
+                            <span class="nav__hover"></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link nav__link--cta">
+                            <span class="nav__text">Contact</span>
+                            <i class="ti ti-arrow-right"></i>
+                            <span class="nav__hover"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Langue & Social (Desktop) -->
+            <div class="header__utils">
+                <button class="lang-switcher" aria-label="Changer la langue">
+                    <span>FR</span>
+                    <i class="ti ti-chevron-down"></i>
                 </button>
+
+                <div class="social-mini">
+                    <a href="#" aria-label="LinkedIn" class="social-mini__link">
+                        <i class="ti ti-brand-linkedin"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="social-mini__link">
+                        <i class="ti ti-brand-instagram"></i>
+                    </a>
+                </div>
             </div>
+
+            <!-- Menu Burger Mobile -->
+            <button class="header__burger" id="menuToggle" aria-label="Menu mobile" aria-expanded="false">
+                <span class="burger__line burger__line--1"></span>
+                <span class="burger__line burger__line--2"></span>
+                <span class="burger__line burger__line--3"></span>
+                <span class="burger__text">Menu</span>
+            </button>
+        </div>
+
+        <!-- Indicateur de scroll -->
+        <div class="header__scroll-indicator">
+            <div class="scroll-indicator__bar" id="scrollIndicator"></div>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
+    <!-- 
+    ============================================
+    MENU MOBILE FULLSCREEN
+    ============================================ 
+    -->
     <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-header">
-            <div class="brand">
-                <div class="brand-logo">
-                    <div class="logo-m">M</div>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-name">MARONEWEB</span>
+        <div class="mobile-menu__overlay"></div>
+        <div class="mobile-menu__container">
+            <!-- En-tête du menu -->
+            <div class="mobile-menu__header">
+                <div class="mobile-menu__logo">MARONEWEB</div>
+                <button class="mobile-menu__close" id="menuClose" aria-label="Fermer le menu">
+                    <i class="ti ti-x"></i>
+                </button>
+            </div>
+
+            <!-- Navigation mobile -->
+            <nav class="mobile-menu__nav" aria-label="Navigation mobile">
+                <ul class="mobile-menu__list">
+                    <li class="mobile-menu__item">
+                        <a href="#expertises" class="mobile-menu__link">
+                            <span class="mobile-menu__number">01</span>
+                            <span class="mobile-menu__text">Expertises</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#realisations" class="mobile-menu__link">
+                            <span class="mobile-menu__number">02</span>
+                            <span class="mobile-menu__text">Réalisations</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#processus" class="mobile-menu__link">
+                            <span class="mobile-menu__number">03</span>
+                            <span class="mobile-menu__text">Processus</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#agence" class="mobile-menu__link">
+                            <span class="mobile-menu__number">04</span>
+                            <span class="mobile-menu__text">Agence</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#contact" class="mobile-menu__link mobile-menu__link--cta">
+                            <span class="mobile-menu__text">Contact</span>
+                            <i class="ti ti-send"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Informations de contact mobile -->
+            <div class="mobile-menu__contact">
+                <h3 class="mobile-menu__contact-title">Contact rapide</h3>
+                <div class="mobile-menu__contact-info">
+                    <a href="mailto:maronefed@gmail.com" class="contact-link">
+                        <i class="ti ti-mail"></i>
+                        <span>maronefed@gmail.com</span>
+                    </a>
+                    <a href="tel:+32455121887" class="contact-link">
+                        <i class="ti ti-phone"></i>
+                        <span>+32 455 12 18 87</span>
+                    </a>
                 </div>
             </div>
-            <button class="mobile-close" id="mobileClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="mobile-links">
-            <a href="#services" class="mobile-link">
-                <i class="fas fa-star"></i>
-                <span>Services</span>
-                <div class="link-arrow">→</div>
-            </a>
-            <a href="#portfolio" class="mobile-link">
-                <i class="fas fa-gem"></i>
-                <span>Portfolio</span>
-                <div class="link-arrow">→</div>
-            </a>
-            <a href="#pricing" class="mobile-link">
-                <i class="fas fa-tag"></i>
-                <span>Tarifs</span>
-                <div class="link-arrow">→</div>
-            </a>
-            <a href="#process" class="mobile-link">
-                <i class="fas fa-rocket"></i>
-                <span>Processus</span>
-                <div class="link-arrow">→</div>
-            </a>
-            <a href="#contact" class="mobile-link mobile-cta">
-                <i class="fas fa-bolt"></i>
-                <span>Devis Gratuit</span>
-                <div class="link-arrow">→</div>
-            </a>
+
+            <!-- Réseaux sociaux mobile -->
+            <div class="mobile-menu__social">
+                <span class="mobile-menu__social-label">Suivez-nous</span>
+                <div class="mobile-menu__social-links">
+                    <a href="#" aria-label="Dribbble"><i class="ti ti-brand-dribbble"></i></a>
+                    <a href="#" aria-label="Behance"><i class="ti ti-brand-behance"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Footer du menu -->
+            <div class="mobile-menu__footer">
+                <p class="mobile-menu__copyright">© 2025 MARONEWEB. Tous droits réservés.</p>
+                <a href="#" class="mobile-menu__legal">Mentions légales</a>
+            </div>
         </div>
     </div>
 
-    <!-- Hero Section - ULTRA IMPACTANT -->
-    <section class="hero-section" id="hero">
-        <!-- Animated Background -->
-        <div class="hero-bg">
-            <canvas id="particlesCanvas"></canvas>
-            <div class="hero-gradient"></div>
-            <div class="hero-grid"></div>
+    <!-- 
+    ============================================
+    SECTION HERO - ULTRA IMPACTANTE
+    ============================================ 
+    -->
+    <section class="hero" id="hero">
+        <!-- Background Hero -->
+        <div class="hero__background">
+            <!-- Canvas WebGL -->
+            <canvas class="hero__canvas" id="heroCanvas"></canvas>
+
+            <!-- Gradient Overlays -->
+            <div class="hero__gradient hero__gradient--1"></div>
+            <div class="hero__gradient hero__gradient--2"></div>
+            <div class="hero__gradient hero__gradient--3"></div>
+
+            <!-- Particules flottantes -->
+            <div class="hero__particles">
+                <div class="particle particle--1"></div>
+                <div class="particle particle--2"></div>
+                <div class="particle particle--3"></div>
+                <div class="particle particle--4"></div>
+                <div class="particle particle--5"></div>
+                <div class="particle particle--6"></div>
+            </div>
+
+            <!-- Éléments 3D flottants -->
+            <div class="hero__floating">
+                <div class="floating-element floating-element--1">
+                    <div class="element-3d">
+                        <div class="element__face element__face--front">◈</div>
+                        <div class="element__face element__face--back"></div>
+                    </div>
+                </div>
+                <div class="floating-element floating-element--2">
+                    <div class="element-3d">
+                        <div class="element__face element__face--front">✦</div>
+                        <div class="element__face element__face--back"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Floating Elements -->
-        <div class="floating-elements">
-            <div class="float-element el-1">
-                <i class="fas fa-code"></i>
-            </div>
-            <div class="float-element el-2">
-                <i class="fas fa-paint-brush"></i>
-            </div>
-            <div class="float-element el-3">
-                <i class="fas fa-bolt"></i>
-            </div>
-            <div class="float-element el-4">
-                <i class="fas fa-chart-line"></i>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="hero-content">
-                <!-- Impact Badge -->
-                <div class="impact-badge">
-                    <div class="badge-content">
-                        <div class="badge-sparkle">
-                            <i class="fas fa-sparkles"></i>
-                        </div>
-                        <span>DESIGN EXCEPTIONNEL</span>
-                        <div class="badge-pulse"></div>
+        <!-- Contenu Hero -->
+        <div class="hero__content">
+            <div class="container">
+                <!-- Badge d'introduction -->
+                <div class="hero__intro">
+                    <div class="intro-badge">
+                        <span class="intro-badge__text">AGENCE DE CRÉATION WEB</span>
+                        <span class="intro-badge__line"></span>
+                        <span class="intro-badge__year">2025</span>
                     </div>
                 </div>
 
-                <!-- Main Headline -->
-                <h1 class="hero-title">
-                    <span class="title-word">Votre Site</span>
-                    <span class="title-word highlight">Éblouissant</span>
-                    <span class="title-word">Commence Ici</span>
+                <!-- Titre principal avec effet découpage -->
+                <h1 class="hero__title">
+                    <span class="title-line title-line--1">
+                        <span class="title-word">Nous créons</span>
+                    </span>
+                    <span class="title-line title-line--2">
+                        <span class="title-word title-word--highlight" data-text="des expériences">des
+                            expériences</span>
+                    </span>
+                    <span class="title-line title-line--3">
+                        <span class="title-word">digitales</span>
+                        <span class="title-word title-word--accent">mémorables</span>
+                    </span>
                 </h1>
 
-                <!-- Subheadline -->
-                <p class="hero-subtitle">
-                    Nous créons des sites web qui <strong>captivent</strong>, <strong>impressionnent</strong> 
-                    et <strong>convertissent</strong>. Chaque projet est une œuvre unique.
-                </p>
-
-                <!-- CTA -->
-                <div class="hero-cta">
-                    <a href="#portfolio" class="btn btn-primary pulse">
-                        <span class="btn-text">Voir la magie</span>
-                        <i class="fas fa-eye"></i>
-                        <div class="btn-glow"></div>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-comment-dots"></i>
-                        <span>Parler de mon projet</span>
-                    </a>
+                <!-- Sous-titre -->
+                <div class="hero__subtitle">
+                    <p class="subtitle-text">
+                        MARONEWEB est une agence de création web spécialisée dans la conception
+                        de sites internet sur-mesure, d'expériences digitales uniques et de
+                        directions artistiques fortes pour les marques ambitieuses.
+                    </p>
                 </div>
 
-                <!-- Stats -->
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-value" data-count="150">0</div>
-                        <div class="stat-label">Projets</div>
+                <!-- Actions principales -->
+                <div class="hero__actions">
+                    <div class="action-group">
+                        <a href="#realisations" class="btn btn--primary btn--xl">
+                            <span class="btn__text">Découvrir nos réalisations</span>
+                            <span class="btn__icon">
+                                <i class="ti ti-arrow-right"></i>
+                            </span>
+                            <span class="btn__hover"></span>
+                            <span class="btn__glow"></span>
+                        </a>
+
+                        <a href="#contact" class="btn btn--secondary btn--xl">
+                            <span class="btn__text">Discuter d'un projet</span>
+                            <span class="btn__icon">
+                                <i class="ti ti-message"></i>
+                            </span>
+                        </a>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <div class="stat-value" data-count="99%">0</div>
-                        <div class="stat-label">Satisfaction</div>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <div class="stat-value" data-count="48">0</div>
-                        <div class="stat-label">Heures moyennes</div>
+
+                    <div class="action-extra">
+                        <a href="#processus" class="link-arrow">
+                            <span>Notre processus de création</span>
+                            <i class="ti ti-chevron-right"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- 3D Device Showcase -->
-            <div class="hero-visual">
-                <div class="device-showcase">
-                    <div class="macbook-3d">
-                        <div class="macbook-screen">
-                            <div class="screen-content">
-                                <!-- Animated Website -->
-                                <div class="animated-site">
-                                    <div class="site-nav">
-                                        <div class="nav-dots">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                        <div class="nav-title">MARONEWEB</div>
-                                    </div>
-                                    <div class="site-hero">
-                                        <h3>Welcome to Excellence</h3>
-                                        <p>Design that converts</p>
-                                    </div>
-                                    <div class="site-stats">
-                                        <div class="site-stat">
-                                            <div class="value">+225%</div>
-                                            <div class="label">Engagement</div>
-                                        </div>
-                                        <div class="site-stat">
-                                            <div class="value">+180%</div>
-                                            <div class="label">Conversions</div>
-                                        </div>
-                                    </div>
+                <!-- Stats en temps réel -->
+                <div class="hero__stats">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card__inner">
+                                <div class="stat-card__value">
+                                    <span class="counter" data-count="150" data-suffix="+">0</span>
                                 </div>
+                                <div class="stat-card__label">Projets livrés</div>
+                                <div class="stat-card__description">Depuis notre création</div>
                             </div>
                         </div>
-                        <div class="macbook-base"></div>
-                    </div>
-                    
-                    <!-- Floating Price Tag -->
-                    <div class="price-float">
-                        <div class="price-tag">
-                            <div class="tag-content">
-                                <div class="tag-price">199€</div>
-                                <div class="tag-text">Site Starter</div>
+
+                        <div class="stat-card">
+                            <div class="stat-card__inner">
+                                <div class="stat-card__value">
+                                    <span class="counter" data-count="98" data-suffix="%">0</span>
+                                </div>
+                                <div class="stat-card__label">Satisfaction client</div>
+                                <div class="stat-card__description">Taux de recommandation</div>
                             </div>
-                            <div class="tag-glow"></div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card__inner">
+                                <div class="stat-card__value">
+                                    <span class="counter" data-count="45" data-suffix="+">0</span>
+                                </div>
+                                <div class="stat-card__label">Pays desservis</div>
+                                <div class="stat-card__description">Clients internationaux</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card__inner">
+                                <div class="stat-card__value">
+                                    <span class="counter" data-count="8" data-suffix=" ans">0</span>
+                                </div>
+                                <div class="stat-card__label">D'expérience</div>
+                                <div class="stat-card__description">Expertise consolidée</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indicateur de scroll -->
+                <div class="hero__scroll-indicator">
+                    <div class="scroll-hint">
+                        <span class="scroll-hint__text">Explorer</span>
+                        <div class="scroll-hint__line">
+                            <div class="scroll-hint__dot"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="scroll-magic">
-            <div class="scroll-line">
-                <div class="scroll-dot"></div>
-            </div>
-            <span>Explorer la magie</span>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-number">01</span>
-                    <span>Notre <span class="highlight">Expertise</span></span>
-                </h2>
-                <p class="section-subtitle">
-                    Des services web complets pour propulser votre présence en ligne
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="card-sparkle">
-                        <i class="fas fa-sparkle"></i>
-                    </div>
-                    <div class="service-icon">
-                        <div class="icon-3d">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="icon-glow"></div>
-                    </div>
-                    <h3 class="service-title">Sites Vitrine</h3>
-                    <p class="service-description">
-                        Présentez votre entreprise avec un design qui marque les esprits.
-                    </p>
-                    <div class="service-features">
-                        <span>Design Unique</span>
-                        <span>Mobile First</span>
-                        <span>SEO Optimisé</span>
-                    </div>
-                    <div class="service-price">À partir de 199€</div>
-                    <a href="#contact" class="service-cta">
-                        <span>En savoir plus</span>
-                        <div class="cta-arrow">→</div>
-                    </a>
-                </div>
-
-                <div class="service-card featured">
-                    <div class="featured-badge">
-                        <i class="fas fa-crown"></i>
-                        <span>LE PLUS POPULAIRE</span>
-                    </div>
-                    <div class="service-icon">
-                        <div class="icon-3d">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="icon-glow"></div>
-                    </div>
-                    <h3 class="service-title">E-commerce</h3>
-                    <p class="service-description">
-                        Boutique en ligne qui vend 24h/24 avec une expérience client exceptionnelle.
-                    </p>
-                    <div class="service-features">
-                        <span>Paiements Sécurisés</span>
-                        <span>Gestion Stocks</span>
-                        <span>Marketing Intégré</span>
-                    </div>
-                    <div class="service-price">À partir de 799€</div>
-                    <a href="#contact" class="service-cta primary">
-                        <span>Démarrer mon shop</span>
-                        <div class="cta-arrow">→</div>
-                    </a>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-sparkle">
-                        <i class="fas fa-sparkle"></i>
-                    </div>
-                    <div class="service-icon">
-                        <div class="icon-3d">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="icon-glow"></div>
-                    </div>
-                    <h3 class="service-title">Applications Web</h3>
-                    <p class="service-description">
-                        Solutions sur mesure pour automatiser vos processus et booster votre productivité.
-                    </p>
-                    <div class="service-features">
-                        <span>Sur Mesure</span>
-                        <span>Évolutif</span>
-                        <span>Haute Performance</span>
-                    </div>
-                    <div class="service-price">Sur Devis</div>
-                    <a href="#contact" class="service-cta">
-                        <span>Discuter du projet</span>
-                        <div class="cta-arrow">→</div>
-                    </a>
+        <!-- Notification de chargement des assets -->
+        <div class="hero__assets-loader">
+            <div class="assets-loader">
+                <div class="assets-loader__text">Chargement des médias...</div>
+                <div class="assets-loader__progress">
+                    <div class="assets-loader__bar"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio - Sites dans des bulles -->
-    <section class="portfolio-section" id="portfolio">
+    <!-- 
+    ============================================
+    SECTION MARQUES / CLIENTS
+    ============================================ 
+    -->
+    <section class="clients" id="clients">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-number">02</span>
-                    <span>Notre <span class="highlight">Magie</span></span>
+            <div class="clients__header">
+                <div class="section-label">
+                    <span class="section-label__text">Ils nous font confiance</span>
+                    <span class="section-label__line"></span>
+                </div>
+
+                <h2 class="clients__title">
+                    <span class="title-part">Des collaborations</span>
+                    <span class="title-part title-part--highlight">prestigieuses</span>
                 </h2>
-                <p class="section-subtitle">
-                    Des créations qui repoussent les limites du design web
+
+                <p class="clients__description">
+                    Nous avons eu le privilège de collaborer avec des marques ambitieuses,
+                    des startups innovantes et des entreprises établies pour créer des
+                    expériences digitales exceptionnelles.
                 </p>
             </div>
 
-            <div class="portfolio-bubbles">
-                <!-- Bubble 1 -->
-                <div class="portfolio-bubble bubble-1">
-                    <div class="bubble-content">
-                        <div class="bubble-site">
-                            <div class="site-preview">
-                                <div class="preview-header">
-                                    <div class="preview-dots">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                                <div class="preview-body">
-                                    <h3>Luxe & Élégance</h3>
-                                    <p>Site vitrine premium</p>
-                                </div>
+            <!-- Marquage défilant -->
+            <div class="clients__marquee">
+                <div class="marquee-track" id="marqueeTrack">
+                    <!-- Premier groupe -->
+                    <div class="marquee-group">
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">LUXURY</span>
+                                <span class="client-logo__badge">Premium</span>
                             </div>
                         </div>
-                        <div class="bubble-info">
-                            <div class="info-badge">Site Vitrine</div>
-                            <div class="info-price">399€</div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">INNOVATE</span>
+                                <span class="client-logo__badge">Tech</span>
+                            </div>
+                        </div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">ARTISAN</span>
+                                <span class="client-logo__badge">Craft</span>
+                            </div>
+                        </div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">GLOBAL</span>
+                                <span class="client-logo__badge">Corporate</span>
+                            </div>
+                        </div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">NOVA</span>
+                                <span class="client-logo__badge">Startup</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="bubble-glow"></div>
-                </div>
 
-                <!-- Bubble 2 -->
-                <div class="portfolio-bubble bubble-2">
-                    <div class="bubble-content">
-                        <div class="bubble-site">
-                            <div class="site-preview">
-                                <div class="preview-header">
-                                    <div class="preview-dots">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                                <div class="preview-body">
-                                    <h3>Boutique Mode</h3>
-                                    <p>E-commerce fashion</p>
-                                </div>
+                    <!-- Duplication pour effet continu -->
+                    <div class="marquee-group">
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">LUXURY</span>
+                                <span class="client-logo__badge">Premium</span>
                             </div>
                         </div>
-                        <div class="bubble-info">
-                            <div class="info-badge">E-commerce</div>
-                            <div class="info-price">799€</div>
-                        </div>
-                    </div>
-                    <div class="bubble-glow"></div>
-                </div>
-
-                <!-- Bubble 3 -->
-                <div class="portfolio-bubble bubble-3">
-                    <div class="bubble-content">
-                        <div class="bubble-site">
-                            <div class="site-preview">
-                                <div class="preview-header">
-                                    <div class="preview-dots">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                                <div class="preview-body">
-                                    <h3>Startup Tech</h3>
-                                    <p>Landing page moderne</p>
-                                </div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">INNOVATE</span>
+                                <span class="client-logo__badge">Tech</span>
                             </div>
                         </div>
-                        <div class="bubble-info">
-                            <div class="info-badge">Landing Page</div>
-                            <div class="info-price">199€</div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">ARTISAN</span>
+                                <span class="client-logo__badge">Craft</span>
+                            </div>
+                        </div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">GLOBAL</span>
+                                <span class="client-logo__badge">Corporate</span>
+                            </div>
+                        </div>
+                        <div class="client-logo">
+                            <div class="client-logo__inner">
+                                <span class="client-logo__text">NOVA</span>
+                                <span class="client-logo__badge">Startup</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="bubble-glow"></div>
                 </div>
             </div>
 
-            <div class="portfolio-cta">
-                <a href="#contact" class="btn btn-primary">
-                    <span>Voir plus de magie</span>
-                    <i class="fas fa-magic"></i>
-                </a>
+            <!-- Témoignages clients -->
+            <div class="clients__testimonials">
+                <div class="testimonial-slider">
+                    <!-- Témoignage 1 -->
+                    <div class="testimonial-slide testimonial-slide--active">
+                        <div class="testimonial">
+                            <div class="testimonial__content">
+                                <div class="testimonial__quote">
+                                    <i class="ti ti-quote"></i>
+                                </div>
+                                <blockquote class="testimonial__text">
+                                    "MARONEWEB a transformé notre présence digitale. Leur approche
+                                    sur-mesure et leur attention aux détails ont dépassé nos attentes.
+                                    Notre nouveau site a augmenté notre engagement de 300%."
+                                </blockquote>
+                                <div class="testimonial__author">
+                                    <div class="author__info">
+                                        <div class="author__name">Sarah Chen</div>
+                                        <div class="author__role">Directrice Marketing • Luxury Group</div>
+                                    </div>
+                                    <div class="author__rating">
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Témoignage 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <div class="testimonial__content">
+                                <div class="testimonial__quote">
+                                    <i class="ti ti-quote"></i>
+                                </div>
+                                <blockquote class="testimonial__text">
+                                    "Une collaboration exceptionnelle. L'équipe de MARONEWEB a su
+                                    comprendre notre vision et l'a transformée en une expérience
+                                    digitale qui représente parfaitement notre marque."
+                                </blockquote>
+                                <div class="testimonial__author">
+                                    <div class="author__info">
+                                        <div class="author__name">Thomas Moreau</div>
+                                        <div class="author__role">CEO • Innovate Tech</div>
+                                    </div>
+                                    <div class="author__rating">
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                        <i class="ti ti-star-filled"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contrôles du slider -->
+                    <div class="testimonial-controls">
+                        <button class="testimonial-prev" aria-label="Témoignage précédent">
+                            <i class="ti ti-chevron-left"></i>
+                        </button>
+                        <div class="testimonial-dots">
+                            <button class="testimonial-dot testimonial-dot--active" aria-label="Témoignage 1"></button>
+                            <button class="testimonial-dot" aria-label="Témoignage 2"></button>
+                            <button class="testimonial-dot" aria-label="Témoignage 3"></button>
+                        </div>
+                        <button class="testimonial-next" aria-label="Témoignage suivant">
+                            <i class="ti ti-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing - Corrigé -->
-    <section class="pricing-section" id="pricing">
+    <!-- 
+    ============================================
+    SECTION EXPERTISES DÉTAILLÉES
+    ============================================ 
+    -->
+    <section class="expertises" id="expertises">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-number">03</span>
-                    <span>Tarifs <span class="highlight">Transparents</span></span>
-                </h2>
-                <p class="section-subtitle">
-                    Des offres claires sans surprise. Choisissez celle qui vous correspond.
-                </p>
+            <!-- En-tête de section -->
+            <div class="expertises__header">
+                <div class="section-header">
+                    <div class="section-header__side">
+                        <span class="section-header__number">01</span>
+                        <h2 class="section-header__title">Expertises</h2>
+                    </div>
+                    <div class="section-header__main">
+                        <p class="section-header__description">
+                            Nous maîtrisons l'ensemble du cycle de création digitale, de la
+                            stratégie initiale à la réalisation technique et au déploiement.
+                        </p>
+                        <a href="#contact" class="section-header__link">
+                            <span>Discuter de vos besoins</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="pricing-grid">
-                <!-- Starter -->
+            <!-- Grid des expertises -->
+            <div class="expertises__grid">
+                <!-- Expertise 1 -->
+                <article class="expertise-card expertise-card--featured">
+                    <div class="expertise-card__badge">
+                        <span class="badge__text">Plus demandé</span>
+                        <i class="ti ti-crown"></i>
+                    </div>
+
+                    <div class="expertise-card__header">
+                        <div class="expertise-card__icon">
+                            <div class="icon-3d">
+                                <i class="ti ti-device-laptop"></i>
+                            </div>
+                        </div>
+                        <div class="expertise-card__meta">
+                            <span class="expertise-card__number">01</span>
+                            <span class="expertise-card__category">Développement Web</span>
+                        </div>
+                        <h3 class="expertise-card__title">
+                            Sites Vitrine &<br>Corporate
+                        </h3>
+                    </div>
+
+                    <div class="expertise-card__body">
+                        <p class="expertise-card__description">
+                            Conception et développement de sites web élégants, performants
+                            et parfaitement adaptés à votre identité de marque.
+                        </p>
+
+                        <div class="expertise-card__features">
+                            <ul class="features-list">
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Design UI/UX sur-mesure</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Développement Front-end avancé</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Intégration CMS (WordPress, etc.)</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Optimisation SEO technique</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Responsive design parfait</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Animations personnalisées</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="expertise-card__stats">
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">2-4</div>
+                                <div class="stat-mini__label">Semaines</div>
+                            </div>
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">À partir de</div>
+                                <div class="stat-mini__label">1 990€</div>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card__actions">
+                            <a href="#contact" class="btn btn--primary btn--sm">
+                                <span>Demander un devis</span>
+                                <i class="ti ti-arrow-right"></i>
+                            </a>
+                            <a href="#casestudy-1" class="link-underline">
+                                <span>Voir un projet similaire</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card__preview">
+                        <div class="preview-device">
+                            <div class="device-screen">
+                                <div class="screen-content">
+                                    <div class="website-preview">
+                                        <div class="preview-nav">
+                                            <div class="nav-dots">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                            <div class="nav-title">CORPORATE SITE</div>
+                                        </div>
+                                        <div class="preview-hero">
+                                            <h4>Excellence Digitale</h4>
+                                            <p>Design & Performance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Expertise 2 -->
+                <article class="expertise-card">
+                    <div class="expertise-card__header">
+                        <div class="expertise-card__icon">
+                            <div class="icon-3d">
+                                <i class="ti ti-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="expertise-card__meta">
+                            <span class="expertise-card__number">02</span>
+                            <span class="expertise-card__category">E-commerce</span>
+                        </div>
+                        <h3 class="expertise-card__title">
+                            Boutiques en ligne<br>performantes
+                        </h3>
+                    </div>
+
+                    <div class="expertise-card__body">
+                        <p class="expertise-card__description">
+                            Développement de solutions e-commerce complètes avec des
+                            expériences d'achat optimisées pour la conversion.
+                        </p>
+
+                        <div class="expertise-card__features">
+                            <ul class="features-list">
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Shopify & WooCommerce expert</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>UX shopping optimisée</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Intégration paiement sécurisé</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Gestion stocks & commandes</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Marketing automation</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Analytics & reporting</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="expertise-card__stats">
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">4-8</div>
+                                <div class="stat-mini__label">Semaines</div>
+                            </div>
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">À partir de</div>
+                                <div class="stat-mini__label">3 990€</div>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card__actions">
+                            <a href="#contact" class="btn btn--secondary btn--sm">
+                                <span>Démarrer un projet</span>
+                                <i class="ti ti-rocket"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Expertise 3 -->
+                <article class="expertise-card">
+                    <div class="expertise-card__header">
+                        <div class="expertise-card__icon">
+                            <div class="icon-3d">
+                                <i class="ti ti-3d-cube-sphere"></i>
+                            </div>
+                        </div>
+                        <div class="expertise-card__meta">
+                            <span class="expertise-card__number">03</span>
+                            <span class="expertise-card__category">Design & UX</span>
+                        </div>
+                        <h3 class="expertise-card__title">
+                            Direction Artistique<br>& Design d'interface
+                        </h3>
+                    </div>
+
+                    <div class="expertise-card__body">
+                        <p class="expertise-card__description">
+                            Création d'identités visuelles fortes et de designs d'interface
+                            qui allient esthétique et fonctionnalité.
+                        </p>
+
+                        <div class="expertise-card__features">
+                            <ul class="features-list">
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Identité visuelle complète</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>UI/UX design sur-mesure</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Design system & prototypes</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Recherche utilisateur</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Wireframes & maquettes</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Tests utilisateurs</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="expertise-card__stats">
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">2-3</div>
+                                <div class="stat-mini__label">Semaines</div>
+                            </div>
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">À partir de</div>
+                                <div class="stat-mini__label">2 490€</div>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card__actions">
+                            <a href="#contact" class="btn btn--secondary btn--sm">
+                                <span>Voir nos réalisations</span>
+                                <i class="ti ti-photo"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Expertise 4 -->
+                <article class="expertise-card">
+                    <div class="expertise-card__header">
+                        <div class="expertise-card__icon">
+                            <div class="icon-3d">
+                                <i class="ti ti-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="expertise-card__meta">
+                            <span class="expertise-card__number">04</span>
+                            <span class="expertise-card__category">Expérience</span>
+                        </div>
+                        <h3 class="expertise-card__title">
+                            Expériences<br>Digitales Avancées
+                        </h3>
+                    </div>
+
+                    <div class="expertise-card__body">
+                        <p class="expertise-card__description">
+                            Développement d'expériences web interactives, d'animations
+                            complexes et de landing pages haute performance.
+                        </p>
+
+                        <div class="expertise-card__features">
+                            <ul class="features-list">
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Animations WebGL / 3D</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Landing pages animées</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Micro-interactions avancées</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Effets parallaxe complexes</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Applications web interactives</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Performances optimisées</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="expertise-card__stats">
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">Sur</div>
+                                <div class="stat-mini__label">Devis</div>
+                            </div>
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">Projets</div>
+                                <div class="stat-mini__label">Uniques</div>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card__actions">
+                            <a href="#contact" class="btn btn--secondary btn--sm">
+                                <span>Explorer les possibilités</span>
+                                <i class="ti ti-sparkles"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Expertise 5 -->
+                <article class="expertise-card">
+                    <div class="expertise-card__header">
+                        <div class="expertise-card__icon">
+                            <div class="icon-3d">
+                                <i class="ti ti-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="expertise-card__meta">
+                            <span class="expertise-card__number">05</span>
+                            <span class="expertise-card__category">Stratégie</span>
+                        </div>
+                        <h3 class="expertise-card__title">
+                            Stratégie Digitale<br>& Conseil
+                        </h3>
+                    </div>
+
+                    <div class="expertise-card__body">
+                        <p class="expertise-card__description">
+                            Accompagnement stratégique pour définir et optimiser votre
+                            présence digitale avec des solutions adaptées à vos objectifs.
+                        </p>
+
+                        <div class="expertise-card__features">
+                            <ul class="features-list">
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Audit digital complet</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Stratégie de contenu</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Plan marketing digital</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Optimisation SEO avancée</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Analyse de marché</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Roadmap produit</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="expertise-card__stats">
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">À partir de</div>
+                                <div class="stat-mini__label">990€</div>
+                            </div>
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">Forfait</div>
+                                <div class="stat-mini__label">Personnalisé</div>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card__actions">
+                            <a href="#contact" class="btn btn--secondary btn--sm">
+                                <span>Planifier un audit</span>
+                                <i class="ti ti-calendar"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Expertise 6 -->
+                <article class="expertise-card">
+                    <div class="expertise-card__header">
+                        <div class="expertise-card__icon">
+                            <div class="icon-3d">
+                                <i class="ti ti-server"></i>
+                            </div>
+                        </div>
+                        <div class="expertise-card__meta">
+                            <span class="expertise-card__number">06</span>
+                            <span class="expertise-card__category">Support</span>
+                        </div>
+                        <h3 class="expertise-card__title">
+                            Maintenance &<br>Support technique
+                        </h3>
+                    </div>
+
+                    <div class="expertise-card__body">
+                        <p class="expertise-card__description">
+                            Services de maintenance proactive, mises à jour, sécurité et
+                            support technique pour garantir la performance de votre site.
+                        </p>
+
+                        <div class="expertise-card__features">
+                            <ul class="features-list">
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Maintenance proactive</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Mises à jour de sécurité</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Sauvegardes automatiques</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Monitoring 24/7</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Support réactif</span>
+                                </li>
+                                <li class="feature">
+                                    <i class="ti ti-check"></i>
+                                    <span>Évolutions & ajouts</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="expertise-card__stats">
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">À partir de</div>
+                                <div class="stat-mini__label">99€/mois</div>
+                            </div>
+                            <div class="stat-mini">
+                                <div class="stat-mini__value">Forfaits</div>
+                                <div class="stat-mini__label">Flexibles</div>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card__actions">
+                            <a href="#contact" class="btn btn--secondary btn--sm">
+                                <span>Voir les forfaits</span>
+                                <i class="ti ti-shield-check"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="expertises__cta">
+                <div class="cta-banner">
+                    <div class="cta-banner__content">
+                        <h3 class="cta-banner__title">
+                            Vous avez un projet en tête ?
+                        </h3>
+                        <p class="cta-banner__description">
+                            Discutons-en pour trouver la solution parfaite.
+                        </p>
+                    </div>
+                    <div class="cta-banner__actions">
+                        <a href="#contact" class="btn btn--primary btn--lg">
+                            <span>Démarrer une collaboration</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                        <a href="tel:+32455121887" class="btn btn--secondary btn--lg">
+                            <span>Nous appeler</span>
+                            <i class="ti ti-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ============================================
+    SECTION RÉALISATIONS / PORTFOLIO
+    ============================================ 
+    -->
+    <section class="portfolio" id="realisations">
+        <div class="container">
+            <!-- En-tête Portfolio -->
+            <div class="portfolio__header">
+                <div class="section-header">
+                    <div class="section-header__side">
+                        <span class="section-header__number">02</span>
+                        <h2 class="section-header__title">Réalisations</h2>
+                    </div>
+                    <div class="section-header__main">
+                        <p class="section-header__description">
+                            Une sélection de nos projets les plus récents, où innovation
+                            technique et direction artistique créent des expériences uniques.
+                        </p>
+                        <div class="portfolio-filters">
+                            <button class="filter-btn filter-btn--active" data-filter="all">
+                                <span>Tous</span>
+                            </button>
+                            <button class="filter-btn" data-filter="vitrine">
+                                <span>Sites Vitrine</span>
+                            </button>
+                            <button class="filter-btn" data-filter="ecommerce">
+                                <span>E-commerce</span>
+                            </button>
+                            <button class="filter-btn" data-filter="design">
+                                <span>Design</span>
+                            </button>
+                            <button class="filter-btn" data-filter="experience">
+                                <span>Expériences</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Portfolio -->
+            <div class="portfolio__grid" id="portfolioGrid">
+                <!-- Projet 1 -->
+                <article class="portfolio-item" data-category="vitrine design" data-featured="true">
+                    <div class="portfolio-item__featured">
+                        <span>Projet vedette</span>
+                        <i class="ti ti-star"></i>
+                    </div>
+
+                    <div class="portfolio-item__preview">
+                        <div class="preview-container">
+                            <!-- Device Preview -->
+                            <div class="device-preview">
+                                <div class="device device--macbook">
+                                    <div class="device__screen">
+                                        <div class="screen-content">
+                                            <div class="project-preview">
+                                                <div class="preview-nav">
+                                                    <div class="nav-brand">LUXURY</div>
+                                                    <div class="nav-menu">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
+                                                </div>
+                                                <div class="preview-hero">
+                                                    <h5>Artisanat d'Exception</h5>
+                                                    <p>Collection exclusive 2024</p>
+                                                </div>
+                                                <div class="preview-gallery">
+                                                    <div class="gallery-item"></div>
+                                                    <div class="gallery-item"></div>
+                                                    <div class="gallery-item"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="device__base"></div>
+                                </div>
+                            </div>
+
+                            <!-- Tags du projet -->
+                            <div class="portfolio-tags">
+                                <span class="tag">Design Luxe</span>
+                                <span class="tag">Animations 3D</span>
+                                <span class="tag">Performance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item__info">
+                        <div class="portfolio-meta">
+                            <span class="meta-category">Site Vitrine • Design</span>
+                            <span class="meta-year">2024</span>
+                        </div>
+
+                        <h3 class="portfolio-title">Luxury Artisan</h3>
+
+                        <p class="portfolio-description">
+                            Site vitrine premium pour une marque d'artisanat de luxe,
+                            avec animations 3D personnalisées et design minimaliste.
+                        </p>
+
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <div class="stat__value">+225%</div>
+                                <div class="stat__label">Temps d'engagement</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat__value">+180%</div>
+                                <div class="stat__label">Demandes de contact</div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-actions">
+                            <a href="#casestudy-luxury" class="btn btn--primary">
+                                <span>Voir l'étude de cas</span>
+                                <i class="ti ti-external-link"></i>
+                            </a>
+                            <a href="#contact" class="link-arrow">
+                                <span>Projet similaire</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projet 2 -->
+                <article class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-item__preview">
+                        <div class="preview-container">
+                            <div class="device-preview">
+                                <div class="device device--iphone">
+                                    <div class="device__screen">
+                                        <div class="screen-content">
+                                            <div class="project-preview">
+                                                <div class="preview-header">
+                                                    <div class="header-title">BOUTIQUE</div>
+                                                    <div class="header-cart">
+                                                        <i class="ti ti-shopping-cart"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="preview-products">
+                                                    <div class="product-card"></div>
+                                                    <div class="product-card"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-tags">
+                                <span class="tag">E-commerce</span>
+                                <span class="tag">Mobile First</span>
+                                <span class="tag">Shopify</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item__info">
+                        <div class="portfolio-meta">
+                            <span class="meta-category">Boutique en ligne</span>
+                            <span class="meta-year">2024</span>
+                        </div>
+
+                        <h3 class="portfolio-title">Urban Fashion Co.</h3>
+
+                        <p class="portfolio-description">
+                            Plateforme e-commerce complète avec design mobile-first,
+                            intégrations de paiement et système de gestion avancé.
+                        </p>
+
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <div class="stat__value">+320%</div>
+                                <div class="stat__label">Conversions mobile</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat__value">-40%</div>
+                                <div class="stat__label">Taux d'abandon</div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-actions">
+                            <a href="#casestudy-urban" class="btn btn--secondary">
+                                <span>Explorer le projet</span>
+                                <i class="ti ti-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projet 3 -->
+                <article class="portfolio-item" data-category="experience vitrine">
+                    <div class="portfolio-item__preview">
+                        <div class="preview-container">
+                            <div class="device-preview">
+                                <div class="device device--imac">
+                                    <div class="device__screen">
+                                        <div class="screen-content">
+                                            <div class="project-preview">
+                                                <div class="preview-hero">
+                                                    <h5>Digital Experience</h5>
+                                                    <p>Immersion interactive</p>
+                                                </div>
+                                                <div class="preview-animation">
+                                                    <div class="animation-element"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-tags">
+                                <span class="tag">WebGL</span>
+                                <span class="tag">Animation 3D</span>
+                                <span class="tag">Interactif</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item__info">
+                        <div class="portfolio-meta">
+                            <span class="meta-category">Expérience digitale</span>
+                            <span class="meta-year">2023</span>
+                        </div>
+
+                        <h3 class="portfolio-title">TechCorp Interactive</h3>
+
+                        <p class="portfolio-description">
+                            Site corporate avec animations WebGL personnalisées et
+                            parcours utilisateur immersif pour une marque tech.
+                        </p>
+
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <div class="stat__value">+450%</div>
+                                <div class="stat__label">Temps passé</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat__value">+280%</div>
+                                <div class="stat__label">Partages sociaux</div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-actions">
+                            <a href="#casestudy-techcorp" class="btn btn--secondary">
+                                <span>Voir la démo</span>
+                                <i class="ti ti-player-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projet 4 -->
+                <article class="portfolio-item" data-category="design">
+                    <div class="portfolio-item__preview">
+                        <div class="preview-container">
+                            <div class="design-preview">
+                                <div class="design-grid">
+                                    <div class="grid-item grid-item--1"></div>
+                                    <div class="grid-item grid-item--2"></div>
+                                    <div class="grid-item grid-item--3"></div>
+                                    <div class="grid-item grid-item--4"></div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-tags">
+                                <span class="tag">Design System</span>
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">Branding</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item__info">
+                        <div class="portfolio-meta">
+                            <span class="meta-category">Direction artistique</span>
+                            <span class="meta-year">2023</span>
+                        </div>
+
+                        <h3 class="portfolio-title">Nova Identity</h3>
+
+                        <p class="portfolio-description">
+                            Refonte complète de l'identité visuelle et création d'un
+                            design system pour une startup de la tech.
+                        </p>
+
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <div class="stat__value">+95%</div>
+                                <div class="stat__label">Cohérence visuelle</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat__value">-60%</div>
+                                <div class="stat__label">Temps de développement</div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-actions">
+                            <a href="#casestudy-nova" class="btn btn--secondary">
+                                <span>Voir le design system</span>
+                                <i class="ti ti-palette"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More & CTA -->
+            <div class="portfolio__footer">
+                <div class="load-more">
+                    <button class="btn btn--outline" id="loadMoreProjects">
+                        <span>Charger plus de projets</span>
+                        <i class="ti ti-plus"></i>
+                    </button>
+                </div>
+
+                <div class="cta-actions">
+                    <a href="#contact" class="btn btn--primary btn--lg">
+                        <span>Votre projet ici</span>
+                        <i class="ti ti-sparkles"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- 
+============================================
+SECTION PROCESSUS DE CRÉATION
+============================================ 
+-->
+    <section class="process" id="processus">
+        <div class="container">
+            <div class="process__header">
+                <div class="section-header">
+                    <div class="section-header__side">
+                        <span class="section-header__number">03</span>
+                        <h2 class="section-header__title">Notre Processus</h2>
+                    </div>
+                    <div class="section-header__main">
+                        <p class="section-header__description">
+                            Une méthodologie éprouvée, flexible et transparente pour garantir
+                            l'excellence à chaque étape de votre projet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline du processus -->
+            <div class="process__timeline">
+                <!-- Étape 1 -->
+                <div class="process-step process-step--active">
+                    <div class="step-indicator">
+                        <div class="step-number">01</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <h3 class="step-title">Discovery & Stratégie</h3>
+                            <span class="step-duration">1-2 semaines</span>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">
+                                Nous plongeons dans votre univers pour comprendre vos objectifs,
+                                votre audience et votre marché. Cette phase cruciale définit les
+                                fondations du projet.
+                            </p>
+                            <ul class="step-features">
+                                <li><i class="ti ti-check"></i> Brief créatif approfondi</li>
+                                <li><i class="ti ti-check"></i> Analyse concurrentielle</li>
+                                <li><i class="ti ti-check"></i> Architecture de l'information</li>
+                                <li><i class="ti ti-check"></i> Plan stratégique détaillé</li>
+                                <li><i class="ti ti-check"></i> Définition des KPI</li>
+                            </ul>
+                            <div class="step-deliverables">
+                                <h4>Livrables :</h4>
+                                <div class="deliverables-list">
+                                    <span class="deliverable">Stratégie digitale</span>
+                                    <span class="deliverable">User personas</span>
+                                    <span class="deliverable">Roadmap projet</span>
+                                    <span class="deliverable">Devis détaillé</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">02</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <h3 class="step-title">Conception & Design</h3>
+                            <span class="step-duration">2-4 semaines</span>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">
+                                Transformation des concepts en visuels. Nous créons l'identité
+                                visuelle et les interfaces qui incarnent votre marque.
+                            </p>
+                            <ul class="step-features">
+                                <li><i class="ti ti-check"></i> Direction artistique</li>
+                                <li><i class="ti ti-check"></i> Wireframes interactifs</li>
+                                <li><i class="ti ti-check"></i> Design UI/UX complet</li>
+                                <li><i class="ti ti-check"></i> Prototypage avancé</li>
+                                <li><i class="ti ti-check"></i> Tests utilisateurs</li>
+                            </ul>
+                            <div class="step-deliverables">
+                                <h4>Livrables :</h4>
+                                <div class="deliverables-list">
+                                    <span class="deliverable">Moodboards</span>
+                                    <span class="deliverable">Maquettes finales</span>
+                                    <span class="deliverable">Design system</span>
+                                    <span class="deliverable">Prototype interactif</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">03</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <h3 class="step-title">Développement</h3>
+                            <span class="step-duration">3-6 semaines</span>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">
+                                Transformation du design en code performant. Nous utilisons les
+                                technologies les plus récentes pour un résultat optimisé.
+                            </p>
+                            <ul class="step-features">
+                                <li><i class="ti ti-check"></i> Développement front-end avancé</li>
+                                <li><i class="ti ti-check"></i> Intégration back-end</li>
+                                <li><i class="ti ti-check"></i> Animations personnalisées</li>
+                                <li><i class="ti ti-check"></i> Optimisation performances</li>
+                                <li><i class="ti ti-check"></i> Tests qualité approfondis</li>
+                            </ul>
+                            <div class="step-deliverables">
+                                <h4>Livrables :</h4>
+                                <div class="deliverables-list">
+                                    <span class="deliverable">Environnement de test</span>
+                                    <span class="deliverable">Code source documenté</span>
+                                    <span class="deliverable">Rapports de performance</span>
+                                    <span class="deliverable">Back-office personnalisé</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 4 -->
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <div class="step-number">04</div>
+                        <!-- Pas de line pour la dernière étape -->
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <h3 class="step-title">Livraison & Suivi</h3>
+                            <span class="step-duration">1 semaine + suivi</span>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">
+                                Mise en ligne et accompagnement post-livraison pour assurer
+                                le succès durable de votre projet.
+                            </p>
+                            <ul class="step-features">
+                                <li><i class="ti ti-check"></i> Déploiement sur serveur</li>
+                                <li><i class="ti ti-check"></i> Formation complète</li>
+                                <li><i class="ti ti-check"></i> Optimisation SEO technique</li>
+                                <li><i class="ti ti-check"></i> Monitoring post-lancement</li>
+                                <li><i class="ti ti-check"></i> Support prioritaire</li>
+                            </ul>
+                            <div class="step-deliverables">
+                                <h4>Livrables :</h4>
+                                <div class="deliverables-list">
+                                    <span class="deliverable">Site en production</span>
+                                    <span class="deliverable">Documentation complète</span>
+                                    <span class="deliverable">Rapport d'analytics</span>
+                                    <span class="deliverable">Forfait maintenance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Témoignage Process -->
+            <div class="process__testimonial">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="ti ti-quote"></i>
+                        <p>"La méthodologie claire et les livrables réguliers de MARONEWEB ont rendu
+                            le processus transparent et rassurant. Nous étions impliqués à chaque étape."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Alexandre Dubois</div>
+                            <div class="author-role">Directeur Technique • FinTech Solutions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+============================================
+SECTION TARIFS & FORFAITS
+============================================ 
+-->
+    <section class="pricing" id="tarifs">
+        <div class="container">
+            <div class="pricing__header">
+                <div class="section-header">
+                    <div class="section-header__side">
+                        <span class="section-header__number">04</span>
+                        <h2 class="section-header__title">Tarifs Transparents</h2>
+                    </div>
+                    <div class="section-header__main">
+                        <p class="section-header__description">
+                            Des forfaits clairs adaptés à vos besoins. Chaque projet étant unique,
+                            nous proposons également des devis personnalisés.
+                        </p>
+                        <div class="pricing-toggle">
+                            <button class="toggle-btn toggle-btn--active" data-period="once">
+                                Forfait unique
+                            </button>
+                            <button class="toggle-btn" data-period="monthly">
+                                Abonnement mensuel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid des forfaits -->
+            <div class="pricing__grid">
+                <!-- Forfait Starter -->
                 <div class="pricing-card">
-                    <div class="pricing-badge">Parfait pour débuter</div>
-                    <div class="pricing-header">
+                    <div class="pricing-card__header">
                         <h3 class="plan-name">Starter</h3>
                         <div class="plan-price">
-                            <span class="price">199€</span>
-                            <span class="period">une fois</span>
+                            <span class="price-amount">1 990€</span>
+                            <span class="price-period">forfait unique</span>
                         </div>
-                        <p class="plan-desc">Site vitrine basique</p>
+                        <p class="plan-description">Parfait pour les projets simples et élégants</p>
                     </div>
-                    <div class="pricing-features">
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>3 pages design</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Responsive mobile</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Formulaire contact</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Hébergement 1 an</span>
-                        </div>
-                        <div class="feature disabled">
-                            <i class="fas fa-times"></i>
-                            <span>SEO avancé</span>
-                        </div>
-                        <div class="feature disabled">
-                            <i class="fas fa-times"></i>
-                            <span>Maintenance</span>
+
+                    <div class="pricing-card__body">
+                        <ul class="plan-features">
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Design sur-mesure</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>3-5 pages optimisées</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Responsive design</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Intégration CMS basique</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>SEO technique de base</span>
+                            </li>
+                            <li class="feature feature--excluded">
+                                <i class="ti ti-x"></i>
+                                <span>Animations avancées</span>
+                            </li>
+                            <li class="feature feature--excluded">
+                                <i class="ti ti-x"></i>
+                                <span>E-commerce</span>
+                            </li>
+                            <li class="feature feature--excluded">
+                                <i class="ti ti-x"></i>
+                                <span>Formations avancées</span>
+                            </li>
+                        </ul>
+
+                        <div class="plan-timeline">
+                            <div class="timeline-info">
+                                <i class="ti ti-clock"></i>
+                                <span>Délai : 3-4 semaines</span>
+                            </div>
                         </div>
                     </div>
-                    <a href="#contact" class="pricing-cta">
-                        <span>Choisir Starter</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+
+                    <div class="pricing-card__footer">
+                        <a href="#contact" class="btn btn--outline btn--block">
+                            <span>Choisir ce forfait</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                        <a href="#comparison" class="link-text">
+                            <span>Comparer les forfaits</span>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Business -->
-                <div class="pricing-card featured">
+                <!-- Forfait Pro (Featured) -->
+                <div class="pricing-card pricing-card--featured">
                     <div class="featured-badge">
-                        <i class="fas fa-star"></i>
-                        <span>VALUE</span>
+                        <i class="ti ti-crown"></i>
+                        <span>Le plus populaire</span>
                     </div>
-                    <div class="pricing-header">
-                        <h3 class="plan-name">Business</h3>
+
+                    <div class="pricing-card__header">
+                        <h3 class="plan-name">Professional</h3>
                         <div class="plan-price">
-                            <span class="price">399€</span>
-                            <span class="period">une fois</span>
+                            <span class="price-amount">4 990€</span>
+                            <span class="price-period">forfait unique</span>
                         </div>
-                        <p class="plan-desc">Site professionnel complet</p>
+                        <p class="plan-description">Solution complète pour les projets ambitieux</p>
                     </div>
-                    <div class="pricing-features">
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>6 pages sur mesure</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Design premium</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>SEO optimisé</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Analytics intégré</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Maintenance 3 mois</span>
-                        </div>
-                        <div class="feature disabled">
-                            <i class="fas fa-times"></i>
-                            <span>E-commerce</span>
+
+                    <div class="pricing-card__body">
+                        <ul class="plan-features">
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Design premium sur-mesure</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>5-10 pages optimisées</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Animations personnalisées</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>CMS avancé (WordPress, etc.)</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>SEO technique avancé</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>E-commerce basique</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Formation complète</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Maintenance 3 mois</span>
+                            </li>
+                        </ul>
+
+                        <div class="plan-timeline">
+                            <div class="timeline-info">
+                                <i class="ti ti-clock"></i>
+                                <span>Délai : 5-7 semaines</span>
+                            </div>
                         </div>
                     </div>
-                    <a href="#contact" class="pricing-cta primary">
-                        <span>Choisir Business</span>
-                        <i class="fas fa-bolt"></i>
-                    </a>
+
+                    <div class="pricing-card__footer">
+                        <a href="#contact" class="btn btn--primary btn--block">
+                            <span>Choisir ce forfait</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                        <div class="popular-info">
+                            <i class="ti ti-sparkles"></i>
+                            <span>50% de nos clients choisissent ce forfait</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Premium -->
+                <!-- Forfait Enterprise -->
                 <div class="pricing-card">
-                    <div class="pricing-badge">Pour les pros</div>
-                    <div class="pricing-header">
-                        <h3 class="plan-name">Premium</h3>
+                    <div class="pricing-card__header">
+                        <h3 class="plan-name">Enterprise</h3>
                         <div class="plan-price">
-                            <span class="price">799€</span>
-                            <span class="period">une fois</span>
+                            <span class="price-amount">Sur devis</span>
+                            <span class="price-period">projet personnalisé</span>
                         </div>
-                        <p class="plan-desc">Solution complète</p>
+                        <p class="plan-description">Solutions sur-mesure pour les besoins complexes</p>
                     </div>
-                    <div class="pricing-features">
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>10 pages illimitées</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Design exclusif</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>SEO avancé</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>E-commerce basique</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Maintenance 6 mois</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Formation incluse</span>
+
+                    <div class="pricing-card__body">
+                        <ul class="plan-features">
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Solution 100% sur-mesure</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Pages illimitées</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Animations WebGL/3D</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>E-commerce avancé</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Développement spécifique</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Intégrations API</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Formation étendue</span>
+                            </li>
+                            <li class="feature feature--included">
+                                <i class="ti ti-check"></i>
+                                <span>Maintenance 6 mois</span>
+                            </li>
+                        </ul>
+
+                        <div class="plan-timeline">
+                            <div class="timeline-info">
+                                <i class="ti ti-clock"></i>
+                                <span>Délai : à définir</span>
+                            </div>
                         </div>
                     </div>
-                    <a href="#contact" class="pricing-cta">
-                        <span>Choisir Premium</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+
+                    <div class="pricing-card__footer">
+                        <a href="#contact" class="btn btn--outline btn--block">
+                            <span>Demander un devis</span>
+                            <i class="ti ti-message"></i>
+                        </a>
+                        <a href="tel:+32455121887" class="link-text">
+                            <span>Ou nous appeler directement</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="pricing-note">
-                <i class="fas fa-info-circle"></i>
-                <p>Tous les prix incluent un design unique, un développement sur mesure et un hébergement professionnel.</p>
+            <!-- Add-ons & Options -->
+            <div class="pricing__addons">
+                <h3 class="addons-title">Options supplémentaires</h3>
+                <div class="addons-grid">
+                    <div class="addon-card">
+                        <div class="addon-header">
+                            <i class="ti ti-seo"></i>
+                            <h4>Optimisation SEO Avancée</h4>
+                        </div>
+                        <div class="addon-body">
+                            <p>Stratégie SEO complète avec recherche de mots-clés et optimisation technique.</p>
+                            <div class="addon-price">+ 790€</div>
+                        </div>
+                    </div>
+
+                    <div class="addon-card">
+                        <div class="addon-header">
+                            <i class="ti ti-language"></i>
+                            <h4>Multilingue</h4>
+                        </div>
+                        <div class="addon-body">
+                            <p>Traduction et adaptation de votre site en plusieurs langues.</p>
+                            <div class="addon-price">+ 490€/langue</div>
+                        </div>
+                    </div>
+
+                    <div class="addon-card">
+                        <div class="addon-header">
+                            <i class="ti ti-chart-line"></i>
+                            <h4>Analytics & Reporting</h4>
+                        </div>
+                        <div class="addon-body">
+                            <p>Tableaux de bord personnalisés et rapports mensuels détaillés.</p>
+                            <div class="addon-price">+ 290€/mois</div>
+                        </div>
+                    </div>
+
+                    <div class="addon-card">
+                        <div class="addon-header">
+                            <i class="ti ti-shield-check"></i>
+                            <h4>Maintenance Premium</h4>
+                        </div>
+                        <div class="addon-body">
+                            <p>Support prioritaire, mises à jour et sauvegardes automatiques.</p>
+                            <div class="addon-price">À partir de 199€/mois</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garanties -->
+            <div class="pricing__guarantees">
+                <div class="guarantee">
+                    <i class="ti ti-shield"></i>
+                    <h4>Satisfaction garantie</h4>
+                    <p>30 jours pour valider le résultat final</p>
+                </div>
+                <div class="guarantee">
+                    <i class="ti ti-clock"></i>
+                    <h4>Respect des délais</h4>
+                    <p>Engagement contractuel sur les dates de livraison</p>
+                </div>
+                <div class="guarantee">
+                    <i class="ti ti-file-invoice"></i>
+                    <h4>Facturation transparente</h4>
+                    <p>Aucun coût caché, devis détaillé</p>
+                </div>
+                <div class="guarantee">
+                    <i class="ti ti-headphones"></i>
+                    <h4>Support réactif</h4>
+                    <p>Réponse sous 24h ouvrées</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="process-section" id="process">
+    <!-- 
+============================================
+SECTION AGENCE & ÉQUIPE
+============================================ 
+-->
+    <section class="agency" id="agence">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-number">04</span>
-                    <span>Notre <span class="highlight">Processus</span></span>
-                </h2>
-                <p class="section-subtitle">
-                    Une collaboration fluide pour un résultat exceptionnel
-                </p>
+            <div class="agency__header">
+                <div class="section-header">
+                    <div class="section-header__side">
+                        <span class="section-header__number">05</span>
+                        <h2 class="section-header__title">L'Agence</h2>
+                    </div>
+                    <div class="section-header__main">
+                        <p class="section-header__description">
+                            Une équipe passionnée qui allie expertise technique et vision créative
+                            pour donner vie à vos projets les plus ambitieux.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="step-visual">
-                        <div class="step-circle">01</div>
-                        <div class="step-line"></div>
+            <!-- Stats Agence -->
+            <div class="agency__stats">
+                <div class="stats-grid">
+                    <div class="agency-stat">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Ans d'expertise</div>
+                        <div class="stat-sub">Depuis 2017</div>
                     </div>
-                    <div class="step-content">
-                        <h3 class="step-title">Discovery</h3>
-                        <p class="step-desc">Nous échangeons sur votre vision, vos objectifs et vos besoins spécifiques.</p>
+                    <div class="agency-stat">
+                        <div class="stat-value">150+</div>
+                        <div class="stat-label">Projets livrés</div>
+                        <div class="stat-sub">À travers le monde</div>
                     </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-visual">
-                        <div class="step-circle">02</div>
-                        <div class="step-line"></div>
+                    <div class="agency-stat">
+                        <div class="stat-value">98%</div>
+                        <div class="stat-label">Clients satisfaits</div>
+                        <div class="stat-sub">Taux de recommandation</div>
                     </div>
-                    <div class="step-content">
-                        <h3 class="step-title">Design</h3>
-                        <p class="step-desc">Création des maquettes et validation du design avec vous.</p>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-visual">
-                        <div class="step-circle">03</div>
-                        <div class="step-line"></div>
-                    </div>
-                    <div class="step-content">
-                        <h3 class="step-title">Développement</h3>
-                        <p class="step-desc">Programmation de votre site avec les dernières technologies.</p>
+                    <div class="agency-stat">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Prix & reconnaissances</div>
+                        <div class="stat-sub">Excellence créative</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="process-step">
-                    <div class="step-visual">
-                        <div class="step-circle">04</div>
+            <!-- Valeurs -->
+            <div class="agency__values">
+                <h3 class="values-title">Nos valeurs fondamentales</h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="ti ti-sparkles"></i>
+                        </div>
+                        <h4>Excellence</h4>
+                        <p>Nous visons l'exceptionnel dans chaque détail, refusant les compromis sur la qualité.</p>
                     </div>
-                    <div class="step-content">
-                        <h3 class="step-title">Livraison</h3>
-                        <p class="step-desc">Mise en ligne, formation et suivi de votre projet.</p>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="ti ti-heart"></i>
+                        </div>
+                        <h4>Passion</h4>
+                        <p>Notre énergie vient de l'amour pour notre métier et pour les projets que nous réalisons.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="ti ti-users"></i>
+                        </div>
+                        <h4>Collaboration</h4>
+                        <p>Nous croyons que les meilleurs résultats naissent d'un travail d'équipe étroit.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="ti ti-bulb"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>Nous explorons constamment de nouvelles technologies et approches créatives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Équipe (Version simplifiée pour le template) -->
+            <div class="agency__team">
+                <h3 class="team-title">L'équipe créative</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <div class="avatar-placeholder">MD</div>
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Martin Dupont</h4>
+                            <p class="member-role">Directeur Artistique & Fondateur</p>
+                            <p class="member-bio">15 ans d'expérience en design et direction créative.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <div class="avatar-placeholder">SD</div>
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Sarah Dubois</h4>
+                            <p class="member-role">Lead Développeuse Front-end</p>
+                            <p class="member-bio">Spécialiste en animations avancées et performances web.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <div class="avatar-placeholder">TL</div>
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Thomas Leroy</h4>
+                            <p class="member-role">Expert UX/UI & Stratégie</p>
+                            <p class="member-bio">Focus sur l'expérience utilisateur et la recherche.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <div class="avatar-placeholder">EM</div>
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Emma Martin</h4>
+                            <p class="member-role">Développeuse Full-Stack</p>
+                            <p class="member-bio">Expertise en solutions e-commerce et intégrations complexes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Agence -->
+            <div class="agency__cta">
+                <div class="cta-content">
+                    <h3 class="cta-title">Rejoignez notre portfolio de réussites</h3>
+                    <p class="cta-description">
+                        Que vous soyez une startup ambitieuse ou une entreprise établie,
+                        nous avons l'expertise pour faire briller votre projet.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="#contact" class="btn btn--primary btn--lg">
+                            <span>Commencer un projet</span>
+                            <i class="ti ti-rocket"></i>
+                        </a>
+                        <a href="#processus" class="btn btn--secondary btn--lg">
+                            <span>Découvrir notre processus</span>
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact-section" id="contact">
+    <!-- 
+============================================
+SECTION CONTACT AVANCÉE
+============================================ 
+-->
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <div class="form-header">
-                        <h2 class="form-title">Parlez-nous de votre projet</h2>
-                        <p class="form-subtitle">Remplissez ce formulaire et nous vous répondrons sous 24h</p>
+            <div class="contact__header">
+                <div class="section-header">
+                    <div class="section-header__side">
+                        <span class="section-header__number">06</span>
+                        <h2 class="section-header__title">Contact</h2>
                     </div>
+                    <div class="section-header__main">
+                        <p class="section-header__description">
+                            Prêt à donner vie à votre projet ? Contactez-nous pour une consultation
+                            gratuite et sans engagement.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-                    <form id="contactForm" action="https://formsubmit.co/martin.federer08@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="🎯 NOUVEAU PROJET MARONEWEB">
+            <div class="contact__grid">
+                <!-- Formulaire de contact -->
+                <div class="contact__form-container">
+                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/maronefed@gmail.com"
+                        method="POST">
+                        <!-- Champs cachés pour FormSubmit -->
+                        <input type="hidden" name="_subject" value="🟣 NOUVELLE DEMANDE - MARONEWEB.fr">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="#success">
-                        
-                        <div class="form-row">
+
+                        <!-- Étape 1 : Informations de base -->
+                        <div class="form-step form-step--active" id="step1">
+                            <h3 class="step-title">Informations du projet</h3>
+
                             <div class="form-group">
-                                <input type="text" name="name" id="name" required placeholder="Votre nom complet">
-                                <div class="form-line"></div>
+                                <label for="projectType">Type de projet *</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="" selected disabled>Sélectionnez une option</option>
+                                    <option value="site-vitrine">Site Vitrine / Corporate</option>
+                                    <option value="ecommerce">Site E-commerce</option>
+                                    <option value="refonte">Refonte de site</option>
+                                    <option value="design">Design UI/UX</option>
+                                    <option value="application">Application Web</option>
+                                    <option value="autre">Autre projet</option>
+                                </select>
                             </div>
+
                             <div class="form-group">
-                                <input type="email" name="email" id="email" required placeholder="Votre email professionnel">
-                                <div class="form-line"></div>
+                                <label for="budget">Budget estimé *</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="" selected disabled>Sélectionnez une fourchette</option>
+                                    <option value="1-3k">1 000€ - 3 000€</option>
+                                    <option value="3-5k">3 000€ - 5 000€</option>
+                                    <option value="5-10k">5 000€ - 10 000€</option>
+                                    <option value="10-20k">10 000€ - 20 000€</option>
+                                    <option value="20k+">Plus de 20 000€</option>
+                                    <option value="indetermine">À déterminer</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timeline">Délai souhaité *</label>
+                                <select id="timeline" name="timeline" required>
+                                    <option value="" selected disabled>Sélectionnez un délai</option>
+                                    <option value="urgent">Urgent (1-2 mois)</option>
+                                    <option value="normal">Normal (2-4 mois)</option>
+                                    <option value="flexible">Flexible (4-6 mois)</option>
+                                    <option value="indetermine">À déterminer</option>
+                                </select>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn--primary" id="nextStep">
+                                    <span>Continuer</span>
+                                    <i class="ti ti-arrow-right"></i>
+                                </button>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <input type="tel" name="phone" id="phone" required placeholder="Votre numéro de téléphone">
-                            <div class="form-line"></div>
+                        <!-- Étape 2 : Informations personnelles -->
+                        <div class="form-step" id="step2">
+                            <h3 class="step-title">Vos coordonnées</h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Prénom *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Nom *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">Entreprise / Organisation</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Téléphone *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn--secondary" id="prevStep">
+                                    <i class="ti ti-arrow-left"></i>
+                                    <span>Retour</span>
+                                </button>
+                                <button type="button" class="btn btn--primary" id="nextStep2">
+                                    <span>Continuer</span>
+                                    <i class="ti ti-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <select name="service" id="service" required>
-                                <option value="" disabled selected>Sélectionnez un service *</option>
-                                <option value="Starter - 199€">Starter - Site vitrine (199€)</option>
-                                <option value="Business - 399€">Business - Site pro (399€)</option>
-                                <option value="Premium - 799€">Premium - Solution complète (799€)</option>
-                                <option value="E-commerce - Sur devis">E-commerce - Sur devis</option>
-                                <option value="Application Web - Sur devis">Application Web - Sur devis</option>
-                                <option value="Autre projet">Autre projet - Discutons-en</option>
-                            </select>
-                            <div class="form-line"></div>
+                        <!-- Étape 3 : Détails du projet -->
+                        <div class="form-step" id="step3">
+                            <h3 class="step-title">Détails supplémentaires</h3>
+
+                            <div class="form-group">
+                                <label for="projectName">Nom du projet</label>
+                                <input type="text" id="projectName" name="projectName"
+                                    placeholder="Ex: Refonte site corporate">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Description du projet *</label>
+                                <textarea id="message" name="message" rows="6" required
+                                    placeholder="Décrivez votre projet, vos objectifs, vos inspirations..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reference">Site de référence (optionnel)</label>
+                                <input type="url" id="reference" name="reference" placeholder="https://exemple.com">
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn--secondary" id="prevStep2">
+                                    <i class="ti ti-arrow-left"></i>
+                                    <span>Retour</span>
+                                </button>
+                                <button type="submit" class="btn btn--primary">
+                                    <span>Envoyer la demande</span>
+                                    <i class="ti ti-send"></i>
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <textarea name="message" id="message" rows="4" placeholder="Décrivez votre projet, vos besoins, votre budget..."></textarea>
-                            <div class="form-line"></div>
+                        <!-- Indicateur de progression -->
+                        <div class="form-progress">
+                            <div class="progress-steps">
+                                <div class="progress-step progress-step--active">
+                                    <div class="step-number">1</div>
+                                    <div class="step-label">Projet</div>
+                                </div>
+                                <div class="progress-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-label">Coordonnées</div>
+                                </div>
+                                <div class="progress-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-label">Détails</div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">
-                                <span>Envoyer ma demande</span>
-                                <i class="fas fa-paper-plane"></i>
-                                <div class="btn-glow"></div>
-                            </button>
-                            <p class="form-security">
-                                <i class="fas fa-shield-alt"></i>
-                                Vos informations sont sécurisées et confidentielles
-                            </p>
+                        <!-- Confidentialité -->
+                        <div class="form-privacy">
+                            <div class="privacy-notice">
+                                <i class="ti ti-lock"></i>
+                                <p>Vos informations sont confidentielles et ne seront jamais partagées.</p>
+                            </div>
                         </div>
                     </form>
                 </div>
 
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Réponse Rapide</h3>
-                            <p class="card-text">Nous vous répondons en moins de 24 heures ouvrables.</p>
+                <!-- Informations de contact -->
+                <div class="contact__info">
+                    <!-- Contact direct -->
+                    <div class="info-card info-card--contact">
+                        <h3 class="info-card__title">Contact direct</h3>
+                        <div class="contact-methods">
+                            <a href="mailto:maronefed@gmail.com" class="contact-method">
+                                <div class="method-icon">
+                                    <i class="ti ti-mail"></i>
+                                </div>
+                                <div class="method-content">
+                                    <div class="method-label">Email</div>
+                                    <div class="method-value">maronefed@gmail.com</div>
+                                </div>
+                            </a>
+
+                            <a href="tel:+32455121887" class="contact-method">
+                                <div class="method-icon">
+                                    <i class="ti ti-phone"></i>
+                                </div>
+                                <div class="method-content">
+                                    <div class="method-label">Téléphone</div>
+                                    <div class="method-value">+32 455 12 18 87</div>
+                                </div>
+                            </a>
+
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="ti ti-clock"></i>
+                                </div>
+                                <div class="method-content">
+                                    <div class="method-label">Disponibilité</div>
+                                    <div class="method-value">Lun - Ven, 9h - 18h</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-gem"></i>
+                    <!-- Réponse garantie -->
+                    <div class="info-card info-card--guarantee">
+                        <div class="guarantee-icon">
+                            <i class="ti ti-bolt"></i>
                         </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Expertise Premium</h3>
-                            <p class="card-text">Plus de 150 projets réalisés avec excellence.</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Satisfaction Garantie</h3>
-                            <p class="card-text">99% de nos clients sont pleinement satisfaits.</p>
+                        <div class="guarantee-content">
+                            <h3>Réponse rapide garantie</h3>
+                            <p>Nous vous répondons sous <strong>24 heures ouvrées</strong> pour toute demande.</p>
                         </div>
                     </div>
 
-                    <div class="contact-direct">
-                        <h3 class="direct-title">Ou contactez-nous directement</h3>
-                        <a href="mailto:contact@maroneweb.fr" class="direct-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>maronefed@gmail.com</span>
+                    <!-- Consultation gratuite -->
+                    <div class="info-card info-card--consultation">
+                        <h3 class="info-card__title">Consultation gratuite</h3>
+                        <p class="info-card__description">
+                            Offrez-vous 30 minutes de consultation gratuite pour discuter de votre
+                            projet avec un expert.
+                        </p>
+                        <a href="#calendly" class="btn btn--secondary btn--block">
+                            <span>Planifier un appel</span>
+                            <i class="ti ti-calendar"></i>
                         </a>
-                        <a href="tel:+32 455 12 18 87" class="direct-link">
-                            <i class="fas fa-phone"></i>
-                            <span>+32 455 12 18 87</span>
-                        </a>
+                    </div>
+
+                    <!-- FAQ rapide -->
+                    <div class="info-card info-card--faq">
+                        <h3 class="info-card__title">Questions fréquentes</h3>
+                        <div class="faq-list">
+                            <details class="faq-item">
+                                <summary class="faq-question">
+                                    <span>Quels sont vos délais moyens ?</span>
+                                    <i class="ti ti-chevron-down"></i>
+                                </summary>
+                                <div class="faq-answer">
+                                    <p>Les délais varient selon la complexité : 3-4 semaines pour un site vitrine
+                                        simple, 6-8 semaines pour un e-commerce complexe.</p>
+                                </div>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary class="faq-question">
+                                    <span>Proposez-vous des forfaits de maintenance ?</span>
+                                    <i class="ti ti-chevron-down"></i>
+                                </summary>
+                                <div class="faq-answer">
+                                    <p>Oui, nous proposons des forfaits de maintenance mensuels à partir de 99€/mois,
+                                        incluant mises à jour, sécurité et support.</p>
+                                </div>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary class="faq-question">
+                                    <span>Travaillez-vous à distance ?</span>
+                                    <i class="ti ti-chevron-down"></i>
+                                </summary>
+                                <div class="faq-answer">
+                                    <p>Absolument ! Nous travaillons avec des clients dans toute l'Europe via
+                                        visioconférence et outils collaboratifs.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte de localisation (optionnelle) -->
+            <div class="contact__map">
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <i class="ti ti-map-pin"></i>
+                        <h3>Agence digitale internationale</h3>
+                        <p>Nous travaillons à distance avec des clients partout dans le monde</p>
+                        <div class="map-countries">
+                            <span class="country-tag">France</span>
+                            <span class="country-tag">Belgique</span>
+                            <span class="country-tag">Suisse</span>
+                            <span class="country-tag">Canada</span>
+                            <span class="country-tag">États-Unis</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
+    <!-- 
+============================================
+FOOTER COMPLET
+============================================ 
+-->
+    <footer class="footer" id="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#hero" class="brand">
-                        <div class="brand-logo">
-                            <div class="logo-m">M</div>
-                        </div>
-                        <div class="brand-text">
-                            <span class="brand-name">MARONEWEB</span>
-                            <span class="brand-tagline">Création Web d'Exception</span>
+            <!-- Main Footer -->
+            <div class="footer__main">
+                <!-- Brand & Description -->
+                <div class="footer__brand">
+                    <a href="#hero" class="footer__logo">
+                        <div class="logo-symbol">◈</div>
+                        <div class="logo-text">
+                            <span class="logo-name">MARONEWEB</span>
+                            <span class="logo-tagline">AGENCE DE CRÉATION WEB</span>
                         </div>
                     </a>
-                    <p class="footer-desc">
-                        Nous transformons vos idées en expériences digitales mémorables.
+                    <p class="footer__description">
+                        Nous créons des expériences digitales exceptionnelles pour les marques
+                        ambitieuses. Design sur-mesure, développement expert et stratégie digitale.
                     </p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-behance"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                    <div class="footer__newsletter">
+                        <h4>Restez informé</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre email" required>
+                            <button type="submit">
+                                <i class="ti ti-send"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
 
-                <div class="footer-links">
-                    <div class="link-col">
-                        <h3>Services</h3>
-                        <a href="#services">Sites Vitrine</a>
-                        <a href="#services">E-commerce</a>
-                        <a href="#services">Applications Web</a>
-                        <a href="#services">Design UI/UX</a>
+                <!-- Navigation Footer -->
+                <div class="footer__nav">
+                    <div class="nav-column">
+                        <h4 class="nav-title">Services</h4>
+                        <ul class="nav-list">
+                            <li><a href="#expertises">Sites Vitrine</a></li>
+                            <li><a href="#expertises">E-commerce</a></li>
+                            <li><a href="#expertises">Design UI/UX</a></li>
+                            <li><a href="#expertises">Expériences Digitales</a></li>
+                            <li><a href="#expertises">Stratégie Digitale</a></li>
+                            <li><a href="#expertises">Maintenance</a></li>
+                        </ul>
                     </div>
-                    <div class="link-col">
-                        <h3>Entreprise</h3>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#process">Processus</a>
-                        <a href="#pricing">Tarifs</a>
-                        <a href="#contact">Contact</a>
+
+                    <div class="nav-column">
+                        <h4 class="nav-title">Agence</h4>
+                        <ul class="nav-list">
+                            <li><a href="#realisations">Réalisations</a></li>
+                            <li><a href="#processus">Processus</a></li>
+                            <li><a href="#agence">L'Équipe</a></li>
+                            <li><a href="#tarifs">Tarifs</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                        </ul>
                     </div>
-                    <div class="link-col">
-                        <h3>Légal</h3>
-                        <a href="#">Mentions légales</a>
-                        <a href="#">Confidentialité</a>
-                        <a href="#">CGV</a>
+
+                    <div class="nav-column">
+                        <h4 class="nav-title">Légal</h4>
+                        <ul class="nav-list">
+                            <li><a href="#mentions">Mentions légales</a></li>
+                            <li><a href="#confidentialite">Confidentialité</a></li>
+                            <li><a href="#cookies">Cookies</a></li>
+                            <li><a href="#cgu">CGU</a></li>
+                            <li><a href="#cgv">CGV</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Footer -->
+                <div class="footer__contact">
+                    <h4 class="contact-title">Contact rapide</h4>
+                    <div class="contact-info">
+                        <a href="mailto:maronefed@gmail.com" class="contact-link">
+                            <i class="ti ti-mail"></i>
+                            <span>maronefed@gmail.com</span>
+                        </a>
+                        <a href="tel:+32455121887" class="contact-link">
+                            <i class="ti ti-phone"></i>
+                            <span>+32 455 12 18 87</span>
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Dribbble" class="social-link">
+                            <i class="ti ti-brand-dribbble"></i>
+                        </a>
+                        <a href="#" aria-label="Behance" class="social-link">
+                            <i class="ti ti-brand-behance"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <i class="ti ti-brand-linkedin"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="ti ti-brand-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="ti ti-brand-twitter"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-bottom">
+            <!-- Bottom Footer -->
+            <div class="footer__bottom">
                 <div class="copyright">
-                    © 2025 MARONEWEB. Tous droits réservés.
+                    <p>© 2025 MARONEWEB. Tous droits réservés.</p>
+                    <p class="made-with">
+                        Fabriqué avec <i class="ti ti-heart"></i> et <i class="ti ti-code"></i>
+                    </p>
                 </div>
-                <div class="footer-stats">
-                    <span>Made with <i class="fas fa-heart"></i> & <i class="fas fa-code"></i></span>
+
+                <div class="footer-utils">
+                    <button class="back-to-top" id="backToTop">
+                        <i class="ti ti-arrow-up"></i>
+                        <span>Retour en haut</span>
+                    </button>
+
+                    <div class="language-selector">
+                        <button class="lang-btn">
+                            <i class="ti ti-world"></i>
+                            <span>Français</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <a href="#hero" class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </a>
+    <!-- 
+============================================
+MODALS & POPUPS
+============================================ 
+-->
+    <!-- Modal de confirmation de formulaire -->
+    <div class="modal" id="successModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal-success">
+                <div class="success-icon">
+                    <i class="ti ti-circle-check"></i>
+                </div>
+                <h3 class="success-title">Message envoyé avec succès !</h3>
+                <p class="success-message">
+                    Nous avons bien reçu votre demande et vous répondrons dans les 24 heures ouvrées.
+                </p>
+                <div class="success-actions">
+                    <button class="btn btn--primary" id="closeModal">
+                        <span>Fermer</span>
+                    </button>
+                    <a href="#realisations" class="link-arrow">
+                        <span>Voir nos réalisations en attendant</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal de cookie -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="cookie-content">
+            <div class="cookie-header">
+                <i class="ti ti-cookie"></i>
+                <h3>Confidentialité et cookies</h3>
+            </div>
+            <div class="cookie-body">
+                <p>
+                    Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic
+                    et personnaliser le contenu. En continuant, vous acceptez notre utilisation des cookies.
+                </p>
+                <div class="cookie-actions">
+                    <button class="btn btn--primary" id="acceptCookies">
+                        <span>Tout accepter</span>
+                    </button>
+                    <button class="btn btn--secondary" id="customizeCookies">
+                        <span>Personnaliser</span>
+                    </button>
+                    <button class="btn btn--text" id="rejectCookies">
+                        <span>Refuser</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+============================================
+SCRIPTS
+============================================ 
+-->
     <script src="script.js"></script>
+
+    <!-- Google Analytics (à configurer) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Hotjar (optionnel) -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid:0000000, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
 </body>
+
 </html>
