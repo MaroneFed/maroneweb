@@ -1,940 +1,877 @@
 <!DOCTYPE html>
-<html lang="fr" class="no-js cyberpunk-mode">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>MARONEWEB | AGENCE CYBERPUNK • CRÉATION WEB RADICALE</title>
-
-    <!-- META CYBERPUNK -->
-    <meta name="description"
-        content="Agence cyberpunk de création web. Nous hackons la matrice digitale pour créer des expériences web radicales. Design néon, code brutaliste, performances extrêmes.">
-    <meta name="keywords"
-        content="agence web cyberpunk, création site internet futuriste, design néon, développement web radical, expériences digitales hacking">
-    <meta name="author" content="MARONEWEB Cyber Division">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#000000">
-
-    <!-- OPEN GRAPH CYBER -->
-    <meta property="og:title" content="MARONEWEB | Agence Cyberpunk de Création Web">
-    <meta property="og:description"
-        content="Nous hackons le digital pour créer des expériences web radicales et mémorables.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://maroneweb.com">
-    <meta property="og:image" content="https://maroneweb.com/cyber-og.jpg">
-    <meta property="og:locale" content="fr_FR">
-
-    <!-- FAVICON NÉON -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-
-    <!-- FONTS CYBERPUNK -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Orbitron pour les titres (style hacker) -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Share Tech Mono pour le texte terminal -->
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Inter pour le texte principal -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- ICONS CYBER -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-
-    <!-- STYLES CYBERPUNK -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- CRITICAL CSS INLINE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaroneWeb - Sites Web Immersifs pour Propriétaires Airbnb</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.min.css">
     <style>
-        /* CRITICAL - Chargé immédiatement */
-        :root {
-            --neon-purple: #7c3aed;
-            --neon-cyan: #00f3ff;
-            --matrix-green: #00ff88;
-            --void-black: #000000;
-            --terminal-white: #ffffff;
+        /* Les styles seront ajoutés dans le prochain message */
+        /* Styles temporaires pour la prévisualisation */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        .cyberpunk-mode {
-            background: var(--void-black);
-            color: var(--terminal-white);
-            font-family: 'Inter', sans-serif;
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-        }
-
-        /* Pré-chargement minimal */
-        .preload-hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .preload-visible {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.5s ease;
         }
     </style>
 </head>
-
-<body class="cyberpunk-mode">
-    <!-- 
-    ============================================
-    MATRIX LOADING SCREEN
-    ============================================ 
-    -->
-    <div class="loader" id="globalLoader">
-        <div class="loader__matrix"></div>
-
-        <div class="loader__content">
-            <div class="loader__title">
-                <span>M</span><span>A</span><span>R</span><span>O</span><span>N</span><span>E</span><span>W</span><span>E</span><span>B</span>
-            </div>
-
-            <div class="loader__progress">
-                <div class="loader__progress-bar" id="progressBar"></div>
-            </div>
-
-            <div class="loader__status">
-                <span class="loader__percentage" id="progressPercentage">0%</span>
-                <span class="loader__stage" id="progressStage">Initialisation système...</span>
-            </div>
-
-            <div class="loader__hack-text" id="hackText"></div>
-        </div>
-    </div>
-
-    <!-- 
-    ============================================
-    CYBER CURSOR
-    ============================================ 
-    -->
-    <div class="cursor" id="cyberCursor">
-        <div class="cursor__dot"></div>
-        <div class="cursor__ring"></div>
-    </div>
-
-    <!-- 
-    ============================================
-    HEADER CYBERPUNK
-    ============================================ 
-    -->
-    <header class="header" id="mainHeader">
-        <div class="header__container">
-            <!-- Logo Cyber -->
-            <a href="#hero" class="logo">
-                <div class="logo__symbol">◈</div>
-                <div class="logo__text">
-                    <div class="logo__name">MARONEWEB</div>
-                    <div class="logo__tagline">CYBER DIVISION</div>
-                </div>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="#accueil" class="logo">
+                <span class="logo-icon">MW</span>
+                <span class="logo-text">MARONE<span class="logo-highlight">WEB</span></span>
             </a>
-
-            <!-- Navigation Principale -->
-            <nav class="nav">
-                <a href="#expertises" class="nav__link">
-                    <span class="nav__text">EXPERTISES</span>
-                    <span class="nav__glow"></span>
-                </a>
-                <a href="#portfolio" class="nav__link">
-                    <span class="nav__text">PORTFOLIO</span>
-                    <span class="nav__glow"></span>
-                </a>
-                <a href="#process" class="nav__link">
-                    <span class="nav__text">PROCESS</span>
-                    <span class="nav__glow"></span>
-                </a>
-                <a href="#contact" class="nav__link nav__link--cta">
-                    <span class="nav__text">HACKER LE PROJET</span>
-                    <i class="ti ti-arrow-right"></i>
-                </a>
-            </nav>
-
-            <!-- Menu Burger Mobile -->
-            <div class="header__hamburger" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            
+            <div class="nav-menu">
+                <a href="#accueil" class="nav-link active">Accueil</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#avantages" class="nav-link">Avantages</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#temoignages" class="nav-link">Témoignages</a>
+                <a href="#processus" class="nav-link">Processus</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-        </div>
-
-        <!-- Indicateur de Scroll -->
-        <div class="scroll-indicator">
-            <div class="scroll-indicator__bar"></div>
-        </div>
-    </header>
-
-    <!-- 
-    ============================================
-    MOBILE MENU
-    ============================================ 
-    -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu__overlay"></div>
-        <div class="mobile-menu__container">
-            <div class="mobile-menu__header">
-                <div class="logo">
-                    <div class="logo__symbol">◈</div>
-                    <div class="logo__text">
-                        <div class="logo__name">MARONEWEB</div>
-                    </div>
-                </div>
-                <button class="mobile-menu__close" id="menuClose">
-                    <i class="ti ti-x"></i>
+            
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-primary">Obtenir un devis</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
-
-            <nav class="mobile-menu__nav">
-                <a href="#hero" class="mobile-menu__link">
-                    <span>ACCUEIL</span>
-                    <i class="ti ti-home"></i>
-                </a>
-                <a href="#expertises" class="mobile-menu__link">
-                    <span>EXPERTISES</span>
-                    <i class="ti ti-tool"></i>
-                </a>
-                <a href="#portfolio" class="mobile-menu__link">
-                    <span>PORTFOLIO</span>
-                    <i class="ti ti-briefcase"></i>
-                </a>
-                <a href="#process" class="mobile-menu__link">
-                    <span>PROCESSUS</span>
-                    <i class="ti ti-list-numbers"></i>
-                </a>
-                <a href="#contact" class="mobile-menu__link mobile-menu__link--cta">
-                    <span>CONTACT</span>
-                    <i class="ti ti-message"></i>
-                </a>
-            </nav>
-
-            <div class="mobile-menu__footer">
-                <div class="mobile-menu__contact">
-                    <a href="mailto:maronefed@gmail.com" class="contact-link">
-                        <i class="ti ti-mail"></i>
-                        <span>maronefed@gmail.com</span>
-                    </a>
-                    <a href="tel:+32455121887" class="contact-link">
-                        <i class="ti ti-phone"></i>
-                        <span>+32 455 12 18 87</span>
-                    </a>
-                </div>
-
-                <div class="mobile-menu__social">
-                    <a href="#" aria-label="GitHub"><i class="ti ti-brand-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-                </div>
-            </div>
         </div>
-    </div>
-
-    <!-- 
-    ============================================
-    HERO SECTION - MATRIX STYLE
-    ============================================ 
-    -->
-    <section class="hero" id="hero">
-        <!-- Background Grid Animé -->
-        <div class="hero__bg"></div>
-        <div class="hero__grid"></div>
-
-        <!-- Contenu Hero -->
-        <div class="hero__content">
-            <!-- Badge Cyber -->
-            <div class="hero__badge">
-                <span>AGENCE CYBERPUNK</span>
-                <span class="hero__year">2025</span>
-            </div>
-
-            <!-- Titre Glitch -->
-            <h1 class="hero__title glitch" data-text="MARONEWEB">
-                <span class="glitch__line glitch__line--1">NOUS HACKONS</span>
-                <span class="glitch__line glitch__line--2">LE DIGITAL POUR</span>
-                <span class="glitch__line glitch__line--3">CRÉER L'AVENIR</span>
-            </h1>
-
-            <!-- Sous-titre Terminal -->
-            <p class="hero__subtitle">
-                > Agence de création web radicale spécialisée dans le design cyberpunk,
-                les expériences immersives et le développement haute performance.
-                Nous transformons votre vision en réalité digitale.
-            </p>
-
-            <!-- CTA Cyber -->
-            <div class="hero__cta">
-                <a href="#portfolio" class="btn btn--primary">
-                    <span>EXPLORER LE PORTFOLIO</span>
-                    <i class="ti ti-arrow-right"></i>
-                </a>
-                <a href="#contact" class="btn btn--secondary">
-                    <span>HACKER UN PROJET</span>
-                    <i class="ti ti-bolt"></i>
-                </a>
-            </div>
-
-            <!-- Stats en temps réel -->
-            <div class="hero__stats">
-                <div class="stat">
-                    <div class="stat__number">
-                        <span class="counter" data-count="150">0</span>+
-                    </div>
-                    <div class="stat__label">PROJETS HACKÉS</div>
-                </div>
-                <div class="stat">
-                    <div class="stat__number">
-                        <span class="counter" data-count="98">0</span>%
-                    </div>
-                    <div class="stat__label">SATISFACTION CLIENT</div>
-                </div>
-                <div class="stat">
-                    <div class="stat__number">
-                        <span class="counter" data-count="8">0</span>
-                    </div>
-                    <div class="stat__label">ANS D'EXPÉRIENCE</div>
-                </div>
-                <div class="stat">
-                    <div class="stat__number">
-                        <span class="counter" data-count="24">0</span>h
-                    </div>
-                    <div class="stat__label">RÉPONSE GARANTIE</div>
-                </div>
-            </div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#accueil" class="mobile-nav-link active">Accueil</a>
+            <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="#avantages" class="mobile-nav-link">Avantages</a>
+            <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+            <a href="#temoignages" class="mobile-nav-link">Témoignages</a>
+            <a href="#processus" class="mobile-nav-link">Processus</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="#contact" class="btn btn-primary mobile-cta">Obtenir un devis</a>
         </div>
+    </nav>
 
-        <!-- Canvas pour effets particules -->
-        <canvas class="hero__canvas" id="heroCanvas"></canvas>
-
-        <!-- Indicateur Scroll -->
-        <div class="hero__scroll">
-            <span>SCROLL TO HACK</span>
-            <div class="hero__scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- 
-    ============================================
-    CLIENTS SECTION - MARQUEE CYBER
-    ============================================ 
-    -->
-    <section class="clients" id="clients">
-        <div class="section-header">
-            <div class="section-number">01</div>
-            <h2 class="section-title">ILS NOUS FONT CONFIANCE</h2>
-            <p class="section-subtitle">
-                Des marques audacieuses qui osent le cyberpunk pour se démarquer.
-            </p>
-        </div>
-
-        <!-- Marquee Infini -->
-        <div class="marquee">
-            <div class="marquee__track">
-                <div class="marquee__item">NEON CORP</div>
-                <div class="marquee__item">CYBER TECH</div>
-                <div class="marquee__item">MATRIX GROUP</div>
-                <div class="marquee__item">SYNTHWAVE</div>
-                <div class="marquee__item">VOID DIGITAL</div>
-                <div class="marquee__item">GLITCH LAB</div>
-                <div class="marquee__item">NEON CORP</div>
-                <div class="marquee__item">CYBER TECH</div>
-                <div class="marquee__item">MATRIX GROUP</div>
-                <div class="marquee__item">SYNTHWAVE</div>
-            </div>
-        </div>
-
-        <!-- Témoignages -->
-        <div class="testimonials">
-            <div class="testimonial active">
-                <div class="testimonial__content">
-                    <div class="testimonial__quote">"</div>
-                    <p class="testimonial__text">
-                        MARONEWEB a complètement transformé notre présence digitale.
-                        Leur approche cyberpunk a attiré 300% de trafic en plus.
+    <main id="fullpage">
+        <!-- Section Accueil/Hero -->
+        <section class="section hero-section" id="section-accueil">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h6 class="section-subtitle">ÉLÉVATION NUMÉRIQUE PROPRIÉTAIRES</h6>
+                    <h1 class="hero-title">Libérez le <span class="text-gradient">plein potentiel</span> de votre hébergement</h1>
+                    <p class="hero-description">
+                        Transformez votre propriété Airbnb en une expérience immersive avec un site web personnalisé qui augmente vos réservations directes, fidélise vos clients et maximise vos revenus.
                     </p>
-                    <div class="testimonial__author">
-                        <div class="author__name">Sarah Chen</div>
-                        <div class="author__role">CEO @ Neon Corp</div>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary btn-large">Voir nos réalisations</a>
+                        <a href="#contact" class="btn btn-secondary btn-large">
+                            <i class="fas fa-calendar-alt"></i> Consultation gratuite
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-device floating-device-1">
+                        <div class="device-screen">
+                            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Site web d'hébergement immersif">
+                        </div>
+                    </div>
+                    
+                    <div class="floating-device floating-device-2">
+                        <div class="device-screen">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Interface de réservation">
+                        </div>
+                    </div>
+                    
+                    <div class="floating-device floating-device-3">
+                        <div class="device-screen">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Galerie immersive">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 
-    ============================================
-    EXPERTISES SECTION - GRID CYBER
-    ============================================ 
-    -->
-    <section class="expertises" id="expertises">
-        <div class="section-header">
-            <div class="section-number">02</div>
-            <h2 class="section-title">NOS EXPERTISES</h2>
-            <p class="section-subtitle">
-                Des compétences pointues pour des projets radicaux.
-            </p>
-        </div>
-
-        <div class="expertises-grid">
-            <!-- Expertise 1 -->
-            <div class="expertise-card">
-                <div class="expertise-card__icon">
-                    <i class="ti ti-code"></i>
+            
+            <div class="scroll-indicator">
+                <span>Découvrir</span>
+                <div class="mouse">
+                    <div class="wheel"></div>
                 </div>
-                <div class="expertise-card__number">01</div>
-                <h3 class="expertise-card__title">DÉVELOPPEMENT WEB RADICAL</h3>
-                <p class="expertise-card__description">
-                    Code propre, performances extrêmes, technologies de pointe.
-                    Nous poussons les limites du possible.
+            </div>
+        </section>
+
+        <!-- Section Services -->
+        <section class="section services-section" id="section-services">
+            <div class="section-header">
+                <h6 class="section-subtitle">NOS OFFRES</h6>
+                <h2 class="section-title">Solutions web <span class="text-gradient">sur mesure</span> pour propriétaires</h2>
+                <p class="section-description">
+                    Nous créons des sites web immersifs qui transforment les visiteurs en clients fidèles et augmentent vos réservations directes.
                 </p>
-                <ul class="expertise-card__features">
-                    <li>React/Next.js Avancé</li>
-                    <li>WebGL & Three.js</li>
-                    <li>Animations CSS Hardcore</li>
-                    <li>Optimisation Maximum</li>
-                </ul>
             </div>
-
-            <!-- Expertise 2 -->
-            <div class="expertise-card">
-                <div class="expertise-card__icon">
-                    <i class="ti ti-palette"></i>
+            
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="service-title">Site Vitrine Immersif</h3>
+                    <p class="service-description">
+                        Présentez votre propriété avec élégance grâce à une galerie photo/vidéo immersive, une visite virtuelle et un design qui captive vos visiteurs.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design responsive et élégant</li>
+                        <li><i class="fas fa-check"></i> Galerie photo/vidéo immersive</li>
+                        <li><i class="fas fa-check"></i> Intégration visite virtuelle 360°</li>
+                        <li><i class="fas fa-check"></i> Optimisé pour le référencement</li>
+                        <li><i class="fas fa-check"></i> Formulaire de contact intelligent</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">À partir de <strong>1 299€</strong></span>
+                        <a href="#contact" class="btn btn-outline">Détails</a>
+                    </div>
                 </div>
-                <div class="expertise-card__number">02</div>
-                <h3 class="expertise-card__title">DESIGN CYBERPUNK</h3>
-                <p class="expertise-card__description">
-                    Esthétique néon, palettes radicales, typographie futuriste.
-                    Un style qui détonne.
+                
+                <div class="service-card featured">
+                    <div class="service-badge">Populaire</div>
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="service-title">Site avec Réservations</h3>
+                    <p class="service-description">
+                        Gérez vos réservations directement sur votre site avec un calendrier dynamique, un système de paiement sécurisé et une gestion complète.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Système de réservation intégré</li>
+                        <li><i class="fas fa-check"></i> Calendrier de disponibilités</li>
+                        <li><i class="fas fa-check"></i> Paiement en ligne sécurisé</li>
+                        <li><i class="fas fa-check"></i> Gestion des clients et avis</li>
+                        <li><i class="fas fa-check"></i> Synchronisation Airbnb/Booking</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">À partir de <strong>2 499€</strong></span>
+                        <a href="#contact" class="btn btn-primary">Choisir cette offre</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="service-title">Solution Premium</h3>
+                    <p class="service-description">
+                        Une expérience digitale complète avec site web avancé, marketing personnalisé et analyse de performance pour maximiser vos revenus.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Site web sur mesure avancé</li>
+                        <li><i class="fas fa-check"></i> Stratégie marketing digitale</li>
+                        <li><i class="fas fa-check"></i> Campagnes publicitaires ciblées</li>
+                        <li><i class="fas fa-check"></i> Analyse et reporting mensuel</li>
+                        <li><i class="fas fa-check"></i> Support prioritaire 7j/7</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">À partir de <strong>4 999€</strong></span>
+                        <a href="#contact" class="btn btn-outline">Détails</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-cta">
+                <p>Besoin d'une solution personnalisée ? <a href="#contact">Discutons de votre projet</a></p>
+            </div>
+        </section>
+
+        <!-- Section Avantages -->
+        <section class="section advantages-section" id="section-avantages">
+            <div class="section-header">
+                <h6 class="section-subtitle">POURQUOI CHOISIR MARONEWEB</h6>
+                <h2 class="section-title">Ne dépendez plus <span class="text-gradient">des plateformes</span></h2>
+                <p class="section-description">
+                    Reprenez le contrôle de votre activité d'hébergement avec votre propre site web professionnel.
                 </p>
-                <ul class="expertise-card__features">
-                    <li>UI/UX Néon</li>
-                    <li>Design System Cyber</li>
-                    <li>Branding Futuriste</li>
-                    <li>Motion Design Hard</li>
-                </ul>
             </div>
-
-            <!-- Expertise 3 -->
-            <div class="expertise-card">
-                <div class="expertise-card__icon">
-                    <i class="ti ti-shopping-cart"></i>
+            
+            <div class="advantages-container">
+                <div class="advantages-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="98">0</div>
+                        <div class="stat-text">Clients satisfaits</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="156">0</div>
+                        <div class="stat-text">Sites livrés</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="42">0</div>
+                        <div class="stat-text">Réservations moy/mois</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="67">0</div>
+                        <div class="stat-text">% d'économies sur commissions</div>
+                    </div>
                 </div>
-                <div class="expertise-card__number">03</div>
-                <h3 class="expertise-card__title">E-COMMERCE FUTURISTE</h3>
-                <p class="expertise-card__description">
-                    Boutiques en ligne qui défient les conventions.
-                    Expérience d'achat immersive et radicale.
+                
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3 class="advantage-title">Économisez sur les commissions</h3>
+                        <p class="advantage-description">
+                            Évitez les commissions élevées des plateformes (jusqu'à 20%) et augmentez vos marges bénéficiaires.
+                        </p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3 class="advantage-title">Fidélisez vos clients</h3>
+                        <p class="advantage-description">
+                            Créez une relation directe avec vos clients et encouragez les réservations répétées avec des offres exclusives.
+                        </p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="advantage-title">Augmentez vos revenus</h3>
+                        <p class="advantage-description">
+                            Présentez mieux votre propriété pour justifier des tarifs premium et maximisez votre taux d'occupation.
+                        </p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="advantage-title">Contrôlez votre image</h3>
+                        <p class="advantage-description">
+                            Ayez un design unique qui reflète l'identité de votre hébergement, sans les contraintes des plateformes.
+                        </p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="advantage-title">Soyez indépendant</h3>
+                        <p class="advantage-description">
+                            Ne soyez plus tributaire des algorithmes changeants et des politiques des plateformes de réservation.
+                        </p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="advantage-title">Expérience mobile optimale</h3>
+                        <p class="advantage-description">
+                            Offrez une expérience de réservation fluide sur tous les appareils, augmentant vos conversions mobiles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison">
+                <h3 class="comparison-title">MaroneWeb vs Plateformes traditionnelles</h3>
+                <div class="comparison-table">
+                    <div class="comparison-row header">
+                        <div class="comparison-cell"></div>
+                        <div class="comparison-cell">MaroneWeb</div>
+                        <div class="comparison-cell">Plateformes (Airbnb, Booking...)</div>
+                    </div>
+                    
+                    <div class="comparison-row">
+                        <div class="comparison-cell">Commission</div>
+                        <div class="comparison-cell success"><i class="fas fa-check-circle"></i> 0-5%</div>
+                        <div class="comparison-cell error"><i class="fas fa-times-circle"></i> 12-20%</div>
+                    </div>
+                    
+                    <div class="comparison-row">
+                        <div class="comparison-cell">Contrôle du design</div>
+                        <div class="comparison-cell success"><i class="fas fa-check-circle"></i> Complet</div>
+                        <div class="comparison-cell error"><i class="fas fa-times-circle"></i> Limité</div>
+                    </div>
+                    
+                    <div class="comparison-row">
+                        <div class="comparison-cell">Relation client directe</div>
+                        <div class="comparison-cell success"><i class="fas fa-check-circle"></i> Oui</div>
+                        <div class="comparison-cell error"><i class="fas fa-times-circle"></i> Non</div>
+                    </div>
+                    
+                    <div class="comparison-row">
+                        <div class="comparison-cell">Données clients</div>
+                        <div class="comparison-cell success"><i class="fas fa-check-circle"></i> Vous appartiennent</div>
+                        <div class="comparison-cell error"><i class="fas fa-times-circle"></i> Plateforme propriétaire</div>
+                    </div>
+                    
+                    <div class="comparison-row">
+                        <div class="comparison-cell">Tarifs flexibles</div>
+                        <div class="comparison-cell success"><i class="fas fa-check-circle"></i> Illimités</div>
+                        <div class="comparison-cell error"><i class="fas fa-times-circle"></i> Contraints</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Portfolio -->
+        <section class="section portfolio-section" id="section-portfolio">
+            <div class="section-header">
+                <h6 class="section-subtitle">NOS RÉALISATIONS</h6>
+                <h2 class="section-title">Des sites qui <span class="text-gradient">font la différence</span></h2>
+                <p class="section-description">
+                    Découvrez comment nous avons transformé l'activité de propriétaires comme vous avec des sites web immersifs.
                 </p>
-                <ul class="expertise-card__features">
-                    <li>Shopify Pro</li>
-                    <li>WooCommerce Hard</li>
-                    <li>Paiements Crypto</li>
-                    <li>Funnel Néon</li>
-                </ul>
             </div>
-
-            <!-- Expertise 4 -->
-            <div class="expertise-card">
-                <div class="expertise-card__icon">
-                    <i class="ti ti-chart-line"></i>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="vitrine">Sites vitrine</button>
+                <button class="filter-btn" data-filter="reservation">Avec réservations</button>
+                <button class="filter-btn" data-filter="premium">Solutions premium</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="reservation">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Villa Méditerranée">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title">Villa Méditerranée</h4>
+                                <p class="portfolio-category">Site avec réservations</p>
+                                <p class="portfolio-result">+42% de réservations directes</p>
+                                <a href="#" class="portfolio-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="expertise-card__number">04</div>
-                <h3 class="expertise-card__title">STRATÉGIE DIGITALE</h3>
-                <p class="expertise-card__description">
-                    Plan d'attaque digital sur mesure.
-                    Nous hackons le marché pour vous.
+                
+                <div class="portfolio-item" data-category="vitrine">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Chalet Montagne">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title">Chalet Montagne</h4>
+                                <p class="portfolio-category">Site vitrine immersif</p>
+                                <p class="portfolio-result">Visite virtuelle 360° intégrée</p>
+                                <a href="#" class="portfolio-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="premium">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Appartement Paris">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title">Appartement Paris Centre</h4>
+                                <p class="portfolio-category">Solution premium</p>
+                                <p class="portfolio-result">+67% de taux d'occupation</p>
+                                <a href="#" class="portfolio-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="reservation">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w-800" alt="Maison Provençale">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title">Maison Provençale</h4>
+                                <p class="portfolio-category">Site avec réservations</p>
+                                <p class="portfolio-result">-15% de commissions économisées</p>
+                                <a href="#" class="portfolio-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="vitrine">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Loft Urbain">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title">Loft Urbain</h4>
+                                <p class="portfolio-category">Site vitrine immersif</p>
+                                <p class="portfolio-result">Galerie photo/vidéo immersive</p>
+                                <a href="#" class="portfolio-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="premium">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Domaine Viticole">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title">Domaine Viticole</h4>
+                                <p class="portfolio-category">Solution premium</p>
+                                <p class="portfolio-result">Expérience de réservation premium</p>
+                                <a href="#" class="portfolio-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-cta">
+                <p>Impressionné par nos réalisations ? <a href="#contact">Votre projet pourrait être le prochain !</a></p>
+            </div>
+        </section>
+
+        <!-- Section Témoignages -->
+        <section class="section testimonials-section" id="section-temoignages">
+            <div class="section-header">
+                <h6 class="section-subtitle">ILS NOUS FONT CONFIANCE</h6>
+                <h2 class="section-title">Ce que disent <span class="text-gradient">nos clients</span></h2>
+                <p class="section-description">
+                    Découvrez les retours d'expérience de propriétaires qui ont choisi MaroneWeb pour leur site web.
                 </p>
-                <ul class="expertise-card__features">
-                    <li>SEO Offensif</li>
-                    <li>Social Media Hard</li>
-                    <li>Analytics Avancé</li>
-                    <li>Growth Hacking</li>
-                </ul>
             </div>
-        </div>
-    </section>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "MaroneWeb a transformé notre manière de gérer nos locations. Notre site avec système de réservation nous a permis d'économiser plus de 15 000€ en commissions cette année et d'établir une relation directe avec nos clients. Leur professionnalisme et leur créativité sont exceptionnels."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Pierre Martin</h4>
+                                        <p class="author-role">Propriétaire de 3 villas à Saint-Tropez</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Notre site vitrine immersif a totalement changé la perception de notre chalet. Les visiteurs sont bluffés par la visite virtuelle et la galerie photo. Nous avons augmenté nos tarifs de 20% tout en maintenant un taux d'occupation de 95%. Un investissement extrêmement rentable !"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Sophie Dubois</h4>
+                                        <p class="author-role">Propriétaire d'un chalet dans les Alpes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "La solution premium de MaroneWeb a complètement révolutionné notre activité. Le marketing digital ciblé qu'ils ont mis en place nous a apporté une clientèle fidèle et haut de gamme. Le retour sur investissement a été atteint en seulement 4 mois. Je recommande sans hésitation !"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Antoine Lefèvre</h4>
+                                        <p class="author-role">Gérant d'un domaine viticole avec hébergement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonial-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="trust-badges">
+                <div class="badge-item">
+                    <i class="fas fa-award"></i>
+                    <span>Agence certifiée</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-lock"></i>
+                    <span>Paiements sécurisés</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-headset"></i>
+                    <span>Support 7j/7</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>Garantie satisfait ou remboursé</span>
+                </div>
+            </div>
+        </section>
 
-    <!-- 
-    ============================================
-    PORTFOLIO SECTION - GRID INTERACTIVE
-    ============================================ 
-    -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-header">
-            <div class="section-number">03</div>
-            <h2 class="section-title">PORTFOLIO RADICAL</h2>
-            <p class="section-subtitle">
-                Des projets qui cassent les codes du web traditionnel.
-            </p>
-        </div>
-
-        <!-- Filtres -->
-        <div class="portfolio-filters">
-            <button class="filter-btn active" data-filter="all">TOUT</button>
-            <button class="filter-btn" data-filter="cyber">CYBERPUNK</button>
-            <button class="filter-btn" data-filter="ecommerce">E-COMMERCE</button>
-            <button class="filter-btn" data-filter="corporate">CORPORATE</button>
-        </div>
-
-        <!-- Grid Portfolio -->
-        <div class="portfolio-grid" id="portfolioGrid">
-            <!-- Projet 1 -->
-            <div class="portfolio-item" data-category="cyber">
-                <div class="portfolio-item__image"></div>
-                <div class="portfolio-item__content">
-                    <div class="portfolio-item__category">CYBERPUNK</div>
-                    <h3 class="portfolio-item__title">NEON CORP</h3>
-                    <p class="portfolio-item__description">
-                        Site corporate radical avec effets néon et animations WebGL.
-                    </p>
-                    <div class="portfolio-item__stats">
-                        <span>+225% Engagement</span>
-                        <span>+180% Conversions</span>
+        <!-- Section Processus -->
+        <section class="section process-section" id="section-processus">
+            <div class="section-header">
+                <h6 class="section-subtitle">COMMENT ÇA MARCHE</h6>
+                <h2 class="section-title">Votre site immersif en <span class="text-gradient">4 étapes</span></h2>
+                <p class="section-description">
+                    Un processus simple et transparent pour créer le site web parfait pour votre hébergement.
+                </p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Consultation & Analyse</h3>
+                        <p class="step-description">
+                            Nous analysons vos besoins, votre public cible et votre propriété pour définir la meilleure stratégie digitale.
+                        </p>
+                        <ul class="step-details">
+                            <li>Audit de votre présence actuelle</li>
+                            <li>Définition des objectifs</li>
+                            <li>Étude de la concurrence</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Conception & Design</h3>
+                        <p class="step-description">
+                            Nous créons un design unique qui reflète l'identité de votre hébergement et captive vos visiteurs.
+                        </p>
+                        <ul class="step-details">
+                            <li>Maquettes personnalisées</li>
+                            <li>Choix des couleurs et typographies</li>
+                            <li>Validation avec vous</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Développement & Intégration</h3>
+                        <p class="step-description">
+                            Nous développons votre site avec les technologies les plus récentes pour une expérience fluide et moderne.
+                        </p>
+                        <ul class="step-details">
+                            <li>Intégration des fonctionnalités</li>
+                            <li>Optimisation pour mobiles</li>
+                            <li>Tests approfondis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Formation & Lancement</h3>
+                        <p class="step-description">
+                            Nous vous formons à l'utilisation de votre site et lançons officiellement votre nouvelle présence en ligne.
+                        </p>
+                        <ul class="step-details">
+                            <li>Formation personnalisée</li>
+                            <li>Lancement et hébergement</li>
+                            <li>Support continu</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-            <!-- Projet 2 -->
-            <div class="portfolio-item" data-category="ecommerce">
-                <div class="portfolio-item__image"></div>
-                <div class="portfolio-item__content">
-                    <div class="portfolio-item__category">E-COMMERCE</div>
-                    <h3 class="portfolio-item__title">SYNTHWAVE STORE</h3>
-                    <p class="portfolio-item__description">
-                        Boutique en ligne futuriste avec design rétro-futuriste.
-                    </p>
-                    <div class="portfolio-item__stats">
-                        <span>+320% Ventes</span>
-                        <span>-40% Abandon</span>
+            
+            <div class="process-cta">
+                <div class="cta-card">
+                    <div class="cta-content">
+                        <h3 class="cta-title">Prêt à transformer votre hébergement ?</h3>
+                        <p class="cta-description">
+                            Réservez une consultation gratuite de 30 minutes pour discuter de votre projet et recevoir une estimation personnalisée.
+                        </p>
+                        <a href="#contact" class="btn btn-primary btn-large">Réserver ma consultation</a>
+                    </div>
+                    <div class="cta-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" alt="Consultation">
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Projet 3 -->
-            <div class="portfolio-item" data-category="corporate">
-                <div class="portfolio-item__image"></div>
-                <div class="portfolio-item__content">
-                    <div class="portfolio-item__category">CORPORATE</div>
-                    <h3 class="portfolio-item__title">TECH HUB</h3>
-                    <p class="portfolio-item__description">
-                        Plateforme corporate avec interface de gestion avancée.
-                    </p>
-                    <div class="portfolio-item__stats">
-                        <span>+450% Trafic</span>
-                        <span>+280% Leads</span>
-                    </div>
-                </div>
+        <!-- Section Contact -->
+        <section class="section contact-section" id="section-contact">
+            <div class="section-header">
+                <h6 class="section-subtitle">PRÊT À COMMENCER ?</h6>
+                <h2 class="section-title">Discutons de <span class="text-gradient">votre projet</span></h2>
+                <p class="section-description">
+                    Contactez-nous pour une consultation gratuite et recevez un devis personnalisé en 24h.
+                </p>
             </div>
-
-            <!-- Projet 4 -->
-            <div class="portfolio-item" data-category="cyber">
-                <div class="portfolio-item__image"></div>
-                <div class="portfolio-item__content">
-                    <div class="portfolio-item__category">CYBERPUNK</div>
-                    <h3 class="portfolio-item__title">VOID DIGITAL</h3>
-                    <p class="portfolio-item__description">
-                        Landing page immersive avec effets de profondeur 3D.
-                    </p>
-                    <div class="portfolio-item__stats">
-                        <span>+95% Conversion</span>
-                        <span>-60% Coût</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Load More -->
-        <div class="portfolio__footer">
-            <button class="btn btn--outline" id="loadMore">
-                <span>CHARGER PLUS DE PROJETS</span>
-                <i class="ti ti-refresh"></i>
-            </button>
-        </div>
-    </section>
-
-    <!-- 
-    ============================================
-    PROCESS SECTION - TIMELINE CYBER
-    ============================================ 
-    -->
-    <section class="process" id="process">
-        <div class="section-header">
-            <div class="section-number">04</div>
-            <h2 class="section-title">NOTRE PROCESSUS</h2>
-            <p class="section-subtitle">
-                Une méthodologie éprouvée pour des résultats radicaux.
-            </p>
-        </div>
-
-        <div class="process-timeline">
-            <!-- Étape 1 -->
-            <div class="process-step">
-                <div class="process-step__number">01</div>
-                <div class="process-step__content">
-                    <h3 class="process-step__title">DISCOVERY</h3>
-                    <p class="process-step__description">
-                        Analyse complète de votre écosystème digital.
-                        Nous définissons la stratégie d'attaque.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Étape 2 -->
-            <div class="process-step">
-                <div class="process-step__number">02</div>
-                <div class="process-step__content">
-                    <h3 class="process-step__title">DESIGN</h3>
-                    <p class="process-step__description">
-                        Création de l'identité visuelle cyberpunk.
-                        Wireframes, prototypes et design system.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Étape 3 -->
-            <div class="process-step">
-                <div class="process-step__number">03</div>
-                <div class="process-step__content">
-                    <h3 class="process-step__title">DEVELOPMENT</h3>
-                    <p class="process-step__description">
-                        Codage intensif avec les technologies les plus avancées.
-                        Optimisation maximum.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Étape 4 -->
-            <div class="process-step">
-                <div class="process-step__number">04</div>
-                <div class="process-step__content">
-                    <h3 class="process-step__title">DEPLOYMENT</h3>
-                    <p class="process-step__description">
-                        Lancement et monitoring 24/7.
-                        Support réactif et évolutions constantes.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 
-    ============================================
-    CONTACT SECTION - FORM CYBER
-    ============================================ 
-    -->
-    <section class="contact" id="contact">
-        <div class="section-header">
-            <div class="section-number">05</div>
-            <h2 class="section-title">HACKER UN PROJET</h2>
-            <p class="section-subtitle">
-                Prêt à défier les conventions ? Parlons-en.
-            </p>
-        </div>
-
-        <div class="contact-grid">
-            <!-- Formulaire de contact -->
-            <div class="contact-form">
-                <form id="contactForm" action="https://formsubmit.co/maronefed@gmail.com" method="POST">
-                    <!-- Champs cachés FormSubmit -->
-                    <input type="hidden" name="_subject" value="🚀 NOUVEAU PROJET CYBER - MARONEWEB">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="#success">
-
-                    <!-- Étape 1 -->
-                    <div class="form-step active" id="step1">
+            
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
                         <div class="form-group">
-                            <label class="form-label" for="projectType">TYPE DE PROJET *</label>
-                            <select class="form-input" id="projectType" name="projectType" required>
-                                <option value="" disabled selected>SÉLECTIONNEZ</option>
-                                <option value="site-vitrine">SITE VITRINE CYBER</option>
-                                <option value="ecommerce">E-COMMERCE FUTURISTE</option>
-                                <option value="refonte">REFONTE RADICALE</option>
-                                <option value="design">DESIGN CYBERPUNK</option>
-                                <option value="autre">AUTRE PROJET</option>
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="property-type">Type de propriété *</label>
+                            <select id="property-type" name="property-type" required>
+                                <option value="" disabled selected>Sélectionnez...</option>
+                                <option value="apartment">Appartement</option>
+                                <option value="house">Maison/Villa</option>
+                                <option value="chalet">Chalet</option>
+                                <option value="castle">Château</option>
+                                <option value="bungalow">Bungalow</option>
+                                <option value="other">Autre</option>
                             </select>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label class="form-label" for="budget">BUDGET ESTIMÉ *</label>
-                            <select class="form-input" id="budget" name="budget" required>
-                                <option value="" disabled selected>SÉLECTIONNEZ</option>
-                                <option value="1-3k">1K - 3K €</option>
-                                <option value="3-5k">3K - 5K €</option>
-                                <option value="5-10k">5K - 10K €</option>
-                                <option value="10k+">10K+ €</option>
-                                <option value="indetermine">À DÉTERMINER</option>
+                            <label for="service">Service intéressé *</label>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Sélectionnez...</option>
+                                <option value="vitrine">Site vitrine immersif</option>
+                                <option value="reservation">Site avec réservations</option>
+                                <option value="premium">Solution premium</option>
+                                <option value="not-sure">Je ne sais pas encore</option>
                             </select>
                         </div>
-
-                        <button type="button" class="btn btn--primary" id="nextStep1">
-                            <span>SUIVANT</span>
-                            <i class="ti ti-arrow-right"></i>
+                        
+                        <div class="form-group">
+                            <label for="message">Détails de votre projet *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre hébergement, vos objectifs et toute autre information utile..."></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Je souhaite recevoir des conseils et actualités de MaroneWeb</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="submit-text">Envoyer ma demande</span>
+                            <div class="spinner hidden"></div>
                         </button>
-                    </div>
-
-                    <!-- Étape 2 -->
-                    <div class="form-step" id="step2">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label" for="firstName">PRÉNOM *</label>
-                                <input type="text" class="form-input" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="lastName">NOM *</label>
-                                <input type="text" class="form-input" id="lastName" name="lastName" required>
-                            </div>
+                        
+                        <div class="form-notice">
+                            <p><i class="fas fa-lock"></i> Vos informations sont sécurisées et ne seront jamais partagées.</p>
                         </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="email">EMAIL *</label>
-                            <input type="email" class="form-input" id="email" name="email" required>
+                    </form>
+                    
+                    <div class="form-success hidden" id="formSuccess">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
                         </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="phone">TÉLÉPHONE *</label>
-                            <input type="tel" class="form-input" id="phone" name="phone" required>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="button" class="btn btn--secondary" id="prevStep1">
-                                <i class="ti ti-arrow-left"></i>
-                                <span>RETOUR</span>
-                            </button>
-                            <button type="button" class="btn btn--primary" id="nextStep2">
-                                <span>SUIVANT</span>
-                                <i class="ti ti-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Étape 3 -->
-                    <div class="form-step" id="step3">
-                        <div class="form-group">
-                            <label class="form-label" for="projectName">NOM DU PROJET</label>
-                            <input type="text" class="form-input" id="projectName" name="projectName">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="message">DÉTAILS DU PROJET *</label>
-                            <textarea class="form-input form-textarea" id="message" name="message" rows="5"
-                                required></textarea>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="button" class="btn btn--secondary" id="prevStep2">
-                                <i class="ti ti-arrow-left"></i>
-                                <span>RETOUR</span>
-                            </button>
-                            <button type="submit" class="btn btn--primary">
-                                <span>ENVOYER LE PROJET</span>
-                                <i class="ti ti-send"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Barre de progression -->
-                    <div class="form-progress">
-                        <div class="progress-steps">
-                            <div class="progress-step active">
-                                <div class="step-number">1</div>
-                                <div class="step-label">PROJET</div>
-                            </div>
-                            <div class="progress-step">
-                                <div class="step-number">2</div>
-                                <div class="step-label">CONTACT</div>
-                            </div>
-                            <div class="progress-step">
-                                <div class="step-number">3</div>
-                                <div class="step-label">DÉTAILS</div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Informations de contact -->
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-item__icon">
-                        <i class="ti ti-mail"></i>
-                    </div>
-                    <div class="contact-item__title">EMAIL</div>
-                    <div class="contact-item__value">
-                        <a href="mailto:maronefed@gmail.com">maronefed@gmail.com</a>
+                        <h3 class="success-title">Demande envoyée avec succès !</h3>
+                        <p class="success-message">
+                            Merci pour votre intérêt. Nous vous contacterons dans les 24h pour discuter de votre projet.
+                        </p>
+                        <button class="btn btn-outline" id="newRequest">Faire une nouvelle demande</button>
                     </div>
                 </div>
-
-                <div class="contact-item">
-                    <div class="contact-item__icon">
-                        <i class="ti ti-phone"></i>
+                
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="info-title">Téléphone</h4>
+                            <p class="info-text">+33 1 23 45 67 89</p>
+                            <p class="info-note">Lun-Ven: 9h-19h</p>
+                        </div>
                     </div>
-                    <div class="contact-item__title">TÉLÉPHONE</div>
-                    <div class="contact-item__value">
-                        <a href="tel:+32455121887">+32 455 12 18 87</a>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="info-title">Email</h4>
+                            <p class="info-text">contact@maroneweb.com</p>
+                            <p class="info-note">Réponse sous 24h</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item__icon">
-                        <i class="ti ti-clock"></i>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="info-title">Adresse</h4>
+                            <p class="info-text">123 Avenue des Champs-Élysées<br>75008 Paris, France</p>
+                            <p class="info-note">Sur rendez-vous uniquement</p>
+                        </div>
                     </div>
-                    <div class="contact-item__title">HORAIRES</div>
-                    <div class="contact-item__value">
-                        Lun - Ven: 9h - 18h<br>
-                        Réponse sous 24h
+                    
+                    <div class="info-faq">
+                        <h4 class="faq-title">Questions fréquentes</h4>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Combien de temps pour créer mon site ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Le délai moyen est de 3 à 6 semaines selon la complexité de votre projet. Nous établissons un calendrier précis dès le début.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Proposez-vous l'hébergement ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Oui, nous proposons des solutions d'hébergement sécurisé et performant avec maintenance incluse à partir de 29€/mois.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Puis-je modifier mon site moi-même ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Absolument ! Nous fournissons un système de gestion de contenu intuitif qui vous permet de modifier textes, photos et tarifs facilement.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item__icon">
-                        <i class="ti ti-map-pin"></i>
-                    </div>
-                    <div class="contact-item__title">ZONE D'INTERVENTION</div>
-                    <div class="contact-item__value">
-                        France • Belgique • International
-                    </div>
-                </div>
-
-                <!-- CTA Rapide -->
-                <div class="contact-cta">
-                    <a href="tel:+32455121887" class="btn btn--primary">
-                        <i class="ti ti-phone"></i>
-                        <span>APPELER MAINTENANT</span>
-                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- 
-    ============================================
-    FOOTER CYBERPUNK
-    ============================================ 
-    -->
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-grid">
-            <!-- Colonne Logo -->
-            <div class="footer-col">
-                <div class="logo">
-                    <div class="logo__symbol">◈</div>
-                    <div class="logo__text">
-                        <div class="logo__name">MARONEWEB</div>
-                        <div class="logo__tagline">CYBER DIVISION</div>
-                    </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="logo-icon">MW</span>
+                    <span class="logo-text">MARONE<span class="logo-highlight">WEB</span></span>
                 </div>
                 <p class="footer-description">
-                    Agence de création web cyberpunk.
-                    Nous hackons le digital pour créer des expériences radicales.
+                    Spécialistes des sites web immersifs pour propriétaires d'hébergements touristiques. Nous vous aidons à reprendre le contrôle de votre activité.
                 </p>
-
-                <!-- Newsletter -->
-                <div class="footer-newsletter">
-                    <div class="newsletter-title">RESTEZ CONNECTÉ</div>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="VOTRE EMAIL" required>
-                        <button type="submit">
-                            <i class="ti ti-send"></i>
-                        </button>
-                    </form>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
                 </div>
             </div>
-
-            <!-- Colonne Liens -->
-            <div class="footer-col">
-                <div class="footer-col__title">NAVIGATION</div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Services</h4>
                 <ul class="footer-links">
-                    <li><a href="#hero">Accueil</a></li>
-                    <li><a href="#expertises">Expertises</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#process">Processus</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#services">Site vitrine immersif</a></li>
+                    <li><a href="#services">Site avec réservations</a></li>
+                    <li><a href="#services">Solution premium</a></li>
+                    <li><a href="#services">Marketing digital</a></li>
+                    <li><a href="#services">Maintenance & support</a></li>
                 </ul>
             </div>
-
-            <!-- Colonne Services -->
-            <div class="footer-col">
-                <div class="footer-col__title">SERVICES</div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Ressources</h4>
                 <ul class="footer-links">
-                    <li><a href="#expertises">Création de Sites Web</a></li>
-                    <li><a href="#expertises">Design UX/UI</a></li>
-                    <li><a href="#expertises">Développement E-commerce</a></li>
-                    <li><a href="#expertises">Stratégie Digitale</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Témoignages</a></li>
+                    <li><a href="#">Guide propriétaires</a></li>
                 </ul>
-
             </div>
-
-            <!-- Colonne Contact -->
-            <div class="footer-col">
-                <div class="footer-col__title">CONTACT</div>
-                <div class="footer-contact">
-                    <div class="contact-info">
-                        <a href="mailto:maronefed@gmail.com" class="contact-link">
-                            <i class="ti ti-mail"></i>
-                            <span>maronefed@gmail.com</span>
-                        </a>
-                        <a href="tel:+32455121887" class="contact-link">
-                            <i class="ti ti-phone"></i>
-                            <span>+32 455 12 18 87</span>
-                        </a>
-                    </div>
-
-                    <!-- Réseaux sociaux -->
-                    <div class="footer-social">
-                        <a href="#" aria-label="GitHub" class="social-link">
-                            <i class="ti ti-brand-github"></i>
-                        </a>
-                        <a href="#" aria-label="LinkedIn" class="social-link">
-                            <i class="ti ti-brand-linkedin"></i>
-                        </a>
-                        <a href="#" aria-label="Instagram" class="social-link">
-                            <i class="ti ti-brand-instagram"></i>
-                        </a>
-                        <a href="#" aria-label="Twitter" class="social-link">
-                            <i class="ti ti-brand-twitter"></i>
-                        </a>
-                    </div>
-                </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone-alt"></i> +33 1 23 45 67 89</li>
+                    <li><i class="fas fa-envelope"></i> contact@maroneweb.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Avenue des Champs-Élysées, 75008 Paris</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary footer-cta">Demander un devis</a>
             </div>
         </div>
-
-        <!-- Bottom Bar -->
+        
         <div class="footer-bottom">
-            <div class="footer-bottom__left">
-                <p>© 2025 MARONEWEB CYBER DIVISION. Tous droits hackés.</p>
-            </div>
-            <div class="footer-bottom__right">
-                <a href="#" class="footer-link">Politique de confidentialité</a>
-                <span class="footer-separator">|</span>
-                <a href="#" class="footer-link">Conditions d'utilisation</a>
-                <span class="footer-separator">|</span>
-                <a href="#" class="footer-link">Mentions légales</a>
+            <div class="footer-bottom-content">
+                <p class="copyright">© 2023 MaroneWeb. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">CGV</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- 
-============================================
-SCRIPTS CYBERPUNK
-============================================ 
--->
-
-    <!-- JavaScript Cyberpunk -->
-    <script src="script.js"></script>
-
-    <!-- Optional: Analytics Script -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Les scripts JavaScript seront ajoutés dans le prochain message -->
     <script>
-        // Analytics minimaliste
-        window.addEventListener('load', function () {
-            console.log('🚀 MARONEWEB - Site chargé avec succès');
-
-            // Track page view (exemple basique)
-            if (typeof gtag !== 'undefined') {
-                gtag('config', 'UA-XXXXXXXXX-X');
-            }
+        // Code JavaScript temporaire pour la prévisualisation
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Site MaroneWeb chargé');
         });
     </script>
-
 </body>
-
 </html>
